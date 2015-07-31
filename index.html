@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>git测试</title>
+	<link rel="stylesheet" href="styles/reset.css">
+	<link rel="stylesheet" href="styles/style.css">
+	<!-- js -->
+     <script type= "text/javascript" >
+       if (/Android (\d+\.\d+)/.test(navigator.userAgent)){
+         var  version = parseFloat(RegExp.$1);
+         if (version>2.3){
+           var  phoneScale = parseInt(window.screen.width)/640;
+           document.write( '<meta name="viewport" content="width=640, minimum-scale = ' + phoneScale + ', maximum-scale = ' + phoneScale + ', target-densitydpi=device-dpi">' );
+         } else {
+           document.write( '<meta name="viewport" content="width=640, target-densitydpi=device-dpi">' );
+         }
+       } else {
+         document.write( '<meta name="viewport" content="width=640, user-scalable=no, target-densitydpi=device-dpi">' );
+       }
+       //微信去掉下方刷新栏
+       if (navigator.userAgent.indexOf( 'MicroMessenger' ) >= 0){
+         document.addEventListener( 'WeixinJSBridgeReady' ,  function () {
+           //WeixinJSBridge.call('hideToolbar');
+         });
+       }
+     </script> 
+     <script type= "text/javascript" src="js/jquery.1.11.1.js"></script>
+     <script>
+		$(document).ready(function() {
+			alert("ssssss")
+		});
+     </script>
+</head>
+<body>
+	
+</body>
+</html>
