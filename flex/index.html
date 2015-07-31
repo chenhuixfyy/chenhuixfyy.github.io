@@ -28,7 +28,47 @@
      <script type= "text/javascript" src="js/jquery.1.11.1.js"></script>
      <script>
 		$(document).ready(function() {
-			
+			$("header select").each(function(index) {
+				var _this = $(this);
+				_this.change(function(event) {
+					var key = (_this.prev().html()).replace(":","");
+					console.log(_this.val());
+					$(".contain").css(
+						key,_this.val()
+					);
+				});
+			});
+
+
+			$("#setItem2").click(function(event) {
+				$(".item2").css({
+					width: "auto",
+					height: 300,
+					"flex":1,
+					"-webkit-flex":1
+				});
+			});
+			$("#resetItem2").click(function(event) {
+				$(".item2").removeAttr("style");
+			});
+			$("#addItems").click(function(event) {
+				var html = '<div class="item item3">flex项目3</div>\
+							<div class="item item3">flex项目3</div>\
+							<div class="item item3">flex项目3</div>\
+							<div class="item item3">flex项目3</div>\
+							<div class="item item3">flex项目3</div>\
+							<div class="item item3">flex项目3</div>\
+							<div class="item item3">flex项目3</div>\
+							<div class="item item3">flex项目3</div>\
+							<div class="item item3">flex项目3</div>\
+							<div class="item item3">flex项目3</div>\
+							<div class="item item3">flex项目3</div>\
+							<div class="item item3">flex项目3</div>';
+				$(".contain").append(html);
+			});
+			$("#resetItems").click(function(event) {
+				$(".contain .item").slice(2,14).remove();
+			});
 		});
      </script>
 </head>
@@ -42,23 +82,47 @@
 			<option value="column">column</option>
 			<option value="column-reverse">column-reverse</option>
 		</select>
+		<span>flex-wrap:</span>
+		<select name="" id="">
+			<option value="nowrap">nowrap</option>
+			<option value="wrap">wrap</option>
+			<option value="wrap-reverse">wrap-reverse</option>
+		</select>
+		<span>justify-content:</span>
+		<select name="" id="">
+			<option value="flex-start">flex-start</option>
+			<option value="flex-end">flex-end</option>
+			<option value="center">center</option>
+			<option value="space-between">space-between</option>
+			<option value="space-around">space-around</option>
+		</select>
+		<span>align-items:</span>
+		<select name="" id="">
+			<option value="flex-start">flex-start</option>
+			<option value="flex-end">flex-end</option>
+			<option value="center">center</option>
+			<option value="baseline">baseline</option>
+			<option value="stretch">stretch</option>
+		</select>
+		<span>align-content:</span>
+		<select name="" id="">
+			<option value="flex-start">flex-start</option>
+			<option value="flex-end">flex-end</option>
+			<option value="center">center</option>
+			<option value="space-between">space-between</option>
+			<option value="space-around">space-around</option>
+			<option value="stretch">stretch</option>
+		</select>
+		<br />
+		<button id="setItem2">设置item2</button>
+		<button id="resetItem2">还原item2</button>
+		<button id="addItems">增加item</button>
+		<button id="resetItems">还原item</button>
 	</header>
 	<div class="contain">
 		<div class="item item1">flex项目1</div>
 		<div class="item item2">flex项目2</div>
 		<div class="item item3">flex项目3</div>
-		<!-- <div class="item item3">flex项目3</div>
-		<div class="item item3">flex项目3</div>
-		<div class="item item3">flex项目3</div>
-		<div class="item item3">flex项目3</div>
-		<div class="item item3">flex项目3</div>
-		<div class="item item3">flex项目3</div>
-		<div class="item item3">flex项目3</div>
-		<div class="item item3">flex项目3</div>
-		<div class="item item3">flex项目3</div>
-		<div class="item item3">flex项目3</div>
-		<div class="item item3">flex项目3</div>
-		<div class="item item3">flex项目3</div> -->
 	</div>
 </body>
 </html>

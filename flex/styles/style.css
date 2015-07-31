@@ -18,16 +18,16 @@ header span{
 	height: 100%;
 	display: flex;
 	display: -webkit-flex;
-	flex-direction:row ;/*row | row-reverse | column | column-reverse*/
+	/* flex-direction:row ;row | row-reverse | column | column-reverse
 	-webkit-flex-direction:row ;
-	flex-wrap: wrap;/* nowrap | wrap | wrap-reverse */
+	flex-wrap: wrap;nowrap | wrap | wrap-reverse
 	-webkit-flex-wrap: wrap;
-	justify-content: space-between;/* flex-start | flex-end | center | space-between | space-around */
+	justify-content: space-between;flex-start | flex-end | center | space-between | space-around
 	-webkit-justify-content: space-between;
-	align-items:flex-start; /* flex-start | flex-end | center | baseline | stretch */
+	align-items:flex-start; flex-start | flex-end | center | baseline | stretch
 	-webkit-align-items:flex-start;
-	align-content:space-around;/* flex-start | flex-end | center | space-between | space-around | stretch 本属性在只有一行的伸缩容器上没有效果。*/
-	-webkit-align-content:space-around;
+	align-content:space-around;flex-start | flex-end | center | space-between | space-around | stretch 本属性在只有一行的伸缩容器上没有效果。
+	-webkit-align-content:space-around; */
 }
 .contain .item{
 	text-align: center;
@@ -42,12 +42,12 @@ header span{
 	-webkit-flex-grow:1; */
 }
 .contain .item2{
-	width: auto;
+	/*width: auto;*/
 	/* flex-grow:2;
 	-webkit-flex-grow:3; */
-	height: 300px;
-	flex:1;
-	-webkit-flex:1; 
+	/*height: 300px;*/
+	/*flex:1;
+	-webkit-flex:1; */
 	/* align-self:flex-end;flex-start | flex-end | center | baseline | stretch
 	-webkit-align-self:flex-end; */
 }
