@@ -157,7 +157,7 @@ input::-webkit-input-placeholder{color: #e3d19c;}
 
 .order_car {padding-top: 620px;}
 .order_car p{color: #786f55;font-size: 24px;line-height: 28px;padding: 30px 10px;width: 408px;margin: 0 auto;}
-.order_car a{width: 408px;height: 84px;line-height: 84px;text-align: center;font-size: 36px;font-weight: bold;color: #fff;padding: 0;margin: 0 auto;display: block;border: 0;background: #df3824;-webkit-border-radius: 10px;border-radius: 10px;text-decoration: none;}
+.order_car a{width: 408px;height: 84px;line-height: 84px;text-align: center;font-size: 36px;font-weight: bold;color: #fff;padding: 0;margin: 35px auto 0;display: block;border: 0;background: #df3824;-webkit-border-radius: 10px;border-radius: 10px;text-decoration: none;}
 
 
 input{-webkit-appearance: none; }
@@ -387,18 +387,18 @@ input{-webkit-appearance: none; }
 				window.onresize = false;
 				window.onorientationchange = false;
 				
-					document.body.addEventListener('touchstart', function (e) {
-						   e = e.changedTouches[0];
-						   onTouch.onStart(e);
-					});
+				document.body.addEventListener('touchstart', function (e) {
+					   e = e.changedTouches[0];
+					   onTouch.onStart(e);
+				});
 
-					document.body.addEventListener('touchmove', function (e) {
-						onTouch.onMove(e.changedTouches[0], e);
-					});
+				document.body.addEventListener('touchmove', function (e) {
+					onTouch.onMove(e.changedTouches[0], e);
+				});
 
-					document.body.addEventListener('touchend', function (e) {
-						onTouch.onEnd(e.changedTouches[0]);
-					});
+				document.body.addEventListener('touchend', function (e) {
+					onTouch.onEnd(e.changedTouches[0]);
+				});
 				//去掉Chrome自动填充的背景色
 				var remove_autocomplete = function(){
 		          setTimeout(function(){
@@ -411,69 +411,64 @@ input{-webkit-appearance: none; }
 		          },50)
 		        };
 		        remove_autocomplete();
-		         $('input,textarea').bind('input',remove_autocomplete);
+		        $('input,textarea').bind('input',remove_autocomplete);
 
 
-				var app_phone = "<?=$cellphone?>";
-					//tab 显示隐藏
-				$("._btn").click(function(){
-					if(app_phone){
-						checkMobile();
-					}else{
-						$(".ebl2").show();
-					}
-				});
 				
-				$(".close").click(function(){
-				$(".ebl").hide();
-				});
-					//送券代码
+				//送乐码代码
 
 				function checkMobile(e){ 
-                    event.stopPropagation();event.stopPropagation(); 
-						var sMobile = $(".telnum").val() ? $(".telnum").val() : app_phone; 
-						if(!(/^((1[35678]{1})+\d{9})$/.test(sMobile))){ 
-							alert("请输入正确的手机号码"); 
-							$(".telnum").focus().val(""); 
-							return false; 
-						}else{
-						   var url ='/activity/2015/api/interface.php?key=k1sze21wook8w4k0',sMobilenum1 = $(".telnum").val() ? $(".telnum").val() : app_phone;
-											var data1 = {cellphone:sMobilenum1};
-																	$.get(url,data1,function(data){
-																		if(data.code == 200){
-																			//alert('领券成功');
-																			$(".ebl").show();
-																			
-																		}else if(data.code == 409){
-																				//alert('您以已领取过优惠券');
-						                                                    	$(".ebl3").show();
-																				$(".ebl").eq(0).hide();
-																				$(".ebl").eq(1).hide();
-						                                                    }else if(data.code == 403){
-																				alert('活动以已结束');
-						                                                    	
-						                                                    }else{alert(data.msg)}
-									},'json')
-						}
-						}	
+                    event.stopPropagation();
+                    event.stopPropagation(); 
+					var sMobile = $("#cellphone").val(); 
+					if(!(/^((1[35678]{1})+\d{9})$/.test(sMobile))){ 
+						alert("请输入正确的手机号码"); 
+						$("#cellphone").focus().val(""); 
+						return false; 
+					}else{
+						var url ='/activity/2015/api/interface.php?key=k1sze21wook8w4k0';
+						var data1 = {cellphone:sMobile};
+						$.get(url,data1,function(data){
+							if(data.code == 200){
+								alert('领券成功');
+								
+							}else if(data.code == 409){
+								alert('您以已领取过优惠券');
+	                            	
+                            }else if(data.code == 403){
+								alert('活动以已结束');
+                            	
+                            }else{
+                            	alert(data.msg)
+                            }
+						},'json');
+					}
+				}	
 
-$(".get_btn").click(function(){
-		checkMobile();
-	})	
+				$("#btn").click(function(){
+						checkMobile();
+				})	
 				
 					
-	//分享层
-	 $(".btn4,.shareimg").click(function() {
-                        if (navigator.userAgent.indexOf('YongChe') != -1) {
-                            Tools.shareThisPageToFriend();
-                        } else {
-                            $(".shareimg").toggleClass("opc");
-                        }
+				//分享层
+				 /*$(".btn4,.shareimg").click(function() {
+                    if (navigator.userAgent.indexOf('YongChe') != -1) {
+                        Tools.shareThisPageToFriend();
+                    } else {
+                        $(".shareimg").toggleClass("opc");
                     }
-            );		
+                });	*/
+				 //马上订车
+                $("#order_car").click(function() {
+                    if (navigator.userAgent.indexOf('YongChe') != -1) {
+                        window.location.href = "yongche://order?"
+                    } else {
+                        window.location.href = "/touch/create_order.php?product_type_id=1&is_asap=1"
+                    }
+                });		
 			})();
 
-		});
+});
 		</script>
           <script>
 //var city='<?=isset($_GET['city']) ? $_GET['city'] : 'bj';?>';
