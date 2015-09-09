@@ -65,7 +65,7 @@ li { list-style: none; }
 #wrap { width: 100%; overflow: hidden; position: relative; height: 100%; }
 #scrollContent { width: 100%; height: 100%; top: 0; left: 0; -webkit-transition: all 0.8s linear; }
 #scrollContent .content { width: 100%; height: 100%; overflow: hidden; position: relative; float: left; }
-.hint2 { height: 18px; width: 24px; z-index: 99; position: absolute; left: 50%; margin-left: -14px; opacity: 1; bottom: 5px; -webkit-animation: hint-move 1.2s infinite ease; background: url(http://i3.yongche.name/u/images/201505/963892759.png) no-repeat center bottom; background-size: 100% auto; }
+.hint2 { height: 18px; width: 24px; z-index: 99; position: absolute; left: 50%; margin-left: -14px; opacity: 1; bottom: 5px; -webkit-animation: hint-move 1.2s infinite ease; background: url(<{asset:u/images/201505/963892759.png}>) no-repeat center bottom; background-size: 100% auto; }
 @-webkit-keyframes hint-move { 0% {
 opacity: 0;
 bottom: 10px;
@@ -126,9 +126,9 @@ i.triangle-down { position: absolute; top: 40%; right: 28%; width: 0; height: 0;
 .box2_2 { position: absolute; width: 100%; height: 100%; -webkit-transform: scale(0, 0); -webkit-transition: -webkit-transform 1s ease-in 2.2s; }
 .focus .box2_1 { -webkit-transform: scale(1, 1); }
 .focus .box2_2 { -webkit-transform: scale(1, 1); }
-.c0 { background: #000 url(http://i3.yongche.name/u/images/201509/1220222568.jpeg?1441485360) no-repeat center 0; background-size: 100% auto; }
-.c1 { background: #000 url(http://i1.yongche.name/u/images/201509/3968293734.jpeg?1441485360) no-repeat center 0; background-size: 100% auto; }
-.c2 { background: #000 url(http://i2.yongche.name/u/images/201509/2708498434.jpeg?1441485360) no-repeat center 0; background-size: 100% auto; }
+.c0 { background: #000 url(<{asset:u/images/201509/1220222568.jpeg}>) no-repeat center 0; background-size: 100% auto; }
+.c1 { background: #000 url(<{asset:u/images/201509/3968293734.jpeg}>) no-repeat center 0; background-size: 100% auto; }
+.c2 { background: #000 url(<{asset:u/images/201509/2708498434.jpeg}>) no-repeat center 0; background-size: 100% auto; }
 
 /* CSS Document */
 /* ----------------------------------
@@ -147,7 +147,7 @@ img { margin: 0; padding: 0; border: none; }
 /*.c0 .text{color: #e2c88a;font-size: 24px;line-height: 34px;position: absolute;width: 342px;height: 320px;right: 0;top: 595px;background-color: #f00;opacity: 0.5;} */
 .main{padding-top: 325px;}
 .main .getCoupon{}
-.getCoupon .phone_wrap{height: 103px;width: 445px;background: url(http://i1.yongche.name/u/images/201509/1577067577.png?1441485360) 4px 0 no-repeat;margin: 0 auto;overflow: hidden;} 
+.getCoupon .phone_wrap{height: 103px;width: 445px;background: url(<{asset:u/images/201509/1577067577.png}>) 4px 0 no-repeat;margin: 0 auto;overflow: hidden;} 
 .getCoupon .phone_wrap input{background: none;margin: 21px auto 0;padding: 0;border: 0;font-size: 24px;width: 380px;line-height: 60px;height: 60px;text-align: center;color: #e3d19c;display: block;}
 input::-webkit-input-placeholder{color: #e3d19c;}
 .button_wrap{margin-top: 34px;}
@@ -175,11 +175,11 @@ input{-webkit-appearance: none; }
 <{block:zyx/hd.tpl}>
 </style>
 
-<script src="http://i2.yongche.name/u/js/201503/zepto.min.js?1441135320"></script>
+<script src="<{asset:u/js/201503/zepto.min.js}>"></script>
 
 </head>
 <body class="body_bg">
-<img src="http://i3.yongche.name/u/images/201509/503481387.png?1441485360" style="position:fixed;left:-100%;" />
+<img src="<{asset:u/images/201509/503481387.png}>" style="position:fixed;left:-100%;" />
 <div id="loading"> </div>
 <div id="wrap">
   <div id="scrollContent">
@@ -202,7 +202,7 @@ input{-webkit-appearance: none; }
       		<p>
       			即日起，用户可通过短信形式获取乐视商城消费直降500元的现货免邮乐码（仅限9月19日当天使用），数量有限，等你来抢！一切尽在919疯狂乐迷节
       		</p>
-      		<a href="http://m.lemall.com"><img src="http://i2.yongche.name/u/images/201509/2278688383.png?1441485360" alt="乐视商城" title="乐视商城"></a>
+      		<a href="http://m.lemall.com"><img src="<{asset:u/images/201509/2278688383.png}>" alt="乐视商城" title="乐视商城"></a>
       	</div>
       </div>
     </section>
@@ -219,6 +219,7 @@ input{-webkit-appearance: none; }
     
   </div>
 </div>
+<iframe frameborder="0" style="display: none;" id="share_iframe"></iframe>
 <script>
 		Zepto(function ($){
 			var data = [
@@ -428,27 +429,19 @@ input{-webkit-appearance: none; }
 				//送乐码代码
 
 				function checkMobile(e){ 
-                    event.stopPropagation();
-                    event.stopPropagation(); 
 					var sMobile = $("#cellphone").val(); 
 					if(!(/^((1[35678]{1})+\d{9})$/.test(sMobile))){ 
 						alert("请输入正确的手机号码"); 
 						$("#cellphone").focus().val(""); 
 						return false; 
 					}else{
-						var url ='/activity/2015/leshi/index.php ';
+						var url ='/activity/2015/leshi/index.php';
 						var data1 = {cellphone:sMobile};
 						$.get(url,data1,function(data){
 							if(data.code == 200){
 								alert('领券成功');
 								
-							}else if(data.code == 409){
-								alert('您以已领取过优惠券');
-	                            	
-                            }else if(data.code == 403){
-								alert('活动以已结束');
-                            	
-                            }else{
+							}else{
                             	alert(data.msg)
                             }
 						},'json');
@@ -471,9 +464,9 @@ input{-webkit-appearance: none; }
 				 //马上订车
                 $("#order_car").click(function() {
                     if (navigator.userAgent.indexOf('YongChe') != -1) {
-                        window.location.href = "yongche://order?"
+                        window.location.href = "yongche://neworder?"
                     } else {
-                        window.location.href = "/touch/create_order.php?product_type_id=1&is_asap=1"
+                        window.location.href = "http://m.yongche.com"
                     }
                 });		
 			})();
@@ -497,14 +490,15 @@ input{-webkit-appearance: none; }
 //  })()
   //分享
     (function () {
-        var userId = '<?=$userId?>';
         // 分享变量设置
-        var _protocolLinkFriend = "yongche://share?";
+	    var _protocolLinkBase = "yongche://share?";
+	    var _protocolLinkFriend = "yongche://shareToFriend?";
+	    var _protocolLinkTimeline = "yongche://shareToTimeline?";
 
         // 分享地址
         var shareRead_link = encodeURIComponent(location.href);
         // 分享的图片
-        var shareRead_pics = encodeURIComponent("http://i3.yongche.name/u/images/201509/503481387.png?1441485360");
+        var shareRead_pics = encodeURIComponent("<{asset:u/images/201509/503481387.png}>");
         // 分享的标题
         var shareRead_title = encodeURIComponent("黑色919，红色乐迷节，让乐视更易到");
         // 分享的内容
@@ -512,24 +506,37 @@ input{-webkit-appearance: none; }
         var shareRead_sourceType = 42;
 
         var Tools = {
-            shareThisPageToFriend: function () {
-                var _str = "link=" + shareRead_link + "&pics=" + shareRead_pics + "&title=" + shareRead_title + "&content=" + shareRead_content + "&sourceType=" + shareRead_sourceType;
-                var _tmpOpenLink = _protocolLinkFriend + _str;
-                window.location.href = _tmpOpenLink;
-            }
-        };
+	        shareThisPageToFriend:function(){
+	            var _str = "link="+shareRead_link+"&pics="+shareRead_pics+"&title="+shareRead_title+"&content="+shareRead_content+"&sourceType="+shareRead_sourceType;
+	            var _tmpOpenLink = _protocolLinkFriend + _str;
+	            window.location.href = _tmpOpenLink;
+	        },
+	        shareThisPageToTimeline:function(){
+	            var _str = "link="+shareRead_link+"&pics="+shareRead_pics+"&title="+shareRead_title+"&content="+shareRead_content+"&sourceType="+shareRead_sourceType;
+	            var _tmpOpenLink = _protocolLinkTimeline + _str;
+	            window.location.href = _tmpOpenLink;
+	        },
+	        shareBase:function(){
+	            var _str = "link="+shareRead_link+"&pics="+shareRead_pics+"&title="+shareRead_title+"&content="+shareRead_content+"&sourceType="+shareRead_sourceType;
+	            var _tmpOpenLink = _protocolLinkBase + _str;
+	            window.location.href = _tmpOpenLink;
+	        }
+	    };
+    	var _str = "link="+shareRead_link+"&pics="+shareRead_pics+"&title="+shareRead_title+"&content="+shareRead_content+"&sourceType="+shareRead_sourceType+"&from=iframe";
+    	var _tmpOpenLink = _protocolLinkBase + _str;
+     	document.getElementById("share_iframe").src = _tmpOpenLink;
      
-        $('#share_link').click(function () {
+        /*$('#share_link').click(function () {
             if(userId < 1) {
               window.location.href='yongche://login?'
             }else{
                Tools.shareThisPageToFriend();
             }
-        });
+        });*/
 
       
     })()
 </script>
 <{block:bd/wapjc1.tpl}>
 </body>
-</html> 
+</html>  
