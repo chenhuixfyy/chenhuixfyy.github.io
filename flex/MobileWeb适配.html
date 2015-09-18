@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>MobileWeb 适配</title>
+	<link rel="stylesheet" type="text/css" href="../asset/css/style.css" />
+</head>
+<body>
+	<h1>MobileWeb 适配</h1>
+	<p>MobileWeb 的适配方法，即我们常说的H5页面、手机页面、WAP页、webview页面等等。</p>
+	<p>适配达到的效果是什么:在不同尺寸的手机设备上，页面“相对性的达到合理的展示（自适应）”或者“保持统一效果的等比缩放（看起来差不多）”。</p>
+	<h2>三种主要实现方式</h2>
+	<h3>固定高度，宽度自适应</h3>
+	<p>这是目前最通用的一种做法，属于自适应布局，viewport width 设置为 device-width，以较小宽度（如 320px）的视觉稿作为参照进行布局。垂直方向的高度和间距使用定值，水平方向混合使用定值和百分比或者利用弹性布局，最终达到“当手机屏幕变化时，横向拉伸或者填充空白的效果”。图像元素根据容器情况，使用定值或者 background-size 缩放。</p>
+	<p>在线范例<a href="https://www.baidu.com/" target="_blank">百度</a>、<a href="http://xw.qq.com/index.htm" target="_blank">腾讯</a>、Facebook、Twitter等</p>
+	<p>
+		公司的h5站点使用的就是这种方法<a href="http://3g.yongche.com/touch" target="_blank">http://3g.yongche.com/touch</a>
+	</p>
+	<ol>
+		<li>以小宽度作为参照是因为如果布局满足了小宽度的摆放，当屏幕变宽时，简单的填充空白就可以了；而如果反过来就可能造成“挤坏了”，考虑 header 区域，左测 logo 右测横向 nav 的情况。</li>
+		<li>需要小宽度的布局，又需要大宽度的图像，这是一个矛盾点。</li>
+		<li>320px 过于窄小，不利于页面的设计；只能设计横向拉伸的元素布局，存在很多局限性。
+		<li>兼容性较好。</li>
+	</ol>
+	<p>实现比较简单，样式中的尺寸都按照视觉稿二分之一大小设置，<a href="http://www.meow.re/demo/screen-adaptation-in-mobileweb/app-fixed-height.html" target="_blank">demo</a></p>
+	<hr>
+	<h3>固定宽度，viewport 缩放</h3>
+	<p>视觉稿、页面宽度、viewport width 使用统一宽度，利用浏览器自身缩放完成适配。页面样式（包括图像元素）完全按照视觉稿的尺寸，使用定值单位 （px、em）即可完成。</p>
+	<p>如<a href="http://www.yongche.com/cms/page/privilege-intro.html#1024" target="_blank">h5特权详情页</a></p>
+	<h4>用法</h4>
+	<p>引入viewport</p>
+	<pre><code>"<{asset:js/app/wx/viewport.src.js}>"
+</code></pre>
+<p>调用</p>
+	<pre><code>adaptUILayout.adapt(640);
+</code></pre>
+<h4>优点：</h4>
+<ul>
+	<li><b>开发简单</b>    缩放交给浏览器，完全按视觉稿切图。</li>
+	<li><b>还原精准</b>    绝对等比例缩放，可以精准还原视觉稿（不考虑清晰度的情况下）。</li>
+	<li><b>测试方便</b>    在PC端即可完成大部分测试，手机端只需酌情调整一些细节（比如图标、字体混合排列时，因为字体不同造成的对齐问题）。</li>
+</ul>
+<h4>存在的问题：</h4>
+<ul>
+	<li><b>像素丢失</b>     对于一些分辨率较低的手机，可能设备像素还未达到指定的 viewport 宽度，此时屏幕的渲染可能就不准确了。比较常见的是边框“消失”了，不过随着手机硬件的更新，这个问题会越来越少的。</li>
+	<li><b>缩放失效</b>     某些安卓机不能正常的根据 meta 标签中 width 的值来缩放 viewport，需要配合 initial-scale 。</li>
+	<li><b>文本折行</b>    存在于缩放失效的机型中，某些手机为了便于文本的阅读，在文本到达 viewport 边缘（非元素容器的边缘）时即进行折行，而当 viewport 宽度被修正后，浏览器并没有正确的重绘，所以就发现文本没有占满整行。一些常用的段落性文本标签会存在该问题。</li>
+</ul>
+	<p><a href="http://www.meow.re/demo/screen-adaptation-in-mobileweb/app-fixed-width.html" target="_black">demo</a></p>
+	<hr>
+	<h3>利用 rem 布局</h3>
+	<p>依照某特定宽度设定 rem 值（即 html 的 font-size），页面任何需要弹性适配的元素，尺寸均换算为 rem 进行布局；当页面渲染时，根据页面有效宽度进行计算，调整 rem 的大小，动态缩放以达到适配的效果。利用该方案，还可以根据 devicePixelRatio 设定 initial-scale 来放大 viewport，使页面按照物理像素渲染，提升清晰度。</p>
+	
+
+
+	<h4>优点：</h4>
+	<ul>
+		<li>清晰度高，能达到物理像素的清晰度。</li>
+		<li>能解决 DPR 引起的“1像素”问题。</li>
+		<li>向后兼容较好，即便屏幕宽度增加、PPI 增加该方案依旧适用。</li>
+	</ul>
+	
+	
+	<h4>缺点：</h4>
+	
+	<ul>
+		<li>适配 js 需尽可能早进入，减少（避免）viewport 变化引起的重绘。</li>
+		<li>某些Android机会丢掉 rem 小数部分。</li>
+		<li>需要预编译库进行单位转换。</li>
+	</ul>
+	<p>开发时，css 及 js 都以 16px 作为基数换算 rem，借助预编译库（以 scss 为例），我们设定一个动态尺寸单位 $ppr: 750px/16px/1rem ，即 pixel per rem，任何使用弹性尺寸的地方写作：width: 100px/$ppr。</p>
+	<p><a href="http://m.taobao.com/">淘宝网触屏版</a>使用的就是这个方式</p>
+	<p><a href="http://www.meow.re/demo/screen-adaptation-in-mobileweb/app-rem.html" target="_blank">demo</a></p>
+
+	<p>参考 <a href="http://www.html-js.com/article/2402" target="_blank">手机淘宝的flexible设计与实现</a></p>
+	<p>参考 <a href="http://isux.tencent.com/web-app-rem.html" target="_blank">web app变革之rem</a></p>
+
+
+
+
+
+
+
+
+
+</body>
+</html>
