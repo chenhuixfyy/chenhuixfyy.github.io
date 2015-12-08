@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>flex语法</title>
+	<link rel="stylesheet" type="text/css" href="../asset/css/style.css" />
+</head>
+<body>
+	<h1>Flex 布局</h1>
+	<p>布局的传统解决方案，基于盒状模型，依赖 <code>display</code>属性 + <code>position</code>属性 + <code>float</code>属性。它对于那些特殊布局非常不方便，比如，垂直居中就不容易实现。</p>
+	<p>2009年，W3C提出了一种新的方案----布局，可以简便、完整、响应式地实现各种页面布局。目前，它已经得到了所有浏览器的支持，这意味着，现在就能很安全地使用这项功能。</p>
+	<iframe src="http://caniuse.com/flexbox/embed" frameborder="0" width="100%" height="400px"></iframe>
+	<h2>Flex布局是什么？</h2>
+	<p>Flex是Flexible Box的缩写，意为"弹性布局"，用来为盒状模型提供最大的灵活性。</p>
+	<p>Flexbox布局（Flexible Box）模块，旨在提供一个更佳有效的布局方式，更好的控制项目的对齐和自由分配容器空间，即使它们的大小是未知的或动态的。因此得其名"flex"</p>
+	<p>Flex布局背后的主要思想是给容器控制项目（Flex项目）的宽度、高度的能力，使用Flex项目可以自动填满容器的可用空间（主要是适应所有类型的显示设备和屏幕大小）。Flex容器使用Flex项目可以自动放大与收缩，用来填补可用的空闲空间。</p>
+	<p>因为Flexbox是一个模块，而不是一个单一的属性，他涉及很多东西。其中有一些是容器上的属性（父元素，也被称为“flex容器”），而有一些是容器子元素上的属性（常称为“flex项目”）。</p>
+	<p>注：Flexbox布局比较适合Web应用程序的一些小组件和小规模的布局</p>
+	<h2>基本概念</h2>
+	<p>定义一个Flex容器，根据其取的值来决定是内联还是块。Flex容器会为其内容建立新的伸缩格式化上下文。</p>
+<pre><code>.container {
+    display: flex; /* or inline-flex */
+}
+</code></pre>
+<p>Webkit内核的浏览器，必须加上<code>-webkit</code>前缀。</p>
+<pre><code>.container {
+    display: -webkit-flex; 
+    display: flex; 
+}
+</code></pre>
+<table>
+    <thead>
+        <tr>
+            <th>规范版本</th>
+            <th>属性名称</th>
+            <th>块伸缩容器</th>
+            <th>内联伸缩容器</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>标准版本</td>
+            <td>display</td>
+            <td>flex</td>
+            <td>inline-flex</td>
+        </tr>
+        <tr>
+            <td>混合版本</td>
+            <td>display</td>
+            <td>flexbox</td>
+            <td>inline-flexbox</td>
+        </tr>
+        <tr>
+            <td>最老版本</td>
+            <td>display</td>
+            <td>box</td>
+            <td>inline-box</td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>容器的属性</h2>
+<p><img src="http://cdn.w3cplus.com/cdn/farfuture/luevRTNzApKOvKfrkEdvmjoB19vp_Ir6SzrgIgCZSsU/mtime:1430148786/sites/default/files/blogs/2015/1504/flex-container.svg" alt="container" title="container" /></p>
+<h3>flex-direction</h3>
+<p><img src="http://cdn2.w3cplus.com/cdn/farfuture/_EIbwTirN5yye1nPaiXE3NTJsZLmCfYblxN6Gc2pZLc/mtime:1430148782/sites/default/files/blogs/2015/1504/flex-direction1.svg" alt="flex-direction" title="flex-direction"></p>
+<p>这是用来创建方轴，从而定义Flex项目在Flex容器中放置的方向。Flexbox是一种单方向的布局概念。认为Flex项目主要排列方式要么是水平排列，要么是垂直列排列。</p>
+<pre><code>.container {
+    flex-direction: row | row-reverse | column | column-reverse;
+}
+</code></pre>
+<ol>
+	<li><code>row(默认值)</code>:如果书写方式是<code>ltr</code>，那么Flex项目从左向右排列；如果书写方式是<code>rtl</code>，那么Flex项目从右向左排列</li>
+	<li><code>row-reverse</code>:如果书写方式是<code>ltr</code>，那么Flex项目从右向左排列；如果书写方式是<code>rtl</code>，那么Flex项目从左向右排列</li>
+	<li><code>column</code>:和<code>row</code>类似，只不过方向是从上到下排列</li>
+	<li><code>column-reverse</code>:和<code>row-reverse</code>类似，只不过方向是从下向上排列</li>
+</ol>
+<table>
+    <thead>
+        <tr>
+            <th>规范版本</th>
+            <th>属性名称</th>
+            <th>水平方向</th>
+            <th>反向水平</th>
+            <th>垂直方向</th>
+            <th>反向垂直</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>标准版本</td>
+            <td>flex-direction</td>
+            <td>row</td>
+            <td>row-reverse</td>
+            <td>column</td>
+            <td>column-reverse</td>
+        </tr>
+        <tr>
+            <td>混合版本</td>
+            <td>flex-direction</td>
+            <td>row</td>
+            <td>row-reverse</td>
+            <td>column</td>
+            <td>column-reverse</td>
+        </tr>
+        <tr>
+            <td>最老版本</td>
+            <td>box-orient <br> box-direction</td>
+            <td>horizontal <br> normal</td>
+            <td>horizontal <br> reverse</td>
+            <td>vertical <br> normal</td>
+            <td>vertical <br> reverse</td>
+        </tr>
+    </tbody>
+</table>
+<h3>flex-wrap</h3>
+<p><img src="http://cdn1.w3cplus.com/cdn/farfuture/5r5FgiJScVS1haTd2NththAyg9L4e-na70U-kMdPe0w/mtime:1430148782/sites/default/files/blogs/2015/1504/flex-wrap.svg" alt="flex-wrap" title="flex-wrap"></p>
+<p>默认情况之下，Flex项目都尽可能在一行显示。你可以根据flex-wrap的属性值来改变，让Flex项目多行显示。方向在这也扮演了一个重要角度，决定新的一行堆放方向。</p>
+<pre><code>.container {
+    flex-wrap: nowrap | wrap | wrap-reverse;
+}
+</code></pre>
+<ol>
+	<li><code>nowrap(默认值)</code>:单行显示，如果书写方式是<code>ltr</code>，Flex项目从左向右排列，反之<code>rtl</code>，从右向左排列</li>
+	<li><code>wrap</code>:多行显示，如果书写方式是<code>ltr</code>，Flex项目从左向右排列，反之<code>rtl</code>，从右向左排列</li>
+	<li><code>wrap-reverse</code>:多行显示，如果书写方式是<code>ltr</code>，Flex项目从右向左排列，反之<code>rtl</code>，从左向右排列</li>
+</ol>
+<table>
+    <thead>
+        <tr>
+            <th>规范版本</th>
+            <th>属性名称</th>
+            <th>不换行</th>
+            <th>换行</th>
+            <th>反转换行</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>标准版本</td>
+            <td>flex-wrap</td>
+            <td>nowrap</td>
+            <td>wrap</td>
+            <td>wrap-reverse</td>
+        </tr>
+        <tr>
+            <td>混合版本</td>
+            <td>flex-wrap</td>
+            <td>nowrap</td>
+            <td>wrap</td>
+            <td>wrap-reverse</td>
+        </tr>
+        <tr>
+            <td>最老版本</td>
+            <td>box-lines</td>
+            <td>single</td>
+            <td>multiple</td>
+            <td>N/A</td>
+        </tr>
+    </tbody>
+</table>
+<h3>flex-flow(适用于flex容器元素)</h3>
+<p>这是<code>flex-direction</code>和<code>flex-wrap</code>两个属性的缩写。两个属性决定了伸缩容器的主轴与侧轴。默认值是<code>row</code> <code>nowrap</code>（中间用空格隔开）。</p>
+<pre><code>flex-flow: <‘flex-direction’> || <‘flex-wrap’>
+</code></pre>
+
+<h3>justify-content</h3>
+<p><img src="http://cdn1.w3cplus.com/cdn/farfuture/3_5a61_Q3cMpKIljG_y_BmU3LpJRwGQxvbH2LHO4JHQ/mtime:1430148782/sites/default/files/blogs/2015/1504/justify-content.svg" alt="justify-content" title="justify-content"></p>
+<p>用于在主轴上对齐伸缩项目。这一行为会在所有可伸缩长度及所有自动边距均被解释后进行。当一行上的所有伸缩项目都不能伸缩或可伸缩但是已经达到其最大长度时，这一属性才会对多余的空间进行分配。当项目溢出某一行时，这一属性也会在项目的对齐上施加一些控制。</p>
+<pre><code>.container {
+    justify-content: flex-start | flex-end | center | space-between | space-around;
+}
+</code></pre>
+<ol>
+	<li><code>flex-start(默认值)</code>:伸缩项目向一行的起始位置靠齐。该行的第一个伸缩项目在主轴起点边的外边距与该行在主轴起点的边对齐，同时所有后续的伸缩项目与其前一个项目对齐。</li>
+	<li><code>flex-end</code>:伸缩项目向一行的结束位置靠齐。该行的最后一个伸缩项目在主轴终点边的外边距与该行在主轴终点的边对齐，同时所有前面的伸缩项目与其后一个项目对齐。</li>
+	<li><code>center</code>:伸缩项目向一行的中间位置靠齐。该行的伸缩项目将相互对齐并在行中居中对齐，同时第一个项目与该行在主轴起点的边的距离等同与最后一个项目与该行在主轴终点的边的距离（如果剩余空间是负数，则保持两端溢出的长度相等）。</li>
+	<li><code>space-between</code>:伸缩项目会平均地分布在行里。如果剩余空间是负数，或该行只有一个伸缩项目，则此值等效于<code>flex-start</code>。在其它情况下，第一个项目在主轴起点边的外边距会与该行在主轴起点的边对齐，同时最后一个项目在主轴终点边的外边距与该行在主轴终点的边对齐，而剩下的伸缩项目在确保两两之间的空白空间相等下平均分布。</li>
+	<li><code>space-around</code>:伸缩项目会平均地分布在行里，两端保留一半的空间。如果剩余空间是负数，或该行只有一个伸缩项目，则该值等效于<code>center</code>。在其它情况下，伸缩项目在确保两两之间的空白空间相等，同时第一个元素前的空间以及最后一个元素后的空间为其他空白空间的一半下平均分布。</li>
+</ol>
+<table>
+    <thead>
+        <tr>
+            <th>规范版本</th>
+            <th>属性名称</th>
+            <th>start</th>
+            <th>center</th>
+            <th>end</th>
+            <th>justify</th>
+            <th>distribute</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>标准版本</td>
+            <td>justify-content</td>
+            <td>flex-start</td>
+            <td>center</td>
+            <td>flex-end</td>
+            <td>space-between</td>
+            <td>space-around</td>
+        </tr>
+        <tr>
+            <td>混合版本</td>
+            <td>flex-pack</td>
+            <td>start</td>
+            <td>center</td>
+            <td>end</td>
+            <td>justify</td>
+            <td>distribute</td>
+        </tr>
+        <tr>
+            <td>最老版本</td>
+            <td>box-pack</td>
+            <td>start</td>
+            <td>center</td>
+            <td>end</td>
+            <td>justify</td>
+            <td>N/A</td>
+        </tr>
+    </tbody>
+</table>
+<h3>align-items</h3>
+<p><img src="http://cdn1.w3cplus.com/cdn/farfuture/Q_kuJYRoDp74fyzvT3BipQmDLtALTf_EYgj-RfOP4k0/mtime:1430148782/sites/default/files/blogs/2015/1504/align-items.svg" alt="align-items" title="align-items"></p>
+<p>伸缩项目可以在伸缩容器的当前行的侧轴上进行对齐，这类似于<code>justify-content</code>属性，但是是另一个方向。<code>align-items</code>可以用来设置伸缩容器中包括匿名伸缩项目的所有项目的对齐方式。</p>
+<pre><code>.container {
+    align-items: flex-start | flex-end | center | baseline | stretch;
+}
+</code></pre>
+<ol>
+	<li><code>flex-start</code>:伸缩项目在侧轴起点边的外边距紧靠住该行在侧轴起始的边。</li>
+	<li><code>flex-end</code>:伸缩项目在侧轴终点边的外边距靠住该行在侧轴终点的边 。</li>
+	<li><code>center</code>:伸缩项目的外边距盒在该行的侧轴上居中放置。（如果伸缩行的尺寸小于伸缩项目，则伸缩项目会向两个方向溢出相同的量）。</li>
+	<li><code>baseline</code>:如果伸缩项目的行内轴与侧轴为同一条，则该值和<code>flex-start</code>等效。其它情况下，该值将参与基线对齐。所有参与该对齐方式的伸缩项目将按下列方式排列：首先将这些伸缩项目的基线进行对齐，随后其中基线至侧轴起点边的外边距距离最长的那个项目将紧靠住该行在侧轴起点的边。</li>
+	<li><code>stretch</code>:如果侧轴长度属性的值为auto，则此值会使项目的外边距盒的尺寸在遵照<code>min/max-width/height</code>属性的限制下尽可能接近所在行的尺寸。</li>
+</ol>
+<table>
+    <thead>
+        <tr>
+            <th>规范版本</th>
+            <th>属性名称</th>
+            <th>start</th>
+            <th>center</th>
+            <th>end</th>
+            <th>baseline</th>
+            <th>stretch</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>标准版本</td>
+            <td>align-items</td>
+            <td>flex-start</td>
+            <td>center</td>
+            <td>flex-end</td>
+            <td>baseline</td>
+            <td>stretch</td>
+        </tr>
+        <tr>
+            <td>混合版本</td>
+            <td>flex-align</td>
+            <td>start</td>
+            <td>center</td>
+            <td>end</td>
+            <td>baseline</td>
+            <td>stretch</td>
+        </tr>
+        <tr>
+            <td>最老版本</td>
+            <td>box-align</td>
+            <td>start</td>
+            <td>center</td>
+            <td>end</td>
+            <td>baseline</td>
+            <td>stretch</td>
+        </tr>
+    </tbody>
+</table>
+
+<h3>align-content</h3>
+<p><img src="http://cdn2.w3cplus.com/cdn/farfuture/gRS9e7pjSKPVtrOiW-a0ab-z3R1jVS0QSuRTFNVA_14/mtime:1430148786/sites/default/files/blogs/2015/1504/align-content.svg" alt="align-content" title="align-content"></p>
+<p>当伸缩容器的侧轴还有多余空间时，align-content属性可以用来调准伸缩行在伸缩容器里的对齐方式，这与调准伸缩项目在主轴上对齐方式的justify-content属性类似。</p>
+<p>请注意本属性在只有一行的伸缩容器上没有效果。</p>
+<pre><code>.container {
+    align-content: flex-start | flex-end | center | space-between | space-around | stretch;
+}
+</code></pre>
+<ol>
+	<li><code>flex-start</code>:各行向伸缩容器的起点位置堆叠。伸缩容器中第一行在侧轴起点的边会紧靠住伸缩容器在侧轴起点的边，之后的每一行都紧靠住前面一行。</li>
+	<li><code>flex-end</code>:各行向伸缩容器的结束位置堆叠。伸缩容器中最后一行在侧轴终点的边会紧靠住该伸缩容器在侧轴终点的边，之前的每一行都紧靠住后面一行。</li>
+	<li><code>center</code>:各行向伸缩容器的中间位置堆叠。各行两两紧靠住同时在伸缩容器中居中对齐，保持伸缩容器在侧轴起点边的内容边和第一行之间的距离与该容器在侧轴终点边的内容边与第最后一行之间的距离相等。（如果剩下的空间是负数，则行的堆叠会向两个方向溢出的相等距离。）</li>
+	<li><code>space-between</code>:各行在伸缩容器中平均分布。如果剩余的空间是负数或伸缩容器中只有一行，该值等效于<code>flex-start</code>。在其它情况下，第一行在侧轴起点的边会紧靠住伸缩容器在侧轴起点边的内容边，最后一行在侧轴终点的边会紧靠住伸缩容器在侧轴终点的内容边，剩余的行在保持两两之间的空间相等的状况下排列。</li>
+	<li><code>space-around</code>:各行在伸缩容器中平均分布，在两边各有一半的空间。如果剩余的空间是负数或伸缩容器中只有一行，该值等效于<code>center</code>。在其它情况下，各行会在保持两两之间的空间相等，同时第一行前面及最后一行后面的空间是其他空间的一半的状况下排列。</li>
+	<li><code>stretch</code>:各行将会伸展以占用剩余的空间。如果剩余的空间是负数，该值等效于<code>flex-start</code>。在其它情况下，剩余空间被所有行平分，扩大各行的侧轴尺寸。</li>
+</ol>
+<table>
+    <thead>
+        <tr>
+            <th>规范版本</th>
+            <th>属性名称</th>
+            <th>start</th>
+            <th>center</th>
+            <th>end</th>
+            <th>justify</th>
+            <th>distribute</th>
+            <th>stretch</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>标准版本</td>
+            <td>align-content</td>
+            <td>flex-start</td>
+            <td>center</td>
+            <td>flex-end</td>
+            <td>space-between</td>
+            <td>space-around</td>
+            <td>stretch</td>
+        </tr>
+        <tr>
+            <td>混合版本</td>
+            <td>flex-line-pack</td>
+            <td>start</td>
+            <td>center</td>
+            <td>end</td>
+            <td>justify</td>
+            <td>distribute</td>
+            <td>stretch</td>
+        </tr>
+        <tr>
+            <td>最老版本</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>项目属性</h2>
+<p><img src="http://cdn2.w3cplus.com/cdn/farfuture/64Ey6fxPl6gWYjqV9IQ20HBE5_2__yO6TtCkJnzW_wE/mtime:1430148782/sites/default/files/blogs/2015/1504/flex-items.svg" alt="Flex项目" title="Flex项目"></p>
+<h3>order</h3>
+<p><img src="http://cdn.w3cplus.com/cdn/farfuture/T-BfUaJI3fanBRPc3oiFUuWYNHw8ZkI0JtiBxEcw2m4/mtime:1430148782/sites/default/files/blogs/2015/1504/order-2.svg" alt="order" title="order"></p>
+<p>默认情况，Flex项目是按文档源的流顺序排列。然而，在Flex容器中可以通过order属性来控制Flex项目的顺序源。</p>
+<pre><code>.item {
+    order: <integer>;
+}
+</code></pre>
+<p>根据order重新排序伸缩项目。有最小（负值最大）order的伸缩项目排在第一个。若有多个项目有相同的order值，这些项目照文件顺序排。这个步骤影响了伸缩项目生盒树成的盒子的顺序，也影响了后面的演算法如何处理各项目。</p>
+<table>
+    <thead>
+        <tr>
+            <th>规范版本</th>
+            <th>属性名称</th>
+            <th>属性值</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>标准版本</td>
+            <td>order</td>
+            <td><code>&lt;number&gt;</code></td>
+        </tr>
+        <tr>
+            <td>混合版本</td>
+            <td>flex-order</td>
+            <td><code>&lt;number&gt;</code></td>
+        </tr>
+        <tr>
+            <td>最老版本</td>
+            <td>flex-order</td>
+            <td><code>&lt;integer&gt;</code></td>
+        </tr>
+    </tbody>
+</table>
+<h3>flex-grow</h3>
+<p><img src="http://cdn.w3cplus.com/cdn/farfuture/mFvZAFS8UAgDd7GU81vi7hmHjuJ8cpBV_hPopL4an8c/mtime:1430148782/sites/default/files/blogs/2015/1504/flex-grow.svg" alt="flex-grow" title="flex-grow"></p>
+<p>如果有必要的话，<code>flex-grow</code>可以定义一个Flex项目的扩大比例。它接受一个没有单位的值作为一个比例。它可以使用Flex项目完全占用Flex容器可用的空间。</p>
+
+<p>如果所有Flex项目的<code>flex-grow</code>设置为<code>1</code>时，表示Flex容器中的Flex项目具有相等的尺寸。如果你给其中一个Flex项目设置<code>flex-grow</code>的值为<code>2</code>，那么这个Flex项目的尺寸将是其他Flex项目两倍（其他Flex项目的<code>flex-grow</code>值为<code>1</code>）。</p>
+<pre><code>.item {
+    flex-grow: <number>; /* default 0 */
+}
+</code></pre>
+<p>注意：<code>flex-grow</code>取负值将失效。</p>
+
+<h3>flex-shrink</h3>
+如果有必要，<code>flex-shrink</code>可以定义Flex项目的缩小比例。
+<pre><code>.item {
+    flex-shrink: <number>; /* default 1 */
+}
+</code></pre>
+<p>注意：<code>flex-shrink</code>取负值将失效。</p>
+
+<h3>flex-basis</h3>
+<p><code>flex-basis</code>属性定义了Flex项目在分配Flex容器剩余空间之前的一个默认尺寸。<code>main-size</code>值使它具有匹配的宽度或高度，不过都需要取决于<code>flex-direction</code>的值。</p>
+<pre><code>.item {
+    flex-basis: <length> | auto; /* default auto */
+}
+</code></pre>
+<p>如果设置为<code>0</code>，内容不在考虑周围额外空间。如果设置为<code>auto</code>，额外空间会基于<code>flex-grow</code>值做分布。如下图所示：</p>
+<p><img src="http://cdn2.w3cplus.com/cdn/farfuture/PKTu2Zlf4mWNkTFEVF0N7Qn1WFDXbKwRVp0Fv5w5jjI/mtime:1431011912/sites/default/files/blogs/2015/1505/rel-vs-abs-flex.svg" alt="flex-basis" title="flex-basis"></p>
+<h3>flex</h3>
+<p><code>flex</code>是<code>flex-grow</code>，<code>flex-shrink</code>和<code>flex-basis</code>三个属性的缩写。第二个和第三个参数(<code>flex-shrink</code>和<code>flex-basis</code>)是可选值。其默认值是<code>0 1 auto</code>。</p>
+<pre><code>.item {
+    flex: none | [ <'flex-grow'> <'flex-shrink'>? || <'flex-basis'> ]
+}
+</code></pre>
+<p>建议使用此简写属性，而不是设置单独属性。注意，如果<code>flex</code>取值为<code>none</code>时，其相当于取值为<code>0 0 auto</code>。</p>
+<blockquote>请注意<code>flex-grow</code>与<code>flex-basis</code>的初始值与他们在<code>flex</code>缩写被省略时的 默认值不同。这里的设计是为了让<code>flex</code>缩写在最常见的情景下比较好用。</blockquote>
+<h4><code>flex</code>常见值</h4>
+
+<p><code>flex: 0 auto</code>,<code>flex: initial</code>与<code>flex: 0 1 auto</code>相同。（这也就是初始值。）根据<code>width</code>／<code>height</code>属性决定元素的尺寸。（如果项目的主轴长度属性的计算值为<code>auto</code>，则会根据其内容来决定元素尺寸。）当剩余空间为正值时，伸缩项目无法伸缩，但当空间不足时，伸缩项目可收缩至其最小值。网页作者可以用对齐相关的属性以及<code>margin</code>属性的<code>auto</code>值控制伸缩项目沿着主轴的对齐方式。</p>
+
+<p><code>flex: auto</code>与<code>flex: 1 1 auto</code>相同。根据<code>width</code>／<code>height</code>属性决定元素的尺寸，但是完全可以伸缩，会吸收主轴上剩下的空间。如果所有项目均为<code>flex: auto</code>、<code>flex: initial</code>或<code>flex: none</code>，则在项目尺寸决定后，剩余的正空间会被平分给是<code>flex: auto</code>的项目。</p>
+
+<p><code>flex: none</code>与<code>flex: 0 0 auto</code>相同。根据<code>width</code>／<code>height</code>属性决定元素的尺寸，但是完全不可伸缩。其效果与<code>initial</code>类似，但即使在空间不够而溢出的情况下，伸缩项目也不能收缩。</p>
+
+<p><code>flex: &lt;positive-number&gt;</code>与<code>flex: 1 0px</code>相同。该值使元素可伸缩，并将伸缩基准值设置为零，导致该项目会根据设置的比率占用伸缩容器的剩余空间。如果一个伸缩容器里的所有项目都使用此模式，则它们的尺寸会正比于指定的伸缩比率。</p>
+
+<p>默认状态下，伸缩项目不会收缩至比其最小内容尺寸（最长的英文词或是固定尺寸元素的长度）更小。网页作者可以靠设置<code>min-width</code>或<code>min-height</code>属性来改变这个默认状态。（参见《<a href="http://www.w3.org/html/ig/zh/css-flex-1/#min-size-auto">伸缩项目的默认最小长度</a>》。）</p>
+
+<table>
+    <thead>
+        <tr>
+            <th>规范版本</th>
+            <th>属性名称</th>
+            <th>属性值</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>标准版本</td>
+            <td>flex</td>
+            <td>none | [&lt;flex-grow&gt; &lt;flex-shrink&gt; ?|| &lt;flex-basis&gt;]</td>
+        </tr>
+        <tr>
+            <td>混合版本</td>
+            <td>flex</td>
+            <td>none | [[&lt;pos-flex&gt; &lt;neg-flex&gt; ?]|| &lt;preferred-size&gt;]</td>
+        </tr>
+        <tr>
+            <td>最老版本</td>
+            <td>box-flex</td>
+            <td>&lt;number&gt;</td>
+        </tr>
+    </tbody>
+</table>
+
+<h3>align-self</h3>
+<p><img src="http://cdn2.w3cplus.com/cdn/farfuture/VaCfrQe1I4keRPSZbxVaucrPVmP3xYmYTfpH_95ygnU/mtime:1431103688/sites/default/files/blogs/2015/1505/align-self.svg" alt="align-self" title="align-self"></p>
+<p><code>align-self</code>则用来在单独的伸缩项目上覆写默认的对齐方式。（对于匿名伸缩项目，<code>align-self</code>的值永远与其关联的伸缩容器的<code>align-items</code>的值相同。）</p>
+
+<pre><code>.item {
+  align-self: auto | flex-start | flex-end | center | baseline | stretch;
+}
+</code></pre>
+
+<p>若伸缩项目的任一个侧轴上的外边距为<code>auto</code>，则<code>align-self</code>没有效果。</p>
+
+<p>如果<code>align-self</code>的值为<code>auto</code>，则其计算值为元素的父元素的<code>align-items</code>值，如果该元素没有父元素，则计算值为<code>stretch</code>。对齐属性值的定义如下：</p>
+
+<ul>
+<li><strong><code>flex-start</code>:</strong>伸缩项目在侧轴起点边的外边距紧靠住该行在侧轴起始的边。</li>
+<li><strong><code>flex-end</code>:</strong>伸缩项目在侧轴终点边的外边距靠住该行在侧轴终点的边 。</li>
+<li><strong><code>center</code>:</strong>伸缩项目的外边距盒在该行的侧轴上居中放置。（如果伸缩行的尺寸小于伸缩项目，则伸缩项目会向两个方向溢出相同的量）。</li>
+<li><strong><code>baseline</code>:</strong>如果伸缩项目的行内轴与侧轴为同一条，则该值和<code>flex-start</code>等效。其它情况下，该值将参与基线对齐。所有参与该对齐方式的伸缩项目将按下列方式排列：首先将这些伸缩项目的基线进行对齐，随后其中基线至侧轴起点边的外边距距离最长的那个项目将紧靠住该行在侧轴起点的边。</li>
+<li><strong><code>stretch</code>:</strong>如果侧轴长度属性的值为<code>auto</code>，则此值会使项目的外边距盒的尺寸在遵照<code>min/max-width/height</code>属性的限制下尽可能接近所在行的尺寸。</li>
+</ul>
+
+<blockquote>
+  注意：如果伸缩伸缩的高度有限制，此可能导致伸缩项目的内容溢出该项目。
+</blockquote>
+
+<table>
+    <thead>
+        <tr>
+            <th>规范版本</th>
+           <th>属性名称</th>
+            <th>auto</th>
+            <th>start</th>
+            <th>center</th>
+            <th>end</th>
+            <th>baseline</th>
+            <th>stretch</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>标准版本</td>
+            <td>align-self</td>
+            <td>auto</td>
+            <td>flex-start</td>
+            <td>center</td>
+            <td>flex-end</td>
+            <td>baseline</td>
+            <td>stretch</td>
+        </tr>
+        <tr>
+            <td>混合版本</td>
+            <td>flex-item-align</td>
+            <td>auto</td>
+            <td>start</td>
+            <td>center</td>
+            <td>end</td>
+            <td>baseline</td>
+            <td>stretch</td>
+        </tr>
+        <tr>
+            <td>最老版本</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+        </tr>
+    </tbody>
+</table>
+
+<p><strong>注意：<code>float</code>，<code>clear</code>和<code>vertical-align</code>属性在Flex项目中无效</strong></p>
+<p>参考: <a href="http://www.w3cplus.com/css3/a-guide-to-flexbox-new.html">http://www.w3cplus.com/css3/a-guide-to-flexbox-new.html</a></p>
+
+
+
+
+
+
+
+
+</body>
+</html>
