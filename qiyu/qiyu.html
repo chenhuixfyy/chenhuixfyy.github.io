@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+	<title>考勤</title>
+  <link rel="stylesheet" type="text/css" href="../asset/css/style.css">
+	<style type="text/css">
+  *{
+    padding: 0;
+    margin: 0;
+  }
+    html,body{
+      width: 100%;
+      height: 100%;
+    }
+		#qiyu{
+      display: block;
+      width: 100px;
+      height: 50px;
+      line-height: 50px;
+      font-size: 24px;
+      position: relative;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      -webkit-transform: translate(-50%,-50%);
+    }
+	</style>
+	<style type="text/css">
+		
+	</style>
+	<script src="../asset/js/jquery/jquery-1.10.2.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+      $("#qiyu").click(function(){
+        $.ajax({
+          url: 'http://h5.qiyukaoqin.com/api/punch/do?access_token=34B0C2A48AE97E2D&company_id=3F8345C55E63A248&longitude=116.356434&latitude=40.014742&device_id=80FD501B-93C7-47EB-B23B-BCBF686B6091&type=ios',
+          type: 'GET'
+        })
+        .done(function(result) {
+          if(result.code == '1036'){
+            alert('打卡失败，该设备今天已为别人打过卡了');
+          }
+          else{
+            alert("打卡成功")
+          }
+        })
+        .fail(function() {
+          alert("打卡失败");
+        })
+        .always(function() {
+          console.log("complete");
+        });
+        
+      })
+    });
+	</script>
+</head>
+<body>
+	<button id="qiyu">打卡</button>
+</body>
+</html>
