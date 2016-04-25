@@ -7,12 +7,11 @@ $(function () {
     });
 
     var data = Highcharts.geojson(Highcharts.maps['countries/cn/custom/cn-all-china']),small = $('#container').width() < 400;
-    var mapData = [];
+
     // 给城市设置随机数据
     $.each(data, function (i) {
         this.drilldown = this.properties['drill-key'];
         this.value = i;
-        mapData.push({name:this.properties['drill-key'],z:i,value:i})
     });
 	function getPoint(e){
 		console.log(e.point.name);
@@ -43,13 +42,12 @@ $(function () {
                         // 加载城市数据
                         $.ajax({
                             type: "GET",
-                            // url: "http://data.hcharts.cn/jsonp.php?filename=GeoMap/json/"+ e.point.drilldown+".geo.json",
-                            url: "bdjson/"+ e.point.drilldown+".json",
+                            url: "http://data.hcharts.cn/jsonp.php?filename=GeoMap/json/"+ e.point.drilldown+".geo.json",
+                            // url: "json/"+ e.point.drilldown+".geo.json",
                             contentType: "application/json; charset=utf-8",
-                            dataType:'json',
+                            dataType:'jsonp',
                             crossDomain: true,
-                            success: function(json) {  
-                                json = decode(json);   
+                            success: function(json) {   
                                 data = Highcharts.geojson(json);
                                 $.each(data, function (i) {									 
                                     this.value = i;
@@ -147,26 +145,12 @@ $(function () {
 
         series : [{
             data : data,
-            name: '全国地图',
+            name: '中国',
             dataLabels: {
                 enabled: true,
                 format: '{point.properties.cn-name}'
             }
-        },
-        {
-            type: 'mapbubble',
-            mapData: data,
-            name: '全国地图',
-            joinBy: ['drill-key','name'],
-            data: mapData,
-            minSize: 4,
-            maxSize: '8%',
-            tooltip: {
-                pointFormat: '{point.value}'
-            },
-            color: 'rgba(40, 155, 240,.8)'
-        }
-        ],
+        }],
 
         drilldown: {
 					
@@ -255,7 +239,6 @@ function getGithub(){
 // $.getJSON("https://rawgit.com/ecomfe/echarts/master/map/json/province/chongqing.json", function(data){
 //       console.log(decode(data));
 // });
-// 转百度下载的geojson地图数据
 function decode(json) {
     if (!json.UTF8Encoding) {
         return json;
