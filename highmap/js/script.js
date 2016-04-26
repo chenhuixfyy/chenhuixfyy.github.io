@@ -51,11 +51,12 @@ $(function () {
                             success: function(json) {  
                                 json = decode(json);   
                                 data = Highcharts.geojson(json);
+                                var cityData = [];
                                 $.each(data, function (i) {									 
                                     this.value = i;
 									this.events={};
 									this.events.click=getPoint;
-																		
+                                    cityData.push({name:this.name,z:i,value:i})					
                                 });
                                 chart.hideLoading();
 
