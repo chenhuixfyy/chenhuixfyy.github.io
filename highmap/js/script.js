@@ -22,6 +22,7 @@ $(function () {
 		alert(1);
 	}
     function jumpDown(id){
+        console.log(id);
         startMap(id)
     }
     // Show loading
@@ -46,7 +47,8 @@ $(function () {
                     data = Highcharts.geojson(json);
                     $.each(data, function (i) {
                         this.value = i;
-                        this.drilldown = this.name;
+                        this.name = this.name;
+                        this.drilldown = 'cityName';
                         mapData.push({name:this.name,z:i,value:i})
                     });
                     startDrawMap();
@@ -62,10 +64,10 @@ $(function () {
                 this.value = i;
                 mapData.push({name:this.properties['drill-key'],z:i,value:i})
             });
-            startDrawMap();
+            startDrawMap('drill-key');
         }
              
-         function startDrawMap() {
+         function startDrawMap(type) {
             //初始化地图
             $('#container').highcharts('Map', {
                 chart : {
@@ -138,7 +140,7 @@ $(function () {
                 tooltip: { 
                     enabled: true,
                     formatter:function(){
-                         return this.point.name+":"+this.point.value;
+                         return (type?this.point.properties['cn-name']:this.point.name)+":"+this.point.value;
                          
                     }
                     // valuePrefix: '考勤数为',
@@ -209,14 +211,14 @@ $(function () {
                     // enableMouseTracking: false,
                     dataLabels: {
                         enabled: true,
-                        format: '{point.name}'+'<br />{point.value}'
+                        format: (type?'{point.properties.cn-name}':'{point.name}')+'<br />{point.value}'
                     }
                 },
                 {
                     type: 'mapbubble',
                     mapData: data,
                     name: '全国地图',
-                    joinBy: ['name','name'],
+                    joinBy: [type?'drill-key':'name','name'],
                     data: mapData,
                     minSize: 4,
                     maxSize: '8%',
