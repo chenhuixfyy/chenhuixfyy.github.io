@@ -6,185 +6,258 @@ $(function () {
         }
     });
 
-    var data = Highcharts.geojson(Highcharts.maps['countries/cn/custom/cn-all-china']),small = $('#container').width() < 400;
+    /*var data = Highcharts.geojson(Highcharts.maps['countries/cn/custom/cn-all-china']);
+    var small = $('#container').width() < 400;
     var mapData = [];
     // 给城市设置随机数据
     $.each(data, function (i) {
         this.drilldown = this.properties['drill-key'];
         this.value = i;
         mapData.push({name:this.properties['drill-key'],z:i,value:i})
-    });
+    });*/
 	function getPoint(e){
 		console.log(e.point.name);
 	}
 	function getShow(e){
 		alert(1);
 	}
-    //初始化地图
-    $('#container').highcharts('Map', {
-        chart : {
-            events: {
-                drilldown: function (e) {
+    function jumpDown(id){
+        startMap(id)
+    }
+    // Show loading
+    if ($("#container").highcharts()) {
+        $("#container").highcharts().showLoading('<i class="fa fa-spinner fa-spin fa-2x"></i>');
+    }
+    startMap();
+    function startMap(name){
+        if(name){
+            var data=[];
+            var small = $('#container').width() < 400;
+            var mapData=[];
+            $.ajax({
+                type: "GET",
+                // url: "http://data.hcharts.cn/jsonp.php?filename=GeoMap/json/"+ e.point.drilldown+".geo.json",
+                url: "bdjson/"+ name+".json",
+                contentType: "application/json; charset=utf-8",
+                dataType:'json',
+                crossDomain: true,
+                success: function(json) {  
+                    json = decode(json);   
+                    data = Highcharts.geojson(json);
+                    $.each(data, function (i) {
+                        this.value = i;
+                        this.drilldown = this.name;
+                        mapData.push({name:this.name,z:i,value:i})
+                    });
+                    startDrawMap();
+                }
+            });
+        }else{
+            var data = Highcharts.geojson(Highcharts.maps['countries/cn/custom/cn-all-china']);
+            var small = $('#container').width() < 400;
+            var mapData = [];
+            // 给城市设置随机数据
+            $.each(data, function (i) {
+                this.drilldown = this.properties['drill-key'];
+                this.value = i;
+                mapData.push({name:this.properties['drill-key'],z:i,value:i})
+            });
+            startDrawMap();
+        }
+             
+         function startDrawMap() {
+            //初始化地图
+            $('#container').highcharts('Map', {
+                chart : {
+                    /*events: {
+                        drilldown: function (e) {
+                            console.log(e)
+                            if (!e.seriesOptions) {
+                                var chart = this;
+                                      //    mapKey = 'countries/china/' + e.point.drilldown + '-all',
+                                      // fail = setTimeout(function () {
+                                      //       if (!Highcharts.maps[mapKey]) {
+                                      //           chart.showLoading('<i class="icon-frown"></i> 加载失败 ' + e.point.name);
 
-                    if (!e.seriesOptions) {
-                        var chart = this;
-                              /*   mapKey = 'countries/china/' + e.point.drilldown + '-all',
-                              fail = setTimeout(function () {
-                                    if (!Highcharts.maps[mapKey]) {
-                                        chart.showLoading('<i class="icon-frown"></i> 加载失败 ' + e.point.name);
+                                      //           fail = setTimeout(function () {
+                                      //               chart.hideLoading();
+                                      //           }, 1000);
+                                      //       }
+                                      //   }, 10000);
+                                var cname=e.point.properties["cn-name"];
+                                chart.showLoading('<i class="icon-spinner icon-spin icon-3x"></i>');
+                                // 加载城市数据
+                                $.ajax({
+                                    type: "GET",
+                                    // url: "http://data.hcharts.cn/jsonp.php?filename=GeoMap/json/"+ e.point.drilldown+".geo.json",
+                                    url: "bdjson/"+ e.point.drilldown+".json",
+                                    contentType: "application/json; charset=utf-8",
+                                    dataType:'json',
+                                    crossDomain: true,
+                                    success: function(json) {  
+                                        json = decode(json);   
+                                        data = Highcharts.geojson(json);
+                                        var cityData = [];
+                                        $.each(data, function (i) {                                  
+                                            this.value = i;
+                                            this.events={};
+                                            this.events.click=getPoint;
+                                            cityData.push({name:this.name,z:i,value:i})                 
+                                        });
+                                        chart.hideLoading();
 
-                                        fail = setTimeout(function () {
-                                            chart.hideLoading();
-                                        }, 1000);
+                                        chart.addSeriesAsDrilldown(e.point, {
+                                            name: e.point.name,
+                                            data: data,
+                                            events:{
+                                                show:function(){
+                                                    alert(1);
+                                                }
+                                            },
+                                            dataLabels: {
+                                                enabled: true,
+                                                format: '{point.name}'+'<br />{point.value}',
+                                                color: '#fff'
+                                            }
+                                        });
+                                    },
+                                    error: function (XMLHttpRequest, textStatus, errorThrown) {
+
                                     }
-                                }, 10000);*/
-                        var cname=e.point.properties["cn-name"];
-                        chart.showLoading('<i class="icon-spinner icon-spin icon-3x"></i>');
-                        // 加载城市数据
-                        $.ajax({
-                            type: "GET",
-                            // url: "http://data.hcharts.cn/jsonp.php?filename=GeoMap/json/"+ e.point.drilldown+".geo.json",
-                            url: "bdjson/"+ e.point.drilldown+".json",
-                            contentType: "application/json; charset=utf-8",
-                            dataType:'json',
-                            crossDomain: true,
-                            success: function(json) {  
-                                json = decode(json);   
-                                data = Highcharts.geojson(json);
-                                var cityData = [];
-                                $.each(data, function (i) {									 
-                                    this.value = i;
-									this.events={};
-									this.events.click=getPoint;
-                                    cityData.push({name:this.name,z:i,value:i})					
                                 });
-                                chart.hideLoading();
-
-                                chart.addSeriesAsDrilldown(e.point, {
-                                    name: e.point.name,
-                                    data: data,
-									events:{
-										show:function(){
-											alert(1);
-										}
-									},
-                                    dataLabels: {
-                                        enabled: true,
-                                        format: '{point.name}',
-                                        color: '#fff'
-                                    }
-                                });
-                            },
-                            error: function (XMLHttpRequest, textStatus, errorThrown) {
-
                             }
-                        });
-                    }
 
 
-                    this.setTitle(null, { text: cname });
+                            this.setTitle(null, { text: cname });
+                        },
+                        drillup: function () {
+                            this.setTitle(null, { text: '中国' });
+                        }
+                    }*/
                 },
-                drillup: function () {
-                    this.setTitle(null, { text: '中国' });
+                tooltip: { 
+                    enabled: true,
+                    formatter:function(){
+                         return this.point.name+":"+this.point.value;
+                         
+                    }
+                    // valuePrefix: '考勤数为',
+                    // valueSuffix: '次'
+                },
+                credits:{
+                    enabled:false
+                },
+                title : {
+                    text : 'highmap中国地图'
+                },
+
+                subtitle: {
+                    text: '中国',
+                    floating: true,
+                    align: 'right',
+                    y: 50,
+                    style: {
+                        fontSize: '16px'
+                    }
+                },
+
+                legend: small ? {} : {
+                    enabled: false,
+                    layout: 'vertical',
+                    align: 'right',
+                    verticalAlign: 'middle'
+                },
+                //tooltip:{
+                //pointFormat:"{point.properties.cn-name}:{point.value}"
+                //},
+                colorAxis: {
+                    min: 0,
+                    minColor: '#D9E8F3',
+                    maxColor: '#289bf0'
+                },
+
+                mapNavigation: {
+                    enabled: true,
+                    enableDoubleClickZoomTo: false,
+                    buttonOptions: {
+                        verticalAlign: 'bottom'
+                    }
+                },
+
+                plotOptions: {
+                    map: {
+                        states: {
+                            hover: {
+                                color: '#EEDD66'
+                            }
+                        }
+                    },
+                    series:{
+                        events:{
+                            click:function(e) {
+                                // console.log(e.point)
+                                jumpDown(e.point['drilldown']);
+                            }
+                        }
+                    }
+                        
+                },
+
+                series : [{
+                    data : data,
+                    name: '全国地图',
+                    // enableMouseTracking: false,
+                    dataLabels: {
+                        enabled: true,
+                        format: '{point.name}'+'<br />{point.value}'
+                    }
+                },
+                {
+                    type: 'mapbubble',
+                    mapData: data,
+                    name: '全国地图',
+                    joinBy: ['name','name'],
+                    data: mapData,
+                    minSize: 4,
+                    maxSize: '8%',
+                    tooltip: {
+                        headerFormat: '',
+                        pointFormat: '<b>{point.value}</b>',
+                        footerFormat: ''
+                    },
+                    color: 'rgba(40, 155, 240,.8)'
                 }
-            }
-        },
-		tooltip: { 
-			formatter:function(){
-				 return this.point.name+":"+this.point.value;
-				 
-			},
-            // valuePrefix: '考勤数为',
-            // valueSuffix: '次'
-		},
-        credits:{
-        	enabled:false
-        },
-        title : {
-            text : 'highmap中国地图'
-        },
+                ],
 
-        subtitle: {
-            text: '中国',
-            floating: true,
-            align: 'right',
-            y: 50,
-            style: {
-                fontSize: '16px'
-            }
-        },
-
-        legend: small ? {} : {
-		    enabled: false,
-            layout: 'vertical',
-            align: 'right',
-            verticalAlign: 'middle'
-        },
-        //tooltip:{
-        //pointFormat:"{point.properties.cn-name}:{point.value}"
-        //},
-        colorAxis: {
-            min: 0,
-            minColor: '#D9E8F3',
-            maxColor: '#289bf0'
-        },
-
-        mapNavigation: {
-            enabled: true,
-            buttonOptions: {
-                verticalAlign: 'bottom'
-            }
-        },
-
-        plotOptions: {
-            map: {
-                states: {
-                    hover: {
-                        color: '#EEDD66'
+                drilldown: {
+                            
+                    activeDataLabelStyle: {
+                        color: '#FFFFFF',
+                        textDecoration: 'none',
+                        textShadow: '0 0 3px #000000'
+                    },
+                    drillUpButton: {
+                        relativeTo: 'spacingBox',
+                        position: {
+                            x: 0,
+                            y: 60
+                        }
                     }
                 }
-            }
-        },
-
-        series : [{
-            data : data,
-            name: '全国地图',
-            dataLabels: {
-                enabled: true,
-                format: '{point.properties.cn-name}'
-            }
-        },
-        {
-            type: 'mapbubble',
-            mapData: data,
-            name: '全国地图',
-            joinBy: ['drill-key','name'],
-            data: mapData,
-            minSize: 4,
-            maxSize: '8%',
-            tooltip: {
-                pointFormat: '{point.value}'
-            },
-            color: 'rgba(40, 155, 240,.8)'
-        }
-        ],
-
-        drilldown: {
-					
-            activeDataLabelStyle: {
-                color: '#FFFFFF',
-                textDecoration: 'none',
-                textShadow: '0 0 3px #000000'
-            },
-            drillUpButton: {
-                relativeTo: 'spacingBox',
-                position: {
-                    x: 0,
-                    y: 60
-                }
-            }
-        }
-    });
+            });
+         }
+        /*var data = Highcharts.geojson(Highcharts.maps['countries/cn/custom/cn-all-china']);
+        var small = $('#container').width() < 400;
+        var mapData = [];
+        // 给城市设置随机数据
+        $.each(data, function (i) {
+            this.drilldown = this.properties['drill-key'];
+            this.value = i;
+            mapData.push({name:this.properties['drill-key'],z:i,value:i})
+        });*/
+            
+    }
+        
 });
 
 var base64EncodeChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";  
