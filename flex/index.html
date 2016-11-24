@@ -2,9 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>flex分享</title>
-	<link rel="stylesheet" href="styles/reset.css">
-	<link rel="stylesheet" href="styles/style.css">
+	<title>flex</title>
 	<!-- js -->
      <script type= "text/javascript" >
        if (/Android (\d+\.\d+)/.test(navigator.userAgent)){
@@ -25,72 +23,8 @@
          });
        }
      </script> 
-     <script type= "text/javascript" src="js/jquery.1.11.1.js"></script>
-     <script>
-		$(document).ready(function() {
-			$("header select.wrap_change").each(function(index) {
-				var _this = $(this);
-				_this.change(function(event) {
-					var key = (_this.prev().html()).replace(":","");
-					// console.log(_this.val());
-					$(".contain").css(
-						key,_this.val()
-					);
-				});
-			});
-
-
-			$("#setItem2").click(function(event) {
-				$(".item2").css({
-					width: "auto",
-					height: 300,
-					"flex":1,
-					"-webkit-flex":1
-				});
-			});
-			$("#resetItem2").click(function(event) {
-				$(".item2").removeAttr("style");
-			});
-			$("#addItems").click(function(event) {
-				var html = '<div class="item item3">flex项目3</div>\
-							<div class="item item3">flex项目3</div>\
-							<div class="item item3">flex项目3</div>\
-							<div class="item item3">flex项目3</div>\
-							<div class="item item3">flex项目3</div>\
-							<div class="item item3">flex项目3</div>\
-							<div class="item item3">flex项目3</div>\
-							<div class="item item3">flex项目3</div>\
-							<div class="item item3">flex项目3</div>\
-							<div class="item item3">flex项目3</div>\
-							<div class="item item3">flex项目3</div>\
-							<div class="item item3">flex项目3</div>';
-				$(".contain").append(html);
-			});
-			$("#resetItems").click(function(event) {
-				$(".contain .item").slice(2,14).remove();
-			});
-			$("#onlyItem2").change(function(event) {
-				$(".item2").css(
-					"align-self",$(this).val()
-				);
-			});
-			$("#resetAll").click(function(){
-				$(".contain,.item").removeAttr("style");
-				$(".contain .item").slice(2,14).remove();
-			});
-			$("#setOrder").click(function(){
-				$(".item1").css({
-					order: $("#item1_order").val()
-				});
-				$(".item2").css({
-					order: $("#item2_order").val()
-				});
-				$(".item3").css({
-					order: $("#item3_order").val()
-				});
-			})
-		});
-     </script>
+	<link rel="stylesheet" href="styles/reset.css">
+	<link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
 	<header>
@@ -166,5 +100,71 @@
 		<div class="item item2">flex项目2</div>
 		<div class="item item3">flex项目3</div>
 	</div>
+     <script type= "text/javascript" src="js/jquery.1.11.1.js"></script>
+     <script>
+		$(document).ready(function() {
+			$("header select.wrap_change").each(function(index) {
+				var _this = $(this);
+				_this.change(function(event) {
+					var key = (_this.prev().html()).replace(":","");
+					// console.log(_this.val());
+					$(".contain").css(
+						key,_this.val()
+					);
+				});
+			});
+
+
+			$("#setItem2").click(function(event) {
+				$(".item2").css({
+					width: "auto",
+					height: 300,
+					"flex":1,
+					"-webkit-flex":1
+				});
+			});
+			$("#resetItem2").click(function(event) {
+				$(".item2").removeAttr("style");
+			});
+			$("#addItems").click(function(event) {
+				var html = '<div class="item item3">flex项目3</div>\
+							<div class="item item3">flex项目3</div>\
+							<div class="item item3">flex项目3</div>\
+							<div class="item item3">flex项目3</div>\
+							<div class="item item3">flex项目3</div>\
+							<div class="item item3">flex项目3</div>\
+							<div class="item item3">flex项目3</div>\
+							<div class="item item3">flex项目3</div>\
+							<div class="item item3">flex项目3</div>\
+							<div class="item item3">flex项目3</div>\
+							<div class="item item3">flex项目3</div>\
+							<div class="item item3">flex项目3</div>';
+				$(".contain").append(html);
+			});
+			$("#resetItems").click(function(event) {
+				$(".contain .item").slice(2,14).remove();
+			});
+			$("#onlyItem2").change(function(event) {
+				$(".item2").css(
+					"align-self",$(this).val()
+				);
+			});
+			$("#resetAll").click(function(){
+				$(".contain,.item").removeAttr("style");
+				$(".contain .item").slice(3,14).remove();
+			});
+			$("#setOrder").click(function(){
+				$(".item1").css({
+					order: $("#item1_order").val()
+				});
+				$(".item2").css({
+					order: $("#item2_order").val()
+				});
+				$(".item3").css({
+					order: $("#item3_order").val()
+				});
+			})
+		});
+     </script>
 </body>
 </html>

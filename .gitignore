@@ -1,0 +1,11 @@
+
+de_modules
+dist
+test
+.tmp
+.sass-cache
+.idea
+bower_components
+.DS_Store
+npm-debug.log
+
