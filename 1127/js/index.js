@@ -3,11 +3,10 @@ $(function() {
     	box1 = $('.box-1'),
 		pageW=parseInt($('body').width()),
     	pageH=parseInt($('body').height()),
-    	$content = $('.content'),
+    	// $content = $('.content'),
     	page = 0,
     	canSwipe = false,
     	page2Init = true;
-    $('section').css('height',pageH);
     // 音频元素
     var audio_1 = "";
     var audio_2 = "";
@@ -58,11 +57,10 @@ $(function() {
    	})
     // Hammer.js
  	delete Hammer.defaults.cssProps.userSelect;
-    var hammerElement = new Hammer(document.getElementById('wrapper'));
-    hammerElement.get('swipe').set({ direction: Hammer.DIRECTION_VERTICAL });
 
     // 通过判断用户状态来显示不同的起始页
     pageStart = function (type) {
+    	$('section').css('height',pageH);
     	console.log(type)
     	switch (type) {
     		case '1':
@@ -135,40 +133,40 @@ $(function() {
 
 
     				// 彩带动画
-    				TweenMax.to($('.ribbon-1'), 1, {opacity:1,scale:1, x:-60, y:-90, ease: Power4.easeOut, delay:0.1});
-					TweenMax.to($('.ribbon-2'), 1, {opacity:1,scale:1, x:-50, y:-10, ease: Power4.easeOut, delay:0.1});
-					TweenMax.to($('.ribbon-3'), 1, {opacity:1,scale:1, x:100, y:0, ease: Power4.easeOut, delay:0.1});
-					TweenMax.to($('.ribbon-4'), 1, {opacity:1,scale:1, x:-170, y:-10, ease: Power4.easeOut, delay:0.1});
-					TweenMax.to($('.ribbon-5'), 1, {opacity:1,scale:1, x:50, y:-60, ease: Power4.easeOut, delay:0.1});
-					TweenMax.to($('.ribbon-6'), 1, {opacity:1,scale:1, x:140, y:-210, ease: Power4.easeOut, delay:0.1});
-					TweenMax.to($('.ribbon-7'), 1, {opacity:1,scale:1, x:-125, y:-110, ease: Power4.easeOut, delay:0.1});
-					TweenMax.to($('.ribbon-8'), 1, {opacity:1,scale:1, x:-160, y:10, ease: Power4.easeOut, delay:0.1});
-					TweenMax.to($('.ribbon-9'), 1, {opacity:1,scale:1, x:-110, y:-320, ease: Power4.easeOut, delay:0.1});
-					TweenMax.to($('.ribbon-10'), 1, {opacity:1,scale:1, x:80, y:-410, ease: Power4.easeOut, delay:0.1});
-					TweenMax.to($('.ribbon-11'), 1, {opacity:1,scale:1, x:130, y:-300, ease: Power4.easeOut, delay:0.1});
-					TweenMax.to($('.ribbon-12'), 1, {opacity:1,scale:1, x:220, y:-140, ease: Power4.easeOut, delay:0.1});
-					TweenMax.to($('.ribbon-13'), 1, {opacity:1,scale:1, x:130, y:-130, ease: Power4.easeOut, delay:0.1});
-					TweenMax.to($('.ribbon-14'), 1, {opacity:1,scale:1, x:130, y:-70, ease: Power4.easeOut, delay:0.1});
-					TweenMax.to($('.ribbon-15'), 1, {opacity:1,scale:1, x:20, y:50, ease: Power4.easeOut, delay:0.1});
-					TweenMax.to($('.ribbon-16'), 1, {opacity:1,scale:1, x:150, y:50, ease: Power4.easeOut, delay:0.1});
-					TweenMax.to($('.ribbon-17'), 1, {opacity:1,scale:1, x:35, y:-110, ease: Power4.easeOut, delay:0.1});
-					TweenMax.to($('.ribbon-18'), 1, {opacity:1,scale:1, x:270, y:20, ease: Power4.easeOut, delay:0.1});
-					TweenMax.to($('.ribbon-19'), 1, {opacity:1,scale:1, x:95, y:30, ease: Power4.easeOut, delay:0.1});
-					TweenMax.to($('.ribbon-20'), 1, {opacity:1,scale:1, x:-80, y:-40, ease: Power4.easeOut, delay:0.1});
-					TweenMax.to($('.ribbon-21'), 1, {opacity:1,scale:1, x:-165, y:-70, ease: Power4.easeOut, delay:0.1});
-					TweenMax.to($('.ribbon-22'), 1, {opacity:1,scale:1, x:-195, y:10, ease: Power4.easeOut, delay:0.1});
-					TweenMax.to($('.ribbon-23'), 1, {opacity:1,scale:1, x:60, y:-110, ease: Power4.easeOut, delay:0.1});
-					TweenMax.to($('.ribbon-24'), 1, {opacity:1,scale:1, x:240, y:-30, ease: Power4.easeOut, delay:0.1});
-					TweenMax.to($('.ribbon-25'), 1, {opacity:1,scale:1, x:60, y:-35, ease: Power4.easeOut, delay:0.1});
-					TweenMax.to($('.ribbon-26'), 1, {opacity:1,scale:1, x:-90, y:-140, ease: Power4.easeOut, delay:0.1});
-					TweenMax.to($('.ribbon-27'), 1, {opacity:1,scale:1, x:-50, y:-210, ease: Power4.easeOut, delay:0.1});
-					TweenMax.to($('.ribbon-28'), 1, {opacity:1,scale:1, x:-50, y:-80, ease: Power4.easeOut, delay:0.1});
-					TweenMax.to($('.ribbon-29'), 1, {opacity:1,scale:1, x:-120, y:-20, ease: Power4.easeOut, delay:0.1});
-					TweenMax.to($('.ribbon-30'), 1, {opacity:1,scale:1, x:-250, y:-20, ease: Power4.easeOut, delay:0.1});
-					TweenMax.to($('.ribbon-31'), 1, {opacity:1,scale:1, x:-240, y:-130, ease: Power4.easeOut, delay:0.1});
-					TweenMax.to($('.ribbon-32'), 1, {opacity:1,scale:1, x:-135, y:45, ease: Power4.easeOut, delay:0.1});
-					TweenMax.to($('.ribbon-33'), 1, {opacity:1,scale:1, x:-20, y:10, ease: Power4.easeOut, delay:0.1});
-					TweenMax.to($('.ribbon-34'), 1, {opacity:1,scale:1, x:40, y:10, ease: Power4.easeOut, delay:0.1,onComplete:function () {
+    				TweenMax.to($('.ribbon-1'), 1.2, {opacity:1,scale:1, x:-60, y:-90, ease: Power4.easeOut, delay:0.1});
+					TweenMax.to($('.ribbon-2'), 1.2, {opacity:1,scale:1, x:-50, y:-10, ease: Power4.easeOut, delay:0.1});
+					TweenMax.to($('.ribbon-3'), 1.2, {opacity:1,scale:1, x:100, y:0, ease: Power4.easeOut, delay:0.1});
+					TweenMax.to($('.ribbon-4'), 1.2, {opacity:1,scale:1, x:-170, y:-10, ease: Power4.easeOut, delay:0.1});
+					TweenMax.to($('.ribbon-5'), 1.2, {opacity:1,scale:1, x:50, y:-60, ease: Power4.easeOut, delay:0.1});
+					TweenMax.to($('.ribbon-6'), 1.2, {opacity:1,scale:1, x:140, y:-210, ease: Power4.easeOut, delay:0.1});
+					TweenMax.to($('.ribbon-7'), 1.2, {opacity:1,scale:1, x:-125, y:-110, ease: Power4.easeOut, delay:0.1});
+					TweenMax.to($('.ribbon-8'), 1.2, {opacity:1,scale:1, x:-160, y:10, ease: Power4.easeOut, delay:0.1});
+					TweenMax.to($('.ribbon-9'), 1.2, {opacity:1,scale:1, x:-110, y:-320, ease: Power4.easeOut, delay:0.1});
+					TweenMax.to($('.ribbon-10'), 1.2, {opacity:1,scale:1, x:80, y:-410, ease: Power4.easeOut, delay:0.1});
+					TweenMax.to($('.ribbon-11'), 1.2, {opacity:1,scale:1, x:130, y:-300, ease: Power4.easeOut, delay:0.1});
+					TweenMax.to($('.ribbon-12'), 1.2, {opacity:1,scale:1, x:220, y:-140, ease: Power4.easeOut, delay:0.1});
+					TweenMax.to($('.ribbon-13'), 1.2, {opacity:1,scale:1, x:130, y:-130, ease: Power4.easeOut, delay:0.1});
+					TweenMax.to($('.ribbon-14'), 1.2, {opacity:1,scale:1, x:130, y:-70, ease: Power4.easeOut, delay:0.1});
+					TweenMax.to($('.ribbon-15'), 1.2, {opacity:1,scale:1, x:20, y:50, ease: Power4.easeOut, delay:0.1});
+					TweenMax.to($('.ribbon-16'), 1.2, {opacity:1,scale:1, x:150, y:50, ease: Power4.easeOut, delay:0.1});
+					TweenMax.to($('.ribbon-17'), 1.2, {opacity:1,scale:1, x:35, y:-110, ease: Power4.easeOut, delay:0.1});
+					TweenMax.to($('.ribbon-18'), 1.2, {opacity:1,scale:1, x:270, y:20, ease: Power4.easeOut, delay:0.1});
+					TweenMax.to($('.ribbon-19'), 1.2, {opacity:1,scale:1, x:95, y:30, ease: Power4.easeOut, delay:0.1});
+					TweenMax.to($('.ribbon-20'), 1.2, {opacity:1,scale:1, x:-80, y:-40, ease: Power4.easeOut, delay:0.1});
+					TweenMax.to($('.ribbon-21'), 1.2, {opacity:1,scale:1, x:-165, y:-70, ease: Power4.easeOut, delay:0.1});
+					TweenMax.to($('.ribbon-22'), 1.2, {opacity:1,scale:1, x:-195, y:10, ease: Power4.easeOut, delay:0.1});
+					TweenMax.to($('.ribbon-23'), 1.2, {opacity:1,scale:1, x:60, y:-110, ease: Power4.easeOut, delay:0.1});
+					TweenMax.to($('.ribbon-24'), 1.2, {opacity:1,scale:1, x:240, y:-30, ease: Power4.easeOut, delay:0.1});
+					TweenMax.to($('.ribbon-25'), 1.2, {opacity:1,scale:1, x:60, y:-35, ease: Power4.easeOut, delay:0.1});
+					TweenMax.to($('.ribbon-26'), 1.2, {opacity:1,scale:1, x:-90, y:-140, ease: Power4.easeOut, delay:0.1});
+					TweenMax.to($('.ribbon-27'), 1.2, {opacity:1,scale:1, x:-50, y:-210, ease: Power4.easeOut, delay:0.1});
+					TweenMax.to($('.ribbon-28'), 1.2, {opacity:1,scale:1, x:-50, y:-80, ease: Power4.easeOut, delay:0.1});
+					TweenMax.to($('.ribbon-29'), 1.2, {opacity:1,scale:1, x:-120, y:-20, ease: Power4.easeOut, delay:0.1});
+					TweenMax.to($('.ribbon-30'), 1.2, {opacity:1,scale:1, x:-250, y:-20, ease: Power4.easeOut, delay:0.1});
+					TweenMax.to($('.ribbon-31'), 1.2, {opacity:1,scale:1, x:-240, y:-130, ease: Power4.easeOut, delay:0.1});
+					TweenMax.to($('.ribbon-32'), 1.2, {opacity:1,scale:1, x:-135, y:45, ease: Power4.easeOut, delay:0.1});
+					TweenMax.to($('.ribbon-33'), 1.2, {opacity:1,scale:1, x:-20, y:10, ease: Power4.easeOut, delay:0.1});
+					TweenMax.to($('.ribbon-34'), 1.2, {opacity:1,scale:1, x:40, y:10, ease: Power4.easeOut, delay:0.1,onComplete:function () {
 						// myAudio.src='media/bgm.mp3';
 						$('#musicControl').show().find('a').addClass('on');
 						// $('#musicfx').attr('loop','loop');
@@ -181,23 +179,30 @@ $(function() {
 
 
 	    			// 文字标题出现动画
-	    			TweenMax.to($('.text-1'), 1, {opacity:1, delay:1});
-	    			TweenMax.to($('.text-2'), 1, {opacity:1, delay:1.5,onComplete:function () {
+	    			// TweenMax.to($('.text-1'), 1, {opacity:1, delay:1});
+	    			TweenMax.fromTo($('.text-1'), 1,{opacity:0, scale:0,top:500}, {opacity:1, scale:1, delay:1.2,top:0, ease: Elastic.easeOut});
+	    			TweenMax.fromTo($('.text-2'), 1, {opacity:0, scale:0,top:500}, {opacity:1, scale:1, delay:1.8,top:0, ease: Elastic.easeOut,onComplete:function () {
 	    				canSwipe = true;
 
 	    				// 不手动话的话5秒后自动滑到第二页
 	    				setTimeout(function () {
     						if(canSwipe&&page2Init){
 	    						page++;
-						        $content.css({
-						        	'-webkit-transition':'-webkit-transform 1s ease-in-out',
-						            'transition':'transform 1s ease-in-out',
-						            '-webkit-transform' : 'translate3d(0, -'+ page*pageH +'px, 0)',
-						            'transform' : 'translate3d(0, -'+ page*pageH +'px, 0)'
+
+						        $('.section-2').css({
+						        	'z-index': '3',
+						        	opacity: '0'
 						        });
-						       	$('.section',$content).removeClass('page-active').eq(page).addClass('page-active');
-			    					animationAll.page2();
-			    				}
+						        TweenMax.to($('.section-2'), 1, {opacity:1,onComplete:function () {
+							       	$('.section-1').css({
+							       		'z-index': '1'
+							       	});
+							        $('.section-2').css({
+							        	'z-index': '2'
+							        });
+						       		animationAll.page2();
+						        }});
+			    			}
 	    				},5000);
 	    			}});
 			    });
@@ -210,23 +215,24 @@ $(function() {
 
     		canSwipe = false;
     		page2Init = false;
-		 	TweenMax.to($('.barrage-rocket'), 10, {left:-pageW*2, delay:1.5});
-		 	TweenMax.to($barrageItem.eq(0), 8, {left:-pageW*2});
-			TweenMax.to($barrageItem.eq(1), 8, {left:-pageW*2, delay:0.5});
-			TweenMax.to($barrageItem.eq(2), 8, {left:-pageW*2, delay:0.8});
-			TweenMax.to($barrageItem.eq(3), 8, {left:-pageW*3, delay:3});
-			TweenMax.to($barrageItem.eq(4), 8, {left:-pageW*4, delay:1});
-			TweenMax.to($barrageItem.eq(5), 8, {left:-pageW*2, delay:1.5});
-			TweenMax.to($barrageItem.eq(6), 8, {left:-pageW*2, delay:1.2});
-			TweenMax.to($barrageItem.eq(7), 8, {left:-pageW*2, delay:3});
-			TweenMax.to($barrageItem.eq(8), 8, {left:-pageW*4, delay:1.5});
-			TweenMax.to($barrageItem.eq(9), 8, {left:-pageW*3, delay:0.8});
-			TweenMax.to($barrageItem.eq(10), 8, {left:-pageW*2, delay:1});
-		 	TweenMax.to($('.barrage-bird'), 10, {left:-pageW*2, delay:2});
-		 	TweenMax.to($('.barrage-card'), 3, {left:'50%', delay:4,onComplete:function () {
+		 	TweenMax.to($barrageItem.eq(0), 10, {left:-580, yoyo:false, repeat:1});
+			TweenMax.to($barrageItem.eq(1), 8, {left:-650, yoyo:false, repeat:1, delay:3});
+			TweenMax.to($barrageItem.eq(2), 12, {left:-570, yoyo:false, repeat:1, delay:1});
+			TweenMax.to($barrageItem.eq(3), 8, {left:-1300, yoyo:false, repeat:1, delay:3});
+			TweenMax.to($barrageItem.eq(4), 10, {left:-2081, yoyo:false, repeat:1, delay:4});
+			TweenMax.to($barrageItem.eq(5), 12, {left:-696, yoyo:false, repeat:1, delay:0.5});
+			TweenMax.to($barrageItem.eq(6), 8, {left:-548, yoyo:false, repeat:1, delay:1});
+			TweenMax.to($barrageItem.eq(7), 8, {left:-111, yoyo:false, repeat:1, delay:1});
+			TweenMax.to($barrageItem.eq(8), 10, {left:-1524, yoyo:false, repeat:1, delay:1.5});
+			TweenMax.to($barrageItem.eq(9), 6, {left:-309, yoyo:false, repeat:1, delay:4});
+
+			// 第二轮出现
+		 	TweenMax.to($('.barrage-rocket'), 10, {left:-pageW*2, delay:13});
+		 	TweenMax.to($('.barrage-bird'), 10, {left:-pageW*2, delay:12});
+		 	TweenMax.to($('.barrage-card'), 3, {left:'50%', delay:18,onComplete:function () {
 	 			$('.barrage-card').addClass('shadow');
 		 	}});
-		 	TweenMax.to($('.barrage-help'), 3, {left:'50%', delay:5,onComplete:function () {
+		 	TweenMax.to($('.barrage-help'), 3, {left:'50%', delay:18,onComplete:function () {
 		 			$('.barrage-help').addClass('shadow');
 			 		// 引导分享
 					new Hammer(document.getElementsByClassName('barrage-help')[0]).on('tap', function(ev) {
@@ -299,21 +305,28 @@ $(function() {
     // hammerElement.get('rotate').set({
     //     enable: true
     // });
+    var hammerElement = new Hammer(document.getElementById('wrapper'));
+    hammerElement.get('swipe').set({ direction: Hammer.DIRECTION_VERTICAL });
     hammerElement.on('swipeup', function(ev) {
     	if(canSwipe){
     		page++;
 	        if(page<2){
-		        $content.css({
-		        	'-webkit-transition':'-webkit-transform 1s ease-in-out',
-		            'transition':'transform 1s ease-in-out',
-		            '-webkit-transform' : 'translate3d(0, -'+ page*pageH +'px, 0)',
-		            'transform' : 'translate3d(0, -'+ page*pageH +'px, 0)'
+		        $('.section-2').css({
+		        	'z-index': '3',
+		        	opacity: '0'
 		        });
-		       	$('.section',$content).removeClass('page-active').eq(page).addClass('page-active');
-		       	// canSwipe = false;
-		       	if(page2Init){
-		       		animationAll.page2();
-		       	}
+		        TweenMax.to($('.section-2'), 1, {opacity:1,onComplete:function () {
+			       	$('.section-1').css({
+			       		'z-index': '1'
+			       	});
+			        $('.section-2').css({
+			        	'z-index': '2'
+			        });
+			       	if(page2Init){
+			       		animationAll.page2();
+			       	}
+		        }});
+		       	// $('.section',$content).removeClass('page-active').eq(page).addClass('page-active');
 		       	
 	        }else{
 	        	page = 1;
@@ -327,13 +340,18 @@ $(function() {
     	if(canSwipe){
 	    	page--;
 	        if(page>-1){
-		        $content.css({
-		        	'-webkit-transition':'-webkit-transform 1s ease-in-out',
-		            'transition':'transform 1s ease-in-out',
-		            '-webkit-transform' : 'translate3d(0, -'+ page*pageH +'px, 0)',
-		            'transform' : 'translate3d(0, -'+ page*pageH +'px, 0)'
+		        $('.section-1').css({
+		        	'z-index': '3',
+		        	opacity: '0'
 		        });
-		       	$('.section',$content).removeClass('page-active').eq(page).addClass('page-active');
+		        TweenMax.to($('.section-1'), 1, {opacity:1,onComplete:function () {
+			       	$('.section-2').css({
+			       		'z-index': '1'
+			       	});
+			        $('.section-1').css({
+			        	'z-index': '2'
+			        });
+		        }});
 	        }else{
 	        	page = 0;
 	        }
