@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta name="wap-font-scale" content="no">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <!-- <script type="text/javascript" src="js/flexible_css.debug.js"></script>
+    <script type="text/javascript" src="js/flexible.debug.js"></script> -->
+    <!-- js -->
+     <script type= "text/javascript" >
+       if (/Android (\d+\.\d+)/.test(navigator.userAgent)){
+         var  version = parseFloat(RegExp.$1);
+         if (version>2.3){
+           var  phoneScale = parseInt(window.screen.width)/640;
+           document.write( '<meta name="viewport" content="width=640, minimum-scale = ' + phoneScale + ', maximum-scale = ' + phoneScale + ', target-densitydpi=device-dpi">' );
+         } else {
+           document.write( '<meta name="viewport" content="width=640, target-densitydpi=device-dpi">' );
+         }
+       } else {
+         document.write( '<meta name="viewport" content="width=640, user-scalable=no, target-densitydpi=device-dpi">' );
+       }
+       //微信去掉下方刷新栏
+       if (navigator.userAgent.indexOf( 'MicroMessenger' ) >= 0){
+         document.addEventListener( 'WeixinJSBridgeReady' ,  function () {
+           //WeixinJSBridge.call('hideToolbar');
+         });
+       }
+     </script>
+    <title>助力赚流量</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- <link rel="shortcut icon" href="./favicon.ico">
+    <link rel="Bookmark" href="./favicon.ico"> -->
+</head>
+<body>
+    <!-- loading -->
+    <div class="loading-page" id="loading">
+        <div class="loading center">
+            
+        </div>
+        <p id="percent" class="percent"></p>
+    </div>
+    <!-- 内容 -->
+    <div id="wrapper" class="wrapper">
+        <div class="content">
+            <section class="section section-1">
+                <!-- 文字标题 -->
+                <div class="text-title">
+                    <div class="text-1"></div>
+                    <div class="text-2"></div>
+                </div>
+                <div class="box-wrap">
+                    <!-- 第一屏初始盒子状态 -->
+                    <div class="page-box-1">
+                        <div class="box-1"></div>
+                        <div class="box-1-sd"></div>
+                    </div>
+                    <!-- 第一屏盒子展开动画 -->
+                    <div class="page-box-2">
+                        
+
+                        <!-- 盒子盖子 -->
+                        <div class="box-top">
+                            <div class="box-top-main"></div>
+                        </div>
+
+                        <div class="ribbon-wrap">
+                            <span class="ribbon ribbon-1"></span>
+                            <span class="ribbon ribbon-2"></span>
+                            <span class="ribbon ribbon-3"></span>
+                            <span class="ribbon ribbon-4"></span>
+                            <span class="ribbon ribbon-5"></span>
+                            <span class="ribbon ribbon-6"></span>
+                            <span class="ribbon ribbon-7"></span>
+                            <span class="ribbon ribbon-8"></span>
+                            <span class="ribbon ribbon-9"></span>
+                            <span class="ribbon ribbon-10"></span>
+                            <span class="ribbon ribbon-11"></span>
+                            <span class="ribbon ribbon-12"></span>
+                            <span class="ribbon ribbon-13"></span>
+                            <span class="ribbon ribbon-14"></span>
+                            <span class="ribbon ribbon-15"></span>
+                            <span class="ribbon ribbon-16"></span>
+                            <span class="ribbon ribbon-17"></span>
+                            <span class="ribbon ribbon-18"></span>
+                            <span class="ribbon ribbon-19"></span>
+                            <span class="ribbon ribbon-20"></span>
+                            <span class="ribbon ribbon-21"></span>
+                            <span class="ribbon ribbon-22"></span>
+                            <span class="ribbon ribbon-23"></span>
+                            <span class="ribbon ribbon-24"></span>
+                            <span class="ribbon ribbon-25"></span>
+                            <span class="ribbon ribbon-26"></span>
+                            <span class="ribbon ribbon-27"></span>
+                            <span class="ribbon ribbon-28"></span>
+                            <span class="ribbon ribbon-29"></span>
+                            <span class="ribbon ribbon-30"></span>
+                            <span class="ribbon ribbon-31"></span>
+                            <span class="ribbon ribbon-32"></span>
+                            <span class="ribbon ribbon-33"></span>
+                            <span class="ribbon ribbon-34"></span>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+            <section class="section section-2">
+                <!-- 活动规则 -->
+                <a href="javascript:void(0)" class="active-prize">活动奖品</a>
+                <!-- 弹幕 -->
+                <div class="barrage-wrap">
+                    <span class="barrage-rocket">
+                        <img src="images/barrage-rocket.png" alt="">
+                    </span>
+                    <span class="barrage-item barrage-1">
+                        <img src="images/barrage-1.png" alt="">
+                    </span>
+                    <span class="barrage-item barrage-2">
+                        <img src="images/barrage-2.png" alt="">
+                    </span>
+                    <span class="barrage-item barrage-3">
+                        <img src="images/barrage-3.png" alt="">
+                    </span>
+                    <span class="barrage-item barrage-4">
+                        <img src="images/barrage-4.png" alt="">
+                    </span>
+                    <span class="barrage-item barrage-5">
+                        <img src="images/barrage-5.png" alt="">
+                    </span>
+                    <span class="barrage-item barrage-6">
+                        <img src="images/barrage-6.png" alt="">
+                    </span>
+                    <span class="barrage-item barrage-7">
+                        <img src="images/barrage-7.png" alt="">
+                    </span>
+                    <span class="barrage-item barrage-8">
+                        <img src="images/barrage-8.png" alt="">
+                    </span>
+                    <span class="barrage-item barrage-9">
+                        <img src="images/barrage-9.png" alt="">
+                    </span>
+                    <span class="barrage-item barrage-10">
+                        <img src="images/barrage-10.png" alt="">
+                    </span>
+                    <span class="barrage-help">
+                        <img src="images/barrage-help.png" alt="">
+                    </span>
+                    <span class="barrage-card">
+                        <img src="images/barrage-card.png" alt="">
+                    </span>
+                    <span class="barrage-bird">
+                        <img src="images/barrage-bird.png" alt="">
+                    </span>
+                    <!-- 手型 -->
+                    <span class="hand"></span>
+                </div>
+                <!-- 模拟送礼物按钮 -->
+                <div class="page2-icon">
+                    
+                </div>
+            </section>
+            <!-- <section class="section section-3">
+            3
+            </section>
+            <section class="section section-4">
+            4
+            </section>
+            <section class="section section-5">
+            5
+            </section> -->
+        </div>
+        
+    </div>
+    <!-- 各种弹层 -->
+    <div class="popup-wrap">
+        <!-- 活动奖品 -->
+        <div class="popup popup-prize" id="popup-prize">
+            
+        </div>
+        <!-- 引导分享 -->
+        <div class="popup popup-share" id="popup-share">
+            
+        </div>
+        <!-- 心愿卡 -->
+        <div class="popup popup-card" id="popup-card">
+            
+            <div class="heart-wrap total-1">
+                <span class="heart-1"></span>
+                <span class="heart-2"></span>
+                <span class="heart-3"></span>
+            </div>
+            <div class="btn-wrap">
+                <a href="javascript:void(0)" class="light"></a>
+                <a href="javascript:void(0)" class="get"></a>
+            </div>
+        </div>
+        <!-- 二维码 -->
+        <div class="popup popup-code" id="popup-code">
+            <img src="images/qrcode.png" alt="">
+        </div>
+    </div>
+    <!-- 音效 -->
+
+    <audio id="musicfx" preload="load">
+        <source src="media/duang.mp3">
+    </audio>
+
+    <!-- 音效控制 -->
+    <span id="musicControl">
+        <a id="mc_play" class="stop">
+        </a>
+    </span>
+    <script>
+        window.pageStart = null;
+        function loading (imageUrls, callback, progress) {
+            var loaded = 0;
+            var count = imageUrls.length;
+
+            loadImage(loaded);
+
+            function loadImage(index) {
+                if (index < count) {
+                    if(imageUrls[index].indexOf('mp3')>-1){
+                        // 音频加载
+                        var aud = new Audio();
+                        aud.onloadedmetadata = function() {
+                            loaded++;
+                            if (progress) { progress(Math.round(loaded/count*100)+'%'); }
+                            loadImage(loaded);
+                        }
+                        aud.onerror = function() {
+                            loaded++;
+                            if (progress) { progress(Math.round(loaded/count*100)+'%'); }
+                            loadImage(loaded);
+                        }
+                        aud.src = imageUrls[index];
+                    }else{
+                        var img = new Image();
+                        img.onload = function() {
+                            loaded++;
+                            if (progress) { progress(Math.round(loaded/count*100)+'%'); }
+                            loadImage(loaded);
+                        }
+                        img.onerror = function() {
+                            loaded++;
+                            if (progress) { progress(Math.round(loaded/count*100)+'%'); }
+                            loadImage(loaded);
+                        }
+                        img.src = imageUrls[index];
+                    }
+                } else {
+                    callback();
+                }
+            }
+        }
+        var imageUrls = [
+            'media/bgm.mp3',
+            'media/boom.mp3',
+            'media/duang.mp3',
+            'media/heart.mp3',
+            'images/barrage-1.png',
+            'images/barrage-2.png',
+            'images/barrage-3.png',
+            'images/barrage-4.png',
+            'images/barrage-5.png',
+            'images/barrage-6.png',
+            'images/barrage-7.png',
+            'images/barrage-8.png',
+            'images/barrage-9.png',
+            'images/barrage-10.png',
+            'images/barrage-bird.png',
+            'images/barrage-help.png',
+            'images/barrage-card.png',
+            'images/barrage-rocket.png',
+            'images/box-1-sd.png',
+            'images/box-1.png',
+            'images/box-top-sd.png',
+            'images/box-top.png',
+            'images/card-bg.jpg',
+            'images/get.png',
+            'images/hand.png',
+            'images/heart-w.png',
+            'images/heart-r.png',
+            'images/light.png',
+            'images/mcbg.png',
+            'images/page-1-bg.jpg',
+            'images/page-2-bg.jpg',
+            'images/page2-icon.png',
+            'images/prize-details.jpg',
+            'images/prize.png',
+            'images/qrcode.png',
+            'images/ribbon-1.png',
+            'images/ribbon-2.png',
+            'images/ribbon-3.png',
+            'images/ribbon-4.png',
+            'images/ribbon-5.png',
+            'images/ribbon-6.png',
+            'images/ribbon-7.png',
+            'images/ribbon-8.png',
+            'images/ribbon-9.png',
+            'images/ribbon-10.png',
+            'images/ribbon-11.png',
+            'images/ribbon-12.png',
+            'images/ribbon-13.png',
+            'images/ribbon-14.png',
+            'images/ribbon-15.png',
+            'images/ribbon-16.png',
+            'images/ribbon-17.png',
+            'images/ribbon-18.png',
+            'images/ribbon-19.png',
+            'images/ribbon-20.png',
+            'images/ribbon-21.png',
+            'images/ribbon-22.png',
+            'images/ribbon-23.png',
+            'images/ribbon-24.png',
+            'images/ribbon-25.png',
+            'images/ribbon-26.png',
+            'images/ribbon-27.png',
+            'images/ribbon-28.png',
+            'images/ribbon-29.png',
+            'images/ribbon-30.png',
+            'images/ribbon-31.png',
+            'images/ribbon-32.png',
+            'images/ribbon-33.png',
+            'images/ribbon-34.png',
+            'images/share.png',
+            'images/text-1.png',
+            'images/text-2.png',
+        ];
+        
+
+        loading(imageUrls, initGame, function(percent) {
+            // console.log(percent);
+            document.getElementById('percent').innerHTML = percent;
+        });
+
+        function initGame() {
+            // document.getElementById('wrapper').style.display = 'block';
+            // 判断用户状态后显示
+            document.getElementById('loading').style.display = 'none';
+            pageStart('1');//1-已关注且首次点心，2-未关注，3-已关注且点心，提示助力成功？
+        }
+    </script>
+    <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="js/hammer.min.js"></script>
+    <script type="text/javascript" src="js/TweenMax.min.js"></script>
+    <!-- <script type="text/javascript" src="js/jquery.fullPage.min.js"></script> -->
+    <script type="text/javascript" src="js/index.js"></script>
+</body>
+</html>
