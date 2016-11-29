@@ -204,7 +204,7 @@
 						       		animationAll.page2();
 						        }});
 			    			}
-	    				},5000);
+	    				},2500);
 	    			}});
 			    });
 			    
@@ -216,23 +216,44 @@
 
     		canSwipe = false;
     		page2Init = false;
-		 	TweenMax.to($barrageItem.eq(0), 10, {left:-580, yoyo:false, repeat:1, ease: Power0.easeNone});
-			TweenMax.to($barrageItem.eq(1), 8, {left:-650, yoyo:false, repeat:1, ease: Power0.easeNone, delay:3});
-			TweenMax.to($barrageItem.eq(2), 12, {left:-570, yoyo:false, repeat:1, ease: Power0.easeNone, delay:1});
-			TweenMax.to($barrageItem.eq(3), 8, {left:-1300, yoyo:false, repeat:1, ease: Power0.easeNone, delay:3});
-			TweenMax.to($barrageItem.eq(4), 10, {left:-2081, yoyo:false, repeat:1, ease: Power0.easeNone, delay:4});
-			TweenMax.to($barrageItem.eq(5), 12, {left:-696, yoyo:false, repeat:1, ease: Power0.easeNone, delay:0.5});
-			TweenMax.to($barrageItem.eq(6), 8, {left:-548, yoyo:false, repeat:1, ease: Power0.easeNone, delay:1});
-			TweenMax.to($barrageItem.eq(7), 8, {left:-111, yoyo:false, repeat:1, ease: Power0.easeNone, delay:1});
-			TweenMax.to($barrageItem.eq(8), 10, {left:-1524, yoyo:false, repeat:1, ease: Power0.easeNone, delay:1.5});
-			TweenMax.to($barrageItem.eq(9), 6, {left:-309, yoyo:false, repeat:1, ease: Power0.easeNone, delay:4});
+    		// return;
+		 	TweenMax.to($barrageItem.eq(0), 9, {left:-580, ease: Power0.easeNone, onComplete:function () {
+		 		TweenMax.fromTo($barrageItem.eq(0), 9, {top:615,left:'100%'}, {left:-580});
+		 	}});
+			TweenMax.to($barrageItem.eq(1), 7, {left:-804, ease: Power0.easeNone, delay:3, onComplete:function () {
+		 		TweenMax.fromTo($barrageItem.eq(1), 7, {top:308,left:'100%'}, {left:-804, delay:3});
+		 	}});
+			TweenMax.to($barrageItem.eq(2), 11, {left:-570, ease: Power0.easeNone, delay:1, onComplete:function () {
+		 		TweenMax.fromTo($barrageItem.eq(2), 11, {top:575,left:'100%'}, {left:-570, delay:0.5});
+		 	}});
+			TweenMax.to($barrageItem.eq(3), 7, {left:-1300, ease: Power0.easeNone, delay:3, onComplete:function () {
+		 		TweenMax.fromTo($barrageItem.eq(3), 7, {top:450,left:'100%'}, {left:-1300, delay:3});
+		 	}});
+			TweenMax.to($barrageItem.eq(4), 9, {left:-1041, ease: Power0.easeNone, delay:4, onComplete:function () {
+		 		TweenMax.fromTo($barrageItem.eq(4), 9, {top:670,left:'100%'}, {left:-1041});
+		 	}});
+			TweenMax.to($barrageItem.eq(5), 11, {left:-696, ease: Power0.easeNone, delay:0.5, onComplete:function () {
+		 		TweenMax.fromTo($barrageItem.eq(5), 11, {top:400,left:'100%'}, {left:-696, delay:0.5});
+		 	}});
+			TweenMax.to($barrageItem.eq(6), 7, {left:-548, ease: Power0.easeNone, delay:1, onComplete:function () {
+		 		TweenMax.fromTo($barrageItem.eq(6), 7, {top:200,left:'100%'}, {left:-548, delay:1});
+		 	}});
+			TweenMax.to($barrageItem.eq(7), 7, {left:-111, ease: Power0.easeNone, delay:1, onComplete:function () {
+		 		TweenMax.fromTo($barrageItem.eq(7), 7, {top:350,left:'100%'}, {left:-111, delay:0.5});
+		 	}});
+			TweenMax.to($barrageItem.eq(8), 9, {left:-1524, ease: Power0.easeNone, delay:1.5, onComplete:function () {
+		 		TweenMax.fromTo($barrageItem.eq(8), 9, {top:520,left:'100%'}, {left:-1524});
+		 	}});
+			TweenMax.to($barrageItem.eq(9), 5, {left:-309, ease: Power0.easeNone, delay:4, onComplete:function () {
+		 		TweenMax.fromTo($barrageItem.eq(9), 5, {top:250,left:'100%'}, {left:-309, delay:3});
+		 	}});
 
 			// 火箭和乌鸦
-		 	TweenMax.to($('.barrage-rocket'), 10, {left:-627, delay:3,onComplete:function () {
-		 		TweenMax.fromTo($('.barrage-rocket'), 10, {top:740,left:'100%'}, {left:-627, delay:3});
+		 	TweenMax.to($('.barrage-rocket'), 9, {left:-627, delay:2,onComplete:function () {
+		 		TweenMax.fromTo($('.barrage-rocket'), 9, {top:740,left:'100%'}, {left:-627, delay:1});
 		 	}});
-		 	TweenMax.to($('.barrage-bird'), 10, {left:-170, delay:2,onComplete:function () {
-		 		TweenMax.fromTo($('.barrage-bird'), 10, {top:100,left:'100%'}, {left:-170, delay:2});
+		 	TweenMax.to($('.barrage-bird'), 9, {left:-170, delay:2,onComplete:function () {
+		 		TweenMax.fromTo($('.barrage-bird'), 9, {top:100,left:'100%'}, {left:-170, delay:0.5});
 		 	}});
 			// 第二轮出现
 		 	TweenMax.to($('.barrage-card'), 3, {left:'50%', delay:18,onComplete:function () {
