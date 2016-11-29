@@ -60,7 +60,7 @@ $(function() {
 
     // 通过判断用户状态来显示不同的起始页
     pageStart = function (type) {
-    	$('section').css('height',pageH);
+    	// $('section').css('height',pageH);
     	console.log(type)
     	switch (type) {
     		case '1':
