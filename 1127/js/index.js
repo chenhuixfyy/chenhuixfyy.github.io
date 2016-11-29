@@ -9,23 +9,52 @@ $(function() {
     	page2Init = true;
     $('section').css('height',pageH);
     // 音频元素
-    var myAudio = $('#musicfx').get(0),
-    	mcPlay = $('#mc_play');
+    var audio_1 = "";
+    var audio_2 = "";
+    var audio_3 = "";
+	var audio_4 = "";
+	function musicPlay(){
+		audio_1 = document.createElement("audio");
+		audio_1.src = "media/bgm.mp3";
+		audio_1.loop = true;
+		audio_1.load();
+		$(".audio_wrap").append(audio_1);
+		
+
+		audio_2 = document.createElement("audio");
+		audio_2.src = "media/duang.mp3";
+		audio_2.load();
+		$(".audio_wrap").append(audio_2);
+		
+		audio_3 = document.createElement("audio");
+		audio_3.src = "media/boom.mp3";
+		audio_3.load();
+		$(".audio_wrap").append(audio_3);
+		
+		audio_4 = document.createElement("audio");
+		audio_4.src = "media/heart.mp3";
+		audio_4.loop = true;
+		audio_4.load();
+		$(".audio_wrap").append(audio_4);
+		
+	}
+	
+	musicPlay();
+
+
+
+
+
+    // var myAudio = $('#musicfx').get(0),
+    var	mcPlay = $('#mc_play');
    	new Hammer(document.getElementById('mc_play')).on('tap',function (ev) {
         if (mcPlay.hasClass('on')){
-            myAudio.pause();
+            audio_1.pause();
             mcPlay.attr('class','stop');
         }else{
-            myAudio.play();
+            audio_1.play();
             mcPlay.attr('class','on');
         }
-        // if(myAudio.paused){
-        //     myAudio.play();
-        //     mcPlay.attr('class','on');
-        // }else{
-        //     myAudio.pause();
-        //     mcPlay.attr('class','stop');
-        // }
    	})
     // Hammer.js
  	delete Hammer.defaults.cssProps.userSelect;
@@ -38,9 +67,10 @@ $(function() {
     	switch (type) {
     		case '1':
 		    	// case1-已关注且首次点心
-				myAudio.src='media/heart.mp3';
-				$('#musicfx').attr('loop','loop');
-	        	myAudio.play();
+				// myAudio.src='media/heart.mp3';
+				// $('#musicfx').attr('loop','loop');
+	    		//myAudio.play();
+            	audio_4.play();
 		    	$('.popup-wrap,.popup-card').show();
 		    	$('.popup-card').addClass('unbind');
 		    	$('.popup-card a').css('display','block');
@@ -74,13 +104,13 @@ $(function() {
 			// myAudio.src='media/duang.mp3';
     		//myAudio.play();
 
-            var startAudio = new Audio();
-			startAudio.src = 'media/duang.mp3';
-			startAudio.autoplay = true;
-			startAudio.play();
-			// myAudio.addEventListener('canplaythrough',function() {
-             	// myAudio.play();
-			// })
+   			//var startAudio = new Audio();
+			// startAudio.src = 'media/duang.mp3';
+			// startAudio.autoplay = true;
+			// startAudio.play();
+			
+			audio_2.play();
+
     		TweenMax.to(box1, 2, {left:'50%', opacity:1, ease: Elastic.easeOut,onComplete:function(e){
     			box1.addClass('shake');
     			// 打开盒子
@@ -91,15 +121,14 @@ $(function() {
 					// myAudio.src='media/boom.mp3';
 		   			// myAudio.play();
 
-		            var boxAudio = new Audio();
-					boxAudio.src = 'media/boom.mp3';
-					boxAudio.autoplay = true;
-					boxAudio.play();
-		            /*myAudio.onended = function() {
-						myAudio.src='media/bgm.mp3';
-			            myAudio.play();
-					};*/
+		    		//var boxAudio = new Audio();
+					// boxAudio.src = 'media/boom.mp3';
+					// boxAudio.autoplay = true;
+					// boxAudio.play();
 
+
+			
+					audio_3.play();
 				    // 盒盖弹起动画
 				    $('.box-top').addClass('shadow');
     				TweenMax.to($('.box-top'), 1, {rotation:2,x:300, y:-350, ease: Power4.easeOut});
@@ -140,10 +169,11 @@ $(function() {
 					TweenMax.to($('.ribbon-32'), 1, {opacity:1,scale:1, x:-135, y:45, ease: Power4.easeOut, delay:0.1});
 					TweenMax.to($('.ribbon-33'), 1, {opacity:1,scale:1, x:-20, y:10, ease: Power4.easeOut, delay:0.1});
 					TweenMax.to($('.ribbon-34'), 1, {opacity:1,scale:1, x:40, y:10, ease: Power4.easeOut, delay:0.1,onComplete:function () {
-						myAudio.src='media/bgm.mp3';
+						// myAudio.src='media/bgm.mp3';
 						$('#musicControl').show().find('a').addClass('on');
-						$('#musicfx').attr('loop','loop');
-			            myAudio.play();
+						// $('#musicfx').attr('loop','loop');
+			            // myAudio.play();
+            			audio_1.play();
 					}});
 
 
@@ -386,7 +416,9 @@ $(function() {
 		// 	success:function (argument) {
 				
 				$('.popup-wrap').fadeOut(function() {
-            		myAudio.pause();
+					// 心愿卡音乐停止
+            		// myAudio.pause();
+            		audio_4.pause();
 					$('.popup').hide().css('z-index', '1').removeClass('unbind');
     				$('.popup-card a').css('display','none');
 					animationAll.page1();
