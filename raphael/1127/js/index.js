@@ -1,4 +1,4 @@
-$(function() {
+// $(function() {
 	var $barrageItem = $('.barrage-wrap .barrage-item'),
     	box1 = $('.box-1'),
 		pageW=parseInt($('body').width()),
@@ -108,8 +108,9 @@ $(function() {
 			// startAudio.play();
 			
 			audio_2.play();
-
-    		TweenMax.to(box1, 2, {left:'50%', opacity:1, ease: Elastic.easeOut,onComplete:function(e){
+			// TweenMax.to(box1, 1,{bezier:[{left:'50%', bottom:500}, {left:'50%', bottom:90}], ease:Power4.easeIn});
+			// return false;
+    		TweenMax.to(box1, 2, {bottom:90, opacity:1, ease: Elastic.easeOut,onComplete:function(e){
     			box1.addClass('shake');
     			// 打开盒子
 			    new Hammer(document.getElementsByClassName('box-1')[0]).on('tap', function(ev) {
@@ -181,7 +182,7 @@ $(function() {
 	    			// 文字标题出现动画
 	    			// TweenMax.to($('.text-1'), 1, {opacity:1, delay:1});
 	    			TweenMax.fromTo($('.text-1'), 1,{opacity:0, scale:0,top:500}, {opacity:1, scale:1, delay:1.2,top:0, ease: Elastic.easeOut});
-	    			TweenMax.fromTo($('.text-2'), 1, {opacity:0, scale:0,top:500}, {opacity:1, scale:1, delay:1.8,top:0, ease: Elastic.easeOut,onComplete:function () {
+	    			TweenMax.fromTo($('.text-2'), 1, {opacity:0, scale:0,top:500}, {opacity:1, scale:1, delay:1.3,top:0, ease: Elastic.easeOut,onComplete:function () {
 	    				canSwipe = true;
 
 	    				// 不手动话的话5秒后自动滑到第二页
@@ -215,20 +216,25 @@ $(function() {
 
     		canSwipe = false;
     		page2Init = false;
-		 	TweenMax.to($barrageItem.eq(0), 10, {left:-580, yoyo:false, repeat:1});
-			TweenMax.to($barrageItem.eq(1), 8, {left:-650, yoyo:false, repeat:1, delay:3});
-			TweenMax.to($barrageItem.eq(2), 12, {left:-570, yoyo:false, repeat:1, delay:1});
-			TweenMax.to($barrageItem.eq(3), 8, {left:-1300, yoyo:false, repeat:1, delay:3});
-			TweenMax.to($barrageItem.eq(4), 10, {left:-2081, yoyo:false, repeat:1, delay:4});
-			TweenMax.to($barrageItem.eq(5), 12, {left:-696, yoyo:false, repeat:1, delay:0.5});
-			TweenMax.to($barrageItem.eq(6), 8, {left:-548, yoyo:false, repeat:1, delay:1});
-			TweenMax.to($barrageItem.eq(7), 8, {left:-111, yoyo:false, repeat:1, delay:1});
-			TweenMax.to($barrageItem.eq(8), 10, {left:-1524, yoyo:false, repeat:1, delay:1.5});
-			TweenMax.to($barrageItem.eq(9), 6, {left:-309, yoyo:false, repeat:1, delay:4});
+		 	TweenMax.to($barrageItem.eq(0), 10, {left:-580, yoyo:false, repeat:1, ease: Power0.easeNone});
+			TweenMax.to($barrageItem.eq(1), 8, {left:-650, yoyo:false, repeat:1, ease: Power0.easeNone, delay:3});
+			TweenMax.to($barrageItem.eq(2), 12, {left:-570, yoyo:false, repeat:1, ease: Power0.easeNone, delay:1});
+			TweenMax.to($barrageItem.eq(3), 8, {left:-1300, yoyo:false, repeat:1, ease: Power0.easeNone, delay:3});
+			TweenMax.to($barrageItem.eq(4), 10, {left:-2081, yoyo:false, repeat:1, ease: Power0.easeNone, delay:4});
+			TweenMax.to($barrageItem.eq(5), 12, {left:-696, yoyo:false, repeat:1, ease: Power0.easeNone, delay:0.5});
+			TweenMax.to($barrageItem.eq(6), 8, {left:-548, yoyo:false, repeat:1, ease: Power0.easeNone, delay:1});
+			TweenMax.to($barrageItem.eq(7), 8, {left:-111, yoyo:false, repeat:1, ease: Power0.easeNone, delay:1});
+			TweenMax.to($barrageItem.eq(8), 10, {left:-1524, yoyo:false, repeat:1, ease: Power0.easeNone, delay:1.5});
+			TweenMax.to($barrageItem.eq(9), 6, {left:-309, yoyo:false, repeat:1, ease: Power0.easeNone, delay:4});
 
+			// 火箭和乌鸦
+		 	TweenMax.to($('.barrage-rocket'), 10, {left:-627, delay:3,onComplete:function () {
+		 		TweenMax.fromTo($('.barrage-rocket'), 10, {top:740,left:'100%'}, {left:-627, delay:3});
+		 	}});
+		 	TweenMax.to($('.barrage-bird'), 10, {left:-170, delay:2,onComplete:function () {
+		 		TweenMax.fromTo($('.barrage-bird'), 10, {top:100,left:'100%'}, {left:-170, delay:2});
+		 	}});
 			// 第二轮出现
-		 	TweenMax.to($('.barrage-rocket'), 10, {left:-pageW*2, delay:13});
-		 	TweenMax.to($('.barrage-bird'), 10, {left:-pageW*2, delay:12});
 		 	TweenMax.to($('.barrage-card'), 3, {left:'50%', delay:18,onComplete:function () {
 	 			$('.barrage-card').addClass('shadow');
 		 	}});
@@ -447,4 +453,4 @@ $(function() {
 
 	});
 
-});
+// });

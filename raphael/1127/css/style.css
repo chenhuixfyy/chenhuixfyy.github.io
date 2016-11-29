@@ -87,8 +87,8 @@ html {
     top: 0; }
     .box-wrap .page-box-1 .box-1 {
       position: absolute;
-      bottom: 90px;
-      left: 150%;
+      bottom: 1000px;
+      left: 50%;
       opacity: 0;
       -webkit-transform: translate(-50%, 0);
       transform: translate(-50%, 0);
@@ -396,7 +396,7 @@ html {
     left: 100%;
     top: 0; }
     .barrage-wrap span.barrage-rocket {
-      top: 720px; }
+      top: 100px; }
     .barrage-wrap span.barrage-1 {
       top: 200px; }
     .barrage-wrap span.barrage-2 {
@@ -404,21 +404,21 @@ html {
     .barrage-wrap span.barrage-3 {
       top: 300px; }
     .barrage-wrap span.barrage-4 {
-      top: 310px; }
+      top: 350px; }
     .barrage-wrap span.barrage-5 {
-      top: 380px; }
+      top: 420px; }
     .barrage-wrap span.barrage-6 {
       top: 470px; }
     .barrage-wrap span.barrage-7 {
       top: 520px; }
     .barrage-wrap span.barrage-8 {
-      top: 515px; }
+      top: 575px; }
     .barrage-wrap span.barrage-9 {
-      top: 580px; }
+      top: 615px; }
     .barrage-wrap span.barrage-10 {
-      top: 640px; }
+      top: 670px; }
     .barrage-wrap span.barrage-bird {
-      top: 100px; }
+      top: 740px; }
     .barrage-wrap span img {
       width: auto;
       height: auto; }
