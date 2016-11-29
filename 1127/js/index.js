@@ -1,4 +1,4 @@
-// $(function() {
+$(function() {
 	var $barrageItem = $('.barrage-wrap .barrage-item'),
     	box1 = $('.box-1'),
 		pageW=parseInt($('body').width()),
@@ -397,4 +397,4 @@
 
 	});
 
-// });
+});
