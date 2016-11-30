@@ -99,31 +99,14 @@
     	page1: function() {
     		// 第一屏动画
     		// 盒子进来音效
-			// myAudio.src='media/duang.mp3';
-    		//myAudio.play();
-
-   			//var startAudio = new Audio();
-			// startAudio.src = 'media/duang.mp3';
-			// startAudio.autoplay = true;
-			// startAudio.play();
 			
 			audio_2.play();
-			// TweenMax.to(box1, 1,{bezier:[{left:'50%', bottom:500}, {left:'50%', bottom:90}], ease:Power4.easeIn});
-			// return false;
     		TweenMax.to(box1, 2, {bottom:90, opacity:1, ease: Elastic.easeOut,onComplete:function(e){
     			box1.addClass('shake');
     			// 打开盒子
 			    new Hammer(document.getElementsByClassName('box-1')[0]).on('tap', function(ev) {
 			    	$('.page-box-1').hide();
 			    	$('.page-box-2').show();
-				    // 打开盒子音效Boom音效
-					// myAudio.src='media/boom.mp3';
-		   			// myAudio.play();
-
-		    		//var boxAudio = new Audio();
-					// boxAudio.src = 'media/boom.mp3';
-					// boxAudio.autoplay = true;
-					// boxAudio.play();
 
 
 			
@@ -194,6 +177,7 @@
 						        	'z-index': '3',
 						        	opacity: '0'
 						        });
+	        					canSwipe = false;
 						        TweenMax.to($('.section-2'), 1, {opacity:1,onComplete:function () {
 							       	$('.section-1').css({
 							       		'z-index': '1'
@@ -201,6 +185,7 @@
 							        $('.section-2').css({
 							        	'z-index': '2'
 							        });
+		        					canSwipe = true;
 						       		animationAll.page2();
 						        }});
 			    			}
@@ -217,50 +202,55 @@
     		canSwipe = false;
     		page2Init = false;
     		// return;
-		 	TweenMax.to($barrageItem.eq(0), 9, {left:-580, ease: Power0.easeNone, onComplete:function () {
-		 		TweenMax.fromTo($barrageItem.eq(0), 9, {top:615,left:'100%'}, {left:-580});
+		 	TweenMax.to($barrageItem.eq(0), 7, {left:-580, ease: Power0.easeNone, onComplete:function () {
+		 		TweenMax.fromTo($barrageItem.eq(0), 7, {top:615,left:'100%'}, {left:-580, ease: Power0.easeNone});
 		 	}});
-			TweenMax.to($barrageItem.eq(1), 7, {left:-804, ease: Power0.easeNone, delay:3, onComplete:function () {
-		 		TweenMax.fromTo($barrageItem.eq(1), 7, {top:308,left:'100%'}, {left:-804, delay:3});
+			TweenMax.to($barrageItem.eq(1), 5, {left:-804, ease: Power0.easeNone, delay:3, onComplete:function () {
+		 		TweenMax.fromTo($barrageItem.eq(1), 5, {top:308,left:'100%'}, {left:-804, delay:3, ease: Power0.easeNone});
 		 	}});
-			TweenMax.to($barrageItem.eq(2), 11, {left:-570, ease: Power0.easeNone, delay:1, onComplete:function () {
-		 		TweenMax.fromTo($barrageItem.eq(2), 11, {top:575,left:'100%'}, {left:-570, delay:0.5});
+			TweenMax.to($barrageItem.eq(2), 9, {left:-570, ease: Power0.easeNone, delay:1, onComplete:function () {
+		 		TweenMax.fromTo($barrageItem.eq(2), 9, {top:575,left:'100%'}, {left:-570, delay:0.5, ease: Power0.easeNone});
 		 	}});
-			TweenMax.to($barrageItem.eq(3), 7, {left:-1300, ease: Power0.easeNone, delay:3, onComplete:function () {
-		 		TweenMax.fromTo($barrageItem.eq(3), 7, {top:450,left:'100%'}, {left:-1300, delay:3});
+			TweenMax.to($barrageItem.eq(3), 5, {left:-1300, ease: Power0.easeNone, delay:3, onComplete:function () {
+		 		TweenMax.fromTo($barrageItem.eq(3), 5, {top:450,left:'100%'}, {left:-1300, delay:3, ease: Power0.easeNone});
 		 	}});
-			TweenMax.to($barrageItem.eq(4), 9, {left:-1041, ease: Power0.easeNone, delay:4, onComplete:function () {
-		 		TweenMax.fromTo($barrageItem.eq(4), 9, {top:670,left:'100%'}, {left:-1041});
+			TweenMax.to($barrageItem.eq(4), 7, {left:-1041, ease: Power0.easeNone, delay:4, onComplete:function () {
+		 		TweenMax.fromTo($barrageItem.eq(4), 7, {top:670,left:'100%'}, {left:-1041, ease: Power0.easeNone});
 		 	}});
-			TweenMax.to($barrageItem.eq(5), 11, {left:-696, ease: Power0.easeNone, delay:0.5, onComplete:function () {
-		 		TweenMax.fromTo($barrageItem.eq(5), 11, {top:400,left:'100%'}, {left:-696, delay:0.5});
+			TweenMax.to($barrageItem.eq(5), 9, {left:-696, ease: Power0.easeNone, delay:0.5, onComplete:function () {
+		 		TweenMax.fromTo($barrageItem.eq(5), 9, {top:400,left:'100%'}, {left:-696, delay:0.5, ease: Power0.easeNone});
 		 	}});
-			TweenMax.to($barrageItem.eq(6), 7, {left:-548, ease: Power0.easeNone, delay:1, onComplete:function () {
-		 		TweenMax.fromTo($barrageItem.eq(6), 7, {top:200,left:'100%'}, {left:-548, delay:1});
+			TweenMax.to($barrageItem.eq(6), 5, {left:-548, ease: Power0.easeNone, delay:1, onComplete:function () {
+		 		TweenMax.fromTo($barrageItem.eq(6), 5, {top:200,left:'100%'}, {left:-548, delay:1, ease: Power0.easeNone});
 		 	}});
-			TweenMax.to($barrageItem.eq(7), 7, {left:-111, ease: Power0.easeNone, delay:1, onComplete:function () {
-		 		TweenMax.fromTo($barrageItem.eq(7), 7, {top:350,left:'100%'}, {left:-111, delay:0.5});
+			TweenMax.to($barrageItem.eq(7), 5, {left:-111, ease: Power0.easeNone, delay:1, onComplete:function () {
+		 		TweenMax.fromTo($barrageItem.eq(7), 5, {top:350,left:'100%'}, {left:-111, delay:0.5, ease: Power0.easeNone});
 		 	}});
-			TweenMax.to($barrageItem.eq(8), 9, {left:-1524, ease: Power0.easeNone, delay:1.5, onComplete:function () {
-		 		TweenMax.fromTo($barrageItem.eq(8), 9, {top:520,left:'100%'}, {left:-1524});
+			TweenMax.to($barrageItem.eq(8), 7, {left:-1524, ease: Power0.easeNone, delay:1.5, onComplete:function () {
+		 		TweenMax.fromTo($barrageItem.eq(8), 7, {top:520,left:'100%'}, {left:-1524, ease: Power0.easeNone});
 		 	}});
-			TweenMax.to($barrageItem.eq(9), 5, {left:-309, ease: Power0.easeNone, delay:4, onComplete:function () {
-		 		TweenMax.fromTo($barrageItem.eq(9), 5, {top:250,left:'100%'}, {left:-309, delay:3});
+			TweenMax.to($barrageItem.eq(9), 4, {left:-309, ease: Power0.easeNone, delay:4, onComplete:function () {
+		 		TweenMax.fromTo($barrageItem.eq(9), 4, {top:250,left:'100%'}, {left:-309, delay:3, ease: Power0.easeNone});
 		 	}});
 
 			// 火箭和乌鸦
-		 	TweenMax.to($('.barrage-rocket'), 9, {left:-627, delay:2,onComplete:function () {
-		 		TweenMax.fromTo($('.barrage-rocket'), 9, {top:740,left:'100%'}, {left:-627, delay:1});
+		 	TweenMax.to($('.barrage-rocket'), 8, {left:-627, delay:2, ease: Power0.easeNone, onComplete:function () {
+		 		TweenMax.fromTo($('.barrage-rocket'), 8, {top:740,left:'100%'}, {left:-627, delay:1, ease: Power0.easeNone});
 		 	}});
-		 	TweenMax.to($('.barrage-bird'), 9, {left:-170, delay:2,onComplete:function () {
-		 		TweenMax.fromTo($('.barrage-bird'), 9, {top:100,left:'100%'}, {left:-170, delay:0.5});
+		 	TweenMax.to($('.barrage-bird'), 8, {left:-170, delay:2, ease: Power0.easeNone, onComplete:function () {
+		 		TweenMax.fromTo($('.barrage-bird'), 8, {top:100,left:'100%'}, {left:-170, delay:0.5, ease: Power0.easeNone});
 		 	}});
-			// 第二轮出现
-		 	TweenMax.to($('.barrage-card'), 3, {left:'50%', delay:18,onComplete:function () {
+
+		 	TweenMax.to($('.barrage-card'), 3, {left:'50%', delay:16, ease: Power0.easeNone, onComplete:function () {
 	 			$('.barrage-card').addClass('shadow');
 		 	}});
-		 	TweenMax.to($('.barrage-help'), 3, {left:'50%', delay:18,onComplete:function () {
+		 	TweenMax.to($('.barrage-help'), 3, {left:'50%', delay:16, ease: Power0.easeNone, onComplete:function () {
 		 			$('.barrage-help').addClass('shadow');
+
+				 	// 手型按钮
+				 	TweenMax.to($('.hand'), 1, {opacity:1,onComplete:function () {
+				 		$('.hand').addClass('show');
+				 	}});
 			 		// 引导分享
 					new Hammer(document.getElementsByClassName('barrage-help')[0]).on('tap', function(ev) {
 						showPopup('popup-share');
@@ -268,21 +258,9 @@
 		 			// 礼物框隐藏
 				 	TweenMax.to($('.page2-icon'), 1, {opacity:0});
 				 	// 规则按钮
-				 	TweenMax.to($('.active-prize'), 1, {opacity:1});
-
-				 	canSwipe = true;
-			 		// 奖品规则弹层
-					new Hammer(document.getElementsByClassName('active-prize')[0]).on('tap', function(ev) {
-						showPopup('popup-prize');
-					});
-					    
-				 	// 手型按钮
-				 	TweenMax.to($('.hand'), 1, {opacity:1,onComplete:function () {
-				 		$('.hand').addClass('show');
-				 	}});
-				 	// 查看我的心愿卡
+				 	// TweenMax.to($('.active-prize'), 1, {opacity:1});
 				 	TweenMax.to($('.active-prize'), 1, {opacity:1,onComplete:function () {
-				 		// 心愿卡弹层
+				 		// 查看我的心愿卡
 						new Hammer(document.getElementsByClassName('barrage-card')[0]).on('tap', function(ev) {
 							// ajax请求后台数据判断当前几颗心
 							// $.ajax({
@@ -293,45 +271,26 @@
 							// 	success:function () {
 							// 		// 请求成功显示心的数量和弹层
 							// 		// $('.heart-wrap').addclass('total-1');  total-1 total-2 total-3
-							// 		// showPopup('popup-card');
+									showPopup('popup-card');
 							// 	}
 							// });
 							
 
 
-
-
-							showPopup('popup-card');
 						});
 				 	}});
+
+			 		// 奖品规则弹层
+					new Hammer(document.getElementsByClassName('active-prize')[0]).on('tap', function(ev) {
+						showPopup('popup-prize');
+					});
+
+				 	canSwipe = true;
 				 	
 		 	}});
-		 	// 参与活动按钮
 		 	
 	    }
     };
-    // setTimeout(function(){
-
-	    // animationAll.page1();
-	    // animationAll.page2();
-	// },1000);
-	    // $content.css({
-	    // 	'-webkit-transition':'-webkit-transform 1s ease-in-out',
-	    //     'transition':'transform 1s ease-in-out',
-	    //     '-webkit-transform' : 'translate3d(0, -'+ 1*pageH +'px, 0)',
-	    //     'transform' : 'translate3d(0, -'+ 1*pageH +'px, 0)'
-	    // });
-    
-
-	
-
- 
-    // hammerElement.get('pinch').set({
-    //     enable: true
-    // });
-    // hammerElement.get('rotate').set({
-    //     enable: true
-    // });
     var hammerElement = new Hammer(document.getElementById('wrapper'));
     hammerElement.get('swipe').set({ direction: Hammer.DIRECTION_VERTICAL });
     hammerElement.on('swipeup', function(ev) {
@@ -342,6 +301,7 @@
 		        	'z-index': '3',
 		        	opacity: '0'
 		        });
+		        canSwipe = false;
 		        TweenMax.to($('.section-2'), 1, {opacity:1,onComplete:function () {
 			       	$('.section-1').css({
 			       		'z-index': '1'
@@ -349,11 +309,11 @@
 			        $('.section-2').css({
 			        	'z-index': '2'
 			        });
+		        	canSwipe = true;
 			       	if(page2Init){
 			       		animationAll.page2();
 			       	}
 		        }});
-		       	// $('.section',$content).removeClass('page-active').eq(page).addClass('page-active');
 		       	
 	        }else{
 	        	page = 1;
@@ -371,6 +331,7 @@
 		        	'z-index': '3',
 		        	opacity: '0'
 		        });
+		        canSwipe = false;
 		        TweenMax.to($('.section-1'), 1, {opacity:1,onComplete:function () {
 			       	$('.section-2').css({
 			       		'z-index': '1'
@@ -378,6 +339,7 @@
 			        $('.section-1').css({
 			        	'z-index': '2'
 			        });
+		        	canSwipe = true;
 		        }});
 	        }else{
 	        	page = 0;
@@ -394,10 +356,8 @@
         var hammerPopup = new Hammer(popups[i]);
         hammerPopup.on('tap',function(ev) {
 			var elem = $(ev.target);
-			// console.log(elem);
 			if(elem.hasClass('popup')&&!elem.hasClass('unbind')){
 				$('.popup-wrap').fadeOut(function() {
-					// elem.hide();
 					$('.popup').hide().css('z-index', '1');
 				});
 			}
@@ -423,17 +383,6 @@
 		$('.'+ className +'').show().css('z-index', zIndex+1);;
 		$('.popup-wrap').fadeIn();
 	}
-	// 弹层隐藏
-	/**
-	 * 显示弹层方法
-	 * @param  {string} className 需要隐藏的弹层类名
-	 * @return {[type]}           [description]
-	 */
-	// function hidePopup(className) {
-	// 	$('.popup-wrap').fadeOut(function() {
-	// 		$('.'+ className +'').hide();
-	// 	});
-	// }
 	
 
 
@@ -462,7 +411,6 @@
 				
 				$('.popup-wrap').fadeOut(function() {
 					// 心愿卡音乐停止
-            		// myAudio.pause();
             		audio_4.pause();
 					$('.popup').hide().css('z-index', '1').removeClass('unbind');
     				$('.popup-card a').css('display','none');
@@ -473,5 +421,3 @@
 		
 
 	});
-
-// });
