@@ -202,49 +202,25 @@
     		canSwipe = false;
     		page2Init = false;
     		// return;
-		 	TweenMax.to($barrageItem.eq(0), 7, {left:-580, ease: Power0.easeNone, onComplete:function () {
-		 		TweenMax.fromTo($barrageItem.eq(0), 7, {top:615,left:'100%'}, {left:-580, ease: Power0.easeNone});
-		 	}});
-			TweenMax.to($barrageItem.eq(1), 5, {left:-804, ease: Power0.easeNone, delay:3, onComplete:function () {
-		 		TweenMax.fromTo($barrageItem.eq(1), 5, {top:308,left:'100%'}, {left:-804, delay:3, ease: Power0.easeNone});
-		 	}});
-			TweenMax.to($barrageItem.eq(2), 9, {left:-570, ease: Power0.easeNone, delay:1, onComplete:function () {
-		 		TweenMax.fromTo($barrageItem.eq(2), 9, {top:575,left:'100%'}, {left:-570, delay:0.5, ease: Power0.easeNone});
-		 	}});
-			TweenMax.to($barrageItem.eq(3), 5, {left:-1300, ease: Power0.easeNone, delay:3, onComplete:function () {
-		 		TweenMax.fromTo($barrageItem.eq(3), 5, {top:450,left:'100%'}, {left:-1300, delay:3, ease: Power0.easeNone});
-		 	}});
-			TweenMax.to($barrageItem.eq(4), 7, {left:-1041, ease: Power0.easeNone, delay:4, onComplete:function () {
-		 		TweenMax.fromTo($barrageItem.eq(4), 7, {top:670,left:'100%'}, {left:-1041, ease: Power0.easeNone});
-		 	}});
-			TweenMax.to($barrageItem.eq(5), 9, {left:-696, ease: Power0.easeNone, delay:0.5, onComplete:function () {
-		 		TweenMax.fromTo($barrageItem.eq(5), 9, {top:400,left:'100%'}, {left:-696, delay:0.5, ease: Power0.easeNone});
-		 	}});
-			TweenMax.to($barrageItem.eq(6), 5, {left:-548, ease: Power0.easeNone, delay:1, onComplete:function () {
-		 		TweenMax.fromTo($barrageItem.eq(6), 5, {top:200,left:'100%'}, {left:-548, delay:1, ease: Power0.easeNone});
-		 	}});
-			TweenMax.to($barrageItem.eq(7), 5, {left:-111, ease: Power0.easeNone, delay:1, onComplete:function () {
-		 		TweenMax.fromTo($barrageItem.eq(7), 5, {top:350,left:'100%'}, {left:-111, delay:0.5, ease: Power0.easeNone});
-		 	}});
-			TweenMax.to($barrageItem.eq(8), 7, {left:-1524, ease: Power0.easeNone, delay:1.5, onComplete:function () {
-		 		TweenMax.fromTo($barrageItem.eq(8), 7, {top:520,left:'100%'}, {left:-1524, ease: Power0.easeNone});
-		 	}});
-			TweenMax.to($barrageItem.eq(9), 4, {left:-309, ease: Power0.easeNone, delay:4, onComplete:function () {
-		 		TweenMax.fromTo($barrageItem.eq(9), 4, {top:250,left:'100%'}, {left:-309, delay:3, ease: Power0.easeNone});
-		 	}});
+		 	TweenMax.to($barrageItem.eq(0), 3, {left:-580, ease: Power0.easeNone});
+			TweenMax.to($barrageItem.eq(1), 4, {left:-804, ease: Power0.easeNone, delay:1});
+			TweenMax.to($barrageItem.eq(2), 3, {left:-570, ease: Power0.easeNone, delay:1.5});
+			TweenMax.to($barrageItem.eq(3), 5, {left:-1300, ease: Power0.easeNone});
+			TweenMax.to($barrageItem.eq(4), 5, {left:-1041, ease: Power0.easeNone, delay:0.5});
+			TweenMax.to($barrageItem.eq(5), 4, {left:-696, ease: Power0.easeNone, delay:1});
+			TweenMax.to($barrageItem.eq(6), 3, {left:-548, ease: Power0.easeNone, delay:1.5});
+			TweenMax.to($barrageItem.eq(7), 2, {left:-111, ease: Power0.easeNone, delay:2});
+			TweenMax.to($barrageItem.eq(8), 5, {left:-1524, ease: Power0.easeNone, delay:0.5});
+			TweenMax.to($barrageItem.eq(9), 3, {left:-309, ease: Power0.easeNone, delay:1});
 
 			// 火箭和乌鸦
-		 	TweenMax.to($('.barrage-rocket'), 8, {left:-627, delay:2, ease: Power0.easeNone, onComplete:function () {
-		 		TweenMax.fromTo($('.barrage-rocket'), 8, {top:740,left:'100%'}, {left:-627, delay:1, ease: Power0.easeNone});
-		 	}});
-		 	TweenMax.to($('.barrage-bird'), 8, {left:-170, delay:2, ease: Power0.easeNone, onComplete:function () {
-		 		TweenMax.fromTo($('.barrage-bird'), 8, {top:100,left:'100%'}, {left:-170, delay:0.5, ease: Power0.easeNone});
-		 	}});
+		 	TweenMax.to($('.barrage-rocket'), 4, {left:-627, delay:1, ease: Power0.easeNone});
+		 	TweenMax.to($('.barrage-bird'), 4, {left:-170, delay:1, ease: Power0.easeNone});
 
-		 	TweenMax.to($('.barrage-card'), 3, {left:'50%', delay:16, ease: Power0.easeNone, onComplete:function () {
+		 	TweenMax.to($('.barrage-card'), 3, {left:'50%', delay:3.5, ease: Power0.easeNone, onComplete:function () {
 	 			$('.barrage-card').addClass('shadow');
 		 	}});
-		 	TweenMax.to($('.barrage-help'), 3, {left:'50%', delay:16, ease: Power0.easeNone, onComplete:function () {
+		 	TweenMax.to($('.barrage-help'), 3, {left:'50%', delay:3.5, ease: Power0.easeNone, onComplete:function () {
 		 			$('.barrage-help').addClass('shadow');
 
 				 	// 手型按钮
