@@ -208,44 +208,52 @@
 
             function loadImage(index) {
                 if (index < count) {
-                    if(imageUrls[index].indexOf('mp3')>-1){
-                        // 音频加载
-                        var aud = new Audio();
-                        aud.onloadedmetadata = function() {
-                            loaded++;
-                            if (progress) { progress(Math.round(loaded/count*100)+'%'); }
-                            loadImage(loaded);
-                        }
-                        aud.onerror = function() {
-                            loaded++;
-                            if (progress) { progress(Math.round(loaded/count*100)+'%'); }
-                            loadImage(loaded);
-                        }
-                        aud.src = imageUrls[index];
-                    }else{
-                        var img = new Image();
-                        img.onload = function() {
-                            loaded++;
-                            if (progress) { progress(Math.round(loaded/count*100)+'%'); }
-                            loadImage(loaded);
-                        }
-                        img.onerror = function() {
-                            loaded++;
-                            if (progress) { progress(Math.round(loaded/count*100)+'%'); }
-                            loadImage(loaded);
-                        }
-                        img.src = imageUrls[index];
+                    // if(imageUrls[index].indexOf('mp3')>-1){
+                    //     // 音频加载
+                    //     var aud = new Audio();
+                    //     aud.onloadedmetadata = function() {
+                    //         loaded++;
+                    //         if (progress) { progress(Math.round(loaded/count*100)+'%'); }
+                    //         loadImage(loaded);
+                    //     }
+                    //     aud.onerror = function() {
+                    //         loaded++;
+                    //         if (progress) { progress(Math.round(loaded/count*100)+'%'); }
+                    //         loadImage(loaded);
+                    //     }
+                    //     aud.src = imageUrls[index];
+                    // }else{
+                    //     var img = new Image();
+                    //     img.onload = function() {
+                    //         loaded++;
+                    //         if (progress) { progress(Math.round(loaded/count*100)+'%'); }
+                    //         loadImage(loaded);
+                    //     }
+                    //     img.onerror = function() {
+                    //         loaded++;
+                    //         if (progress) { progress(Math.round(loaded/count*100)+'%'); }
+                    //         loadImage(loaded);
+                    //     }
+                    //     img.src = imageUrls[index];
+                    // }
+                    var img = new Image();
+                    img.onload = function() {
+                        loaded++;
+                        if (progress) { progress(Math.round(loaded/count*100)+'%'); }
+                        loadImage(loaded);
                     }
+                    img.onerror = function() {
+                        loaded++;
+                        if (progress) { progress(Math.round(loaded/count*100)+'%'); }
+                        loadImage(loaded);
+                    }
+                    img.src = imageUrls[index];
                 } else {
                     callback();
                 }
             }
         }
         var imageUrls = [
-            'media/bgm.mp3',
-            'media/boom.mp3',
-            'media/duang.mp3',
-            'media/heart.mp3',
             'images/barrage-1.png',
             'images/barrage-2.png',
             'images/barrage-3.png',
