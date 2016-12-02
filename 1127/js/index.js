@@ -1,12 +1,5 @@
-// $(function() {
-	var $barrageItem = $('.barrage-wrap .barrage-item'),
-    	box1 = $('.box-1'),
-		pageW=parseInt($('body').width()),
-    	pageH=parseInt($('body').height()),
-    	// $content = $('.content'),
-    	page = 0,
-    	canSwipe = false,
-    	page2Init = true;
+$(function() {
+
     // 音频元素
     var audio_1 = "";
     var audio_2 = "";
@@ -40,6 +33,124 @@
 	
 	musicPlay();
 
+	
+    function loading (imageUrls, callback, progress) {
+        var loaded = 0;
+        var count = imageUrls.length;
+
+        loadImage(loaded);
+
+        function loadImage(index) {
+            if (index < count) {
+                var img = new Image();
+                img.onload = function() {
+                    loaded++;
+                    if (progress) { progress(Math.round(loaded/count*100)+'%'); }
+                    loadImage(loaded);
+                }
+                img.onerror = function() {
+                    loaded++;
+                    if (progress) { progress(Math.round(loaded/count*100)+'%'); }
+                    loadImage(loaded);
+                }
+                img.src = imageUrls[index];
+            } else {
+                callback();
+            }
+        }
+    }
+    var imageUrls = [
+        'images/barrage-1.png',
+        'images/barrage-2.png',
+        'images/barrage-3.png',
+        'images/barrage-4.png',
+        'images/barrage-5.png',
+        'images/barrage-6.png',
+        'images/barrage-7.png',
+        'images/barrage-8.png',
+        'images/barrage-9.png',
+        'images/barrage-10.png',
+        'images/barrage-bird.png',
+        'images/barrage-help.png',
+        'images/barrage-card.png',
+        'images/barrage-rocket.png',
+        'images/box-1-sd.png',
+        'images/box-1.png',
+        'images/box-top-sd.png',
+        'images/box-top.png',
+        'images/card-bg.jpg',
+        'images/get.png',
+        'images/hand.png',
+        'images/heart-w.png',
+        'images/heart-r.png',
+        'images/light.png',
+        'images/on.png',
+        'images/stop.png',
+        'images/page-1-bg.jpg',
+        'images/page-2-bg.jpg',
+        'images/page2-icon.png',
+        'images/prize-details.jpg',
+        'images/prize.png',
+        'images/qrcode.png',
+        'images/ribbon-1.png',
+        'images/ribbon-2.png',
+        'images/ribbon-3.png',
+        'images/ribbon-4.png',
+        'images/ribbon-5.png',
+        'images/ribbon-6.png',
+        'images/ribbon-7.png',
+        'images/ribbon-8.png',
+        'images/ribbon-9.png',
+        'images/ribbon-10.png',
+        'images/ribbon-11.png',
+        'images/ribbon-12.png',
+        'images/ribbon-13.png',
+        'images/ribbon-14.png',
+        'images/ribbon-15.png',
+        'images/ribbon-16.png',
+        'images/ribbon-17.png',
+        'images/ribbon-18.png',
+        'images/ribbon-19.png',
+        'images/ribbon-20.png',
+        'images/ribbon-21.png',
+        'images/ribbon-22.png',
+        'images/ribbon-23.png',
+        'images/ribbon-24.png',
+        'images/ribbon-25.png',
+        'images/ribbon-26.png',
+        'images/ribbon-27.png',
+        'images/ribbon-28.png',
+        'images/ribbon-29.png',
+        'images/ribbon-30.png',
+        'images/ribbon-31.png',
+        'images/ribbon-32.png',
+        'images/ribbon-33.png',
+        'images/ribbon-34.png',
+        'images/share.png',
+        'images/text-1.png',
+        'images/text-2.png',
+    ];
+    
+
+    loading(imageUrls, initGame, function(percent) {
+        // console.log(percent);
+        document.getElementById('percent').innerHTML = percent;
+    });
+
+    function initGame() {
+        // 判断用户状态后显示
+        document.getElementById('loading').style.display = 'none';
+        pageStart('2');//1-已关注且首次点心，2-未关注，3-已关注且点心，提示助力成功？
+    }
+	var $barrageItem = $('.barrage-wrap .barrage-item'),
+    	box1 = $('.box-1'),
+		pageW=parseInt($('body').width()),
+    	pageH=parseInt($('body').height()),
+    	// $content = $('.content'),
+    	page = 0,
+    	canSwipe = false,
+    	page2Init = true;
+
 
 
 
@@ -59,7 +170,7 @@
  	delete Hammer.defaults.cssProps.userSelect;
 
     // 通过判断用户状态来显示不同的起始页
-    pageStart = function (type) {
+    var pageStart = function (type) {
     	// $('section').css('height',pageH);
     	console.log(type)
     	switch (type) {
@@ -397,3 +508,4 @@
 		
 
 	});
+});

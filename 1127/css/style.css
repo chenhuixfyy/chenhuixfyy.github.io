@@ -575,7 +575,10 @@ html {
 
 .popup-code img {
   display: block;
-  position: relative;
+  position: absolute;
+  width: 400px;
+  height: auto;
+  padding: 200px 0;
   left: 50%;
   top: 50%;
   -webkit-transform: translate(-50%, -50%);
