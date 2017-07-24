@@ -16,27 +16,52 @@ $(function () {
     });
 
     // tab
-    var tabsSwiper = new Swiper('.tabs-container',{
-	    onlyExternal : true,
-	    speed:0
+ 	// var tabsSwiper = new Swiper('.tabs-container',{
+	//     onlyExternal : true,
+	//     speed:0
+	// })
+	// $(".tabs a").on('touchstart mousedown',function(e){
+	//     e.preventDefault()
+	//     $(".tabs .active").removeClass('active')
+	//     $(this).addClass('active')
+	//     tabsSwiper.swipeTo( $(this).index() )
+	// })
+	// $(".tabs a").click(function(e){
+	//     e.preventDefault()
+	// })
+
+
+	$('.tabs-module').each(function () {
+		var _this = $(this),
+			$li = _this.find('.tabs-list li'),
+			$con = _this.find('.tabs-container .tabs-item');
+		$li.eq(0).addClass('active');
+		$con.eq(0).show();
+		$li.on('click', function (e) {
+			var index = $li.index($(this));
+			$li.removeClass('active').eq(index).addClass('active');
+			$con.hide().eq(index).show();
+		})
+		$li.mousemove(function(e) {
+			var index = $li.index($(this));
+			$li.removeClass('active').eq(index).addClass('active');
+			$con.hide().eq(index).show();
+		});
 	})
-	$(".tabs a").on('touchstart mousedown',function(e){
-	    e.preventDefault()
-	    $(".tabs .active").removeClass('active')
-	    $(this).addClass('active')
-	    tabsSwiper.swipeTo( $(this).index() )
-	})
-	$(".tabs a").click(function(e){
-	    e.preventDefault()
-	})
 
 
-
-
-
-
-
-
+	// 导航
+	var $navLi = $('.nav-wrap li');
+	$navLi.hover(function() {
+		$(this).find('.nav-item').show();
+	}, function() {
+		$(this).find('.nav-item').hide();
+	});
+	// 搜索
+	var $search = $('#search');
+	$search.click(function(e) {
+		$('.dropdown-wrap').toggle()
+	});
 
 
 
