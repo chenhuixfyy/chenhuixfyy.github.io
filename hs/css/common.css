@@ -1,5 +1,15 @@
 /*common.css*/
 /*模块分块*/
+.part-wrapper{
+	width: 1300px;
+	margin: 0 auto;
+}
+.part-wrapper .subtitle{
+	text-align: center;
+	color: #535353;
+	font-size: 22px;
+	margin: 40px 0 20px;
+}
 /*三块*/
 .part-three{
 
