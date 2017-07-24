@@ -4,6 +4,10 @@
 	width: 1300px;
 	margin: 0 auto;
 }
+.part-wrapper .part-item img{
+  	width: auto;
+  	max-width: 100%;
+}
 .part-wrapper .subtitle{
 	text-align: center;
 	color: #535353;
@@ -49,3 +53,39 @@
 
 
 
+
+/*pad-940宽度*/
+@media screen and (min-width: 940px) and (max-width: 1300px) {
+	.part-wrapper{
+		width: 940px;
+	}
+	.part-three .part-item{
+		width: 300px;
+	}
+
+	.part-four .part-item{
+		width: 220px;
+	}
+
+
+
+
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+/*phone-640宽度*/
+@media screen and (max-width: 940px) {
+
+}

@@ -230,7 +230,7 @@ html,body{
 	height: 28px;
 	overflow: hidden;
 	line-height: 28px;
-	padding: 0 6px;
+	padding: 0 10px;
 }
 .part1 .part-item li a{
 	color: #313131;
@@ -517,6 +517,9 @@ html,body{
 	width: 310px;
 	
 }
+.part5 .video-news img{
+	width: 100%;
+}
 .part5 .video-news h4{
 	text-align: center;
 	color: #535353;
@@ -684,7 +687,90 @@ html,body{
 }
 
 /*pad-940宽度*/
-@media screen and (max-width: 940px) {
+@media screen and (min-width: 940px) and (max-width: 1300px) {
+	html, body{
+		min-width: 940px;
+	}
+	.banner{
+		min-width: 940px;
+	}
+	.banner-pagination{
+		width: 940px;
+	}
+	.header{
+		width: 940px;
+		margin-left: -470px;
+	}
+
+
+	.header-right{
+		width: 670px;
+	}
+	.nav-wrap li{
+		padding: 0 10px;
+	}
+	.nav-wrap li > a{
+		width: 55px;
+	}
+
+
+	.part4 .tabs-list{
+		padding: 0;
+	}
+	.part4 .tabs-list li{
+		margin-left: 60px;
+	}
+	.part4 .tabs-list li:first-child{
+		margin-left: 0;
+	}
+
+
+
+
+
+
+
+	.part5 .text-news{
+		width: 700px;
+	}
+	.part5 .tabs-list li{
+		width: 110px;
+		margin-left: 6px;
+	  	overflow: hidden;
+	  	text-overflow: ellipsis;
+	  	white-space: nowrap;
+	}
+
+
+
+	.part5 .video-news{
+		width: 220px;
+	}
+
+
+
+	.part6 .part-item{
+		padding: 20px 20px 15px 20px;
+	}
+	.part6 .part-item img{
+		width: 50px;
+	}
+	.part6 .part-item div{
+		margin-left: 60px;
+	}
+	.part6 .part-item h4{
+		margin-top: 0;
+	}
+	.part6 .part-item p{
+		margin-top: 5px;
+	}
+
+	.top-con{
+		width: 940px;
+	}
+	.top-con .top-con-right{
+		width: 600px;
+	}
 
 }
 
@@ -695,6 +781,6 @@ html,body{
 
 
 /*phone-640宽度*/
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 940px) {
 
 }
