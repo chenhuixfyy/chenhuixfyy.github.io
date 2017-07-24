@@ -706,6 +706,9 @@ html,body{
 	.header-right{
 		width: 670px;
 	}
+	.top-tool{
+		width: 800px;
+	}
 	.nav-wrap li{
 		padding: 0 10px;
 	}
