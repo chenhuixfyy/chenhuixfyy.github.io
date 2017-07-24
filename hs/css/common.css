@@ -1,1 +1,41 @@
 /*common.css*/
+/*模块分块*/
+/*三块*/
+.part-three{
+
+}
+.part-three .part-item{
+	width: 420px;
+	float: left;
+	margin-left: 20px;
+}
+.part-three .part-item:first-child{
+	margin-left: 0;
+}
+
+/*四块*/
+.part-four{
+
+}
+.part-four .part-item{
+	width: 310px;
+	float: left;
+	margin-left: 20px;
+}
+.part-four .part-item:first-child{
+	margin-left: 0;
+}
+
+/*更多按钮*/
+.more-btn{
+	display: block;
+	width: 200px;
+	height: 28px;
+	background: #f60 url(../images/more-icon.png) center center no-repeat;
+	margin: 0 auto;
+	cursor: pointer;
+}
+
+
+
+

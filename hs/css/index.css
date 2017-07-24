@@ -136,24 +136,140 @@ html,body{
 	text-decoration: none;
 	border-color: #fff;
 }
+/*头部下拉*/
+.dropdown-wrap{
+	width: 1300px;
+	height: 95px;
+	background-color: #ecf3fc;
+	position: absolute;
+	left: 0;
+	top: 100px;
+
+}
+.dropdown-wrap .dropdown-item{
+	display: none;
+}
+.dropdown-wrap .search-item{
+	width: 718px;
+	height: 50px;
+	margin: 23px auto;
+	background: url(../images/search-bg.png) 0 0 no-repeat;
+	position: relative;
+}
+.dropdown-wrap .search-item input{
+	line-height: 20px;
+	width: 100%;
+	padding: 15px 140px 15px 20px;
+	background: none;
+	border: none;
+	position: relative;
+	z-index: 1;
+}
+.dropdown-wrap .search-item button{
+	position: absolute;
+	z-index: 2;
+	top: 0;
+	right: 0;
+	width: 133px;
+	height: 50px;
+	line-height: 50px;
+	border: none;
+	background: none;
+	color: #fff;
+	text-align: center;
+	cursor: pointer;
+}
+.dropdown-wrap .nav-item{
+	height: 20px;
+	margin-top: 38px;
+}
+.dropdown-wrap .nav-item a{
+	display: inline-block;
+	height: 20px;
+	line-height: 20px;
+	color: #ff6600;
+	padding: 0 30px;
+}
+.dropdown-wrap .nav-item a:hover{
+	text-decoration: none;
+	font-weight: bold;
+}
 
 
 
+/*part1*/
+.part1{
+	margin-top: 10px;
+}
+.part1 .part-item{
+	border-top: 4px solid #ff6600;
+	background-color: #f6f6f6;
+}
+.part1 .part-item h3{
+	text-align: center;
+	color: #1b1b1b;
+	font-size: 18px;
+	margin: 20px 0;
+}
+.part1 .part-item li{
+	height: 28px;
+	overflow: hidden;
+	line-height: 28px;
+	padding: 0 6px;
+}
+.part1 .part-item li a{
+	color: #313131;
+	display: block;
+}
+.part1 .part-item li a:hover{
+	text-decoration: underline;
+}
+.part1 .part-item li a p{
+	float: left;
+	width: 280px;
+}
+.part1 .part-item li a span{
+	float: right;
+}
+.part1 .more-btn{
+	margin-top: 12px;
+	margin-bottom: 12px;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/*part2*/
+.part2{
+	margin-top: 40px;
+}
+.part2 .part-item{
+	height: 60px;
+	line-height: 60px;
+	background-color: #ff9d21;
+	color: #000;
+	font-size: 18px;
+	position: relative;
+	padding-left: 65px;
+}
+.part2 .part-item img{
+	position: absolute;
+	left: 16px;
+	top: 50%;
+}
+.part2 .part-item img.icon-1{
+	margin-top: -15px;
+}
+.part2 .part-item img.icon-2{
+	margin-top: -12px;
+}
+.part2 .part-item a.add{
+	width: 20px;
+	height: 20px;
+	background: url(../images/add-red.png) center center no-repeat;
+	position: absolute;
+	top: 50%;
+	right: 20px;
+	margin-top: -9px;
+	cursor: pointer;
+}
 
 
 
