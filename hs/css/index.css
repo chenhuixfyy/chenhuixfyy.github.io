@@ -715,6 +715,13 @@ html,body{
 	.nav-wrap li > a{
 		width: 55px;
 	}
+	
+	.nav-wrap li .nav-item{
+		width: 940px;
+	}
+	.dropdown-wrap{
+		width: 940px;
+	}
 
 
 	.part4 .tabs-list{
