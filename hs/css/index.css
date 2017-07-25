@@ -808,5 +808,41 @@ html,body{
 
 /*phone-640宽度*/
 @media screen and (max-width: 940px) {
+	html, body{
+		min-width: 100%;
+	}
+	.banner{
+		min-width: 100%;
+	}
+	.banner-pagination{
+		width: 100%;
+	}
+	.header{
+		width: 100%;
+		left: 0;
+		margin-left: 0;
+	}
 
+
+
+
+	.content-container img{
+		width: 100%;
+		left: 0;
+		margin-left: 0;
+	}
+
+
+	.part5 .text-news{
+		float: none;
+		width: 100%;
+	}
+
+
+
+
+
+	.footer-top{
+		display: none;
+	}
 }
