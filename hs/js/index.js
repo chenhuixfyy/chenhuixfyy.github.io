@@ -5,6 +5,7 @@ $(function () {
         pagination: '.banner-pagination',
         paginationClickable: true,
         autoplay: 5000,
+        calculateHeight : true,
         loop: true
     });
 	// 内容banner

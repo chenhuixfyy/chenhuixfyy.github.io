@@ -1,4 +1,7 @@
 /*common.css*/
+.show-m{
+	display: none;
+}
 /*模块分块*/
 .part-wrapper{
 	width: 1300px;
@@ -87,6 +90,12 @@
 
 /*phone-640宽度*/
 @media screen and (max-width: 940px) {
+	.show-pc{
+		display: none;
+	}
+	.show-m{
+		display: block;
+	}
 	.part-wrapper{
 		width: 100%;
 	}
