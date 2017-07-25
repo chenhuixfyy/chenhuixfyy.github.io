@@ -88,7 +88,7 @@
 
 
 
-/*phone-640宽度*/
+/*phone-940宽度*/
 @media screen and (max-width: 940px) {
 	.show-pc{
 		display: none;
@@ -97,7 +97,11 @@
 		display: block;
 	}
 	.part-wrapper{
-		width: 100%;
+		width: auto;
+	}
+	.part-wrapper .subtitle{
+		margin: 20px 0 10px;
+		font-size: 18px;
 	}
 	.part-three .part-item{
 		width: 100%;
@@ -107,5 +111,11 @@
 	.part-four .part-item{
 		width: 50%;
 		margin-left: 0;
+	}
+	.part-four .part-item:nth-child(2n+1) .inner-item{
+		margin-right: 5px;
+	}
+	.part-four .part-item:nth-child(2n) .inner-item{
+		margin-left: 5px;
 	}
 }
