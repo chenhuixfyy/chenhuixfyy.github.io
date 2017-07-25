@@ -282,7 +282,7 @@ html,body{
 	position: absolute;
 	top: 50%;
 	right: 20px;
-	margin-top: -9px;
+	margin-top: -10px;
 	cursor: pointer;
 }
 /*part3*/
@@ -723,6 +723,22 @@ html,body{
 		width: 940px;
 	}
 
+
+
+	.part2 .part-item a.add{
+		right: 10px;
+	}
+
+	.part3{
+		height: 162px;
+	}
+	.content-container img{
+		width: 940px;
+		margin-left: -470px;
+	}
+	.content-pagination{
+		width: 940px;
+	}
 
 	.part4 .tabs-list{
 		padding: 0;
