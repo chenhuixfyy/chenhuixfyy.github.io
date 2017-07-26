@@ -117,10 +117,12 @@ html,body{
 .nav-wrap{
 	height: 64px;
 	margin-top: 36px;
-	text-align: right;
+	width: 896px;
+	float: right;
 }
 .nav-wrap li{
-	display: inline-block;
+	/*display: inline-block;*/
+	float: left;
 	line-height: 60px;
 	padding: 0 20px;
 }
@@ -131,6 +133,7 @@ html,body{
 	color: #fff;
 	font-size: 12px;
 	border-bottom: 4px solid #ff6600;
+	line-height: 60px;
 }
 .nav-wrap li:hover > a{
 	text-decoration: none;
@@ -715,6 +718,9 @@ html,body{
 	.top-tool{
 		width: 800px;
 	}
+	.nav-wrap{
+		width: 600px;
+	}
 	.nav-wrap li{
 		padding: 0 10px;
 	}
@@ -892,6 +898,8 @@ html,body{
 		background: url(../images/m-header-search.png) center center/57px 18px no-repeat;
 	}
 	.nav-wrap{
+		width: auto;
+		float: none;
 		height: auto;
 		margin-top: 50px;
 		background-color: rgba(255,255,255,.9);
