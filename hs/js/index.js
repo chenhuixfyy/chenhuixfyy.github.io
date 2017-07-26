@@ -51,8 +51,8 @@ $(function () {
 	})
 
 
-	// 导航
-	var $navLi = $('.nav-wrap li');
+	// pc导航
+	var $navLi = $('.pc-nav-wrap li');
 	$navLi.hover(function() {
 		$(this).find('.nav-item').show();
 	}, function() {
@@ -61,12 +61,19 @@ $(function () {
 	// 搜索
 	var $search = $('#search');
 	$search.click(function(e) {
-		$('.dropdown-wrap').toggle()
+		$('.dropdown-wrap').stop().toggle()
 	});
 
 
-
-
+	// 移动端导航展开
+	$('.navbtn').click(function(event) {
+		$('.m-nav-wrap').stop().slideToggle()
+	});
+	var $mNavLi = $('.m-nav-wrap li');
+	$mNavLi.click(function(event) {
+		$(this).siblings('li').find('.nav-item').stop().slideUp();
+		$(this).find('.nav-item').stop().slideToggle();
+	});
 
 
 

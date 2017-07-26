@@ -120,6 +120,9 @@ html,body{
 	width: 896px;
 	float: right;
 }
+.m-nav-wrap{
+	display: none;
+}
 .nav-wrap li{
 	/*display: inline-block;*/
 	float: left;
@@ -884,11 +887,12 @@ html,body{
 	.top-tool{
 		width: 100%;
 		border-bottom: none;
+		height: 50px;
 	}
 	.navbtn{
-		margin: 16px 16px 0 0;
-		width: 25px;
-		height: 17px;
+		margin: 5px 5px 0 0;
+		width: 40px;
+		height: 40px;
 		background: url(../images/navbtn.png) center center/25px 17px no-repeat;
 	}
 	.top-tool .search{
@@ -901,7 +905,9 @@ html,body{
 		width: auto;
 		float: none;
 		height: auto;
-		margin-top: 50px;
+		margin-top: 0;
+		position: relative;
+		top: 50px;
 		background-color: rgba(255,255,255,.9);
 		display: none;
 	}
