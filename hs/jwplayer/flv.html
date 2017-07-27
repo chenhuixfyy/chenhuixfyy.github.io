@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript" src="jwplayer/jwplayer.js"></script>
+</head>
+<body>
+<div id="video"></div>
+<script type="text/javascript">
+	jwplayer("video").setup({
+		//skin: "jwplayer/skins/simple.zip",
+		stretching: "fill",
+		flashplayer: "jwplayer/player.swf",
+		//image: "jwplayer/preview.jpg",
+		levels: [
+			{file: "jwplayer/red.flv"},
+			{file: ""} 
+		],
+		control: false,
+		width: 640,
+		height: 400
+	}).play();
+</script>
+</body>
+</html>
