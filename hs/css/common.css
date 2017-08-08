@@ -54,8 +54,28 @@
 }
 
 
-
-
+/*内页文案*/
+.detail-item{
+	padding: 20px 0 40px;
+}
+.indside-text{
+	font-size: 16px;
+	line-height: 30px;
+	color: #535353;
+}
+.cut-div{
+	height: 360px;
+	overflow: hidden;
+}
+.inside-h3{
+	text-align: center;
+	color: #ff6600;
+	margin-bottom: 40px;
+	font-size: 22px;
+}
+.show-more{
+	margin-top: 10px;
+}
 
 /*pad-940宽度*/
 @media screen and (min-width: 940px) and (max-width: 1300px) {
@@ -117,5 +137,30 @@
 	}
 	.part-four .part-item:nth-child(2n) .inner-item{
 		margin-left: 5px;
+	}
+	
+	.detail-item{
+		padding: 10px 0 20px;
+	}
+	.cut-div{
+		height: 200px;
+	}
+	.show-more{
+		width: 100px;
+		height: 20px;
+		-webkit-background-size: 9px;
+		background-size: 9px;
+	}
+	.indside-text{
+		font-size: 12px;
+		line-height: 16px;
+		color: #535353;
+		padding: 0 16px;
+	}
+	.inside-h3{
+		text-align: center;
+		color: #ff6600;
+		margin-bottom: 20px;
+		font-size: 16px;
 	}
 }

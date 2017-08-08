@@ -63,12 +63,12 @@ html,body{
 	z-index: 2;
 }
 .header .logo{
-	width: 261px;
+	width: 365px;
 	position: relative;
 	z-index: 3;
 }
 .header-right{
-	width: 1000px;
+	width: 930px;
 	height: 100px;
 	position: relative;
 	z-index: 2;
@@ -714,12 +714,22 @@ html,body{
 		margin-left: -470px;
 	}
 
-
+	.header .logo{
+		width: 108px;
+		height: 100px;
+		z-index: 3;
+	}
+	.hide-pad{
+		display: none;
+	}
+	.show-pad{
+		display: block;
+	}
 	.header-right{
 		width: 670px;
 	}
 	.top-tool{
-		width: 800px;
+		width: 900px;
 	}
 	.nav-wrap{
 		width: 600px;
