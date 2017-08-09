@@ -77,6 +77,91 @@
 	margin-top: 10px;
 }
 
+/*领导成员*/
+.leader-list li{
+	height: 50px;
+	line-height: 50px;
+	font-size: 16px;
+	color: #535353;
+}
+.leader-list li.odd{
+	background-color: #f6f6f6;
+}
+.leader-list li .name{
+	float: left;
+	width: 110px;
+	padding-left: 30px;
+}
+.leader-list li .job{
+	float: left;
+	width: 210px;
+	padding-left: 30px;
+}
+.leader-list li .intro{
+	width: 820px;
+	float: left;
+	height: 50px;
+}
+
+.leader-list li .more-btn{
+	width: 80px;
+	float: right;
+	margin-top: 11px;
+}
+
+.details-avatar img{
+	margin-right: 20px;
+	float: left;
+}
+
+/*机构设置*/
+.top-dept{
+	background-color: #ff6600;
+	color: #fff;
+	font-size: 16px;
+	text-align: center;
+	display: block;
+	width: 420px;
+	height: 50px;
+	line-height: 50px;
+	margin: 50px auto 30px;
+}
+
+.dept-list li {
+	float: left;
+	width: 310px;
+	margin-left: 20px;
+	background-color: #a2c3c8;
+	font-size: 16px;
+	height: 50px;
+	text-align: center;
+	margin-bottom: 30px;
+}
+.dept-list li.ml0{
+	margin-left: 0;
+}
+.dept-list li a{
+	color: #fff;
+	line-height: 50px;
+	height: 100%;
+	display: block;
+	text-align: center;
+}
+.dept-list li a:hover{
+	text-decoration: none;
+}
+.dept-list li a.two-line{
+	line-height: 18px;
+	padding-top: 7px;
+	height: 43px;
+}
+
+
+
+
+
+
+
 /*pad-940宽度*/
 @media screen and (min-width: 940px) and (max-width: 1300px) {
 	.part-wrapper{
@@ -91,7 +176,30 @@
 	}
 
 
+	.leader-list li .name{
+		padding-left: 20px;
+	}
+	.leader-list li .job{
+		float: left;
+		width: 200px;
+		padding-left: 20px;
+	}
+	.leader-list li .intro{
+		width: 500px;
+		float: left;
+		height: 50px;
+	}
 
+	.leader-list li .more-btn{
+		width: 80px;
+		float: right;
+		margin-top: 11px;
+	}
+
+	.dept-list li{
+		width: 220px;
+		font-size: 14px;
+	}
 
 
 
@@ -162,5 +270,34 @@
 		color: #ff6600;
 		margin-bottom: 20px;
 		font-size: 16px;
+	}
+
+	.details-avatar img{
+		float: none;
+		margin: 0 auto 20px;
+	}
+	.top-dept{
+		width: 80%;
+		font-size: 14px;
+		height: 30px;
+		line-height: 30px;
+	}
+	.dept-list li {
+		float: none;
+		width: 100%;
+		margin-left: 0;
+		font-size: 12px;
+		height: 30px;
+		text-align: center;
+		margin-bottom: 15px;
+	}
+	.dept-list li a{
+		line-height: 30px;
+
+	}
+	.dept-list li a.two-line{
+		line-height: 30px;
+		padding-top: 0;
+		height: 100%;
 	}
 }
