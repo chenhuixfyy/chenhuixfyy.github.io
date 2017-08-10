@@ -78,13 +78,13 @@
 }
 
 /*领导成员*/
-.leader-list li{
+.common-list li{
 	height: 50px;
 	line-height: 50px;
 	font-size: 16px;
 	color: #535353;
 }
-.leader-list li.odd{
+.common-list li.odd{
 	background-color: #f6f6f6;
 }
 .leader-list li .name{
@@ -156,6 +156,46 @@
 	height: 43px;
 }
 
+/*荣誉展示*/
+.honor-list li {
+	float: left;
+	width: 310px;
+	margin-left: 20px;
+	font-size: 16px;
+	line-height: 20px;
+	height: 220px;
+	margin-bottom: 30px;
+}
+.honor-list li img{
+	width: 100%;
+	height: 174px;
+	margin-bottom: 5px;
+}
+.honor-list li.ml0{
+	margin-left: 0;
+}
+.honor-list li a:hover{
+	text-decoration: none;
+}
+/*信息公开*/
+.information-list ul{
+	margin-bottom: 40px;
+}
+.information-list li a{
+	padding: 0 20px;
+	display: block;
+}
+.information-list li p{
+	float: left;
+}
+.information-list li a span{
+	color: #898989;
+	float: right;
+}
+
+
+
+
 
 
 
@@ -199,6 +239,17 @@
 	.dept-list li{
 		width: 220px;
 		font-size: 14px;
+	}
+	.honor-list li {
+		width: 220px;
+		font-size: 14px;
+		line-height: 18px;
+		height: 170px;
+		margin-bottom: 20px;
+	}
+	.honor-list li img{
+		height: 123px;
+		margin-bottom: 5px;
 	}
 
 
@@ -288,7 +339,6 @@
 		margin-left: 0;
 		font-size: 12px;
 		height: 30px;
-		text-align: center;
 		margin-bottom: 15px;
 	}
 	.dept-list li a{
@@ -299,5 +349,37 @@
 		line-height: 30px;
 		padding-top: 0;
 		height: 100%;
+	}
+	.honor-list li {
+		float: none;
+		width: 100%;
+		margin-left: 0;
+		height: auto;
+		font-size: 12px;
+		margin-bottom: 15px;
+	}
+	.honor-list li img{
+		height: auto;
+		margin-bottom: 5px;
+	}
+	.information-list ul{
+		margin-bottom: 20px;
+	}
+	.information-list li{
+		height: auto;
+		line-height: 30px;
+		padding: 10px 0;
+	}
+	.information-list li p{
+		float: none;
+	}
+	.information-list li a span{
+		float: none;
+	}
+	.information-list .more-btn{
+		width: 100px;
+		height: 20px;
+		-webkit-background-size: 9px;
+		background-size: 9px;
 	}
 }
