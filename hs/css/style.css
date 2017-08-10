@@ -184,16 +184,40 @@
 .information-list li a{
 	padding: 0 20px;
 	display: block;
-}
-.information-list li p{
 	float: left;
 }
-.information-list li a span{
+.information-list li span{
 	color: #898989;
 	float: right;
+	margin-right: 20px;
 }
-
-
+/*政策法规*/
+.policy-list .tabs-list li {
+ 	display: block;
+ 	width: 136px;
+ 	height: 34px;
+ 	line-height: 34px;
+ 	border: 2px solid #313131;
+ 	font-size: 16px;
+ 	color: #535353;
+ 	text-align: center;
+ 	float: left;
+ 	margin-left: 52px;
+ 	cursor: pointer;
+}
+.policy-list .tabs-list li:first-child{
+	margin-left: 0;
+}
+.policy-list .tabs-list li:hover{
+	text-decoration: none;
+}
+.policy-list .tabs-list li.active {
+  border-color: #ff6600;
+  color: #ff6600;
+}
+.policy-list .tabs-container {
+	margin-top: 27px;
+}
 
 
 
@@ -251,7 +275,10 @@
 		height: 123px;
 		margin-bottom: 5px;
 	}
-
+	.policy-list .tabs-list li{
+		margin-left: 12px;
+		width: 120px;
+	}
 
 
 
@@ -277,6 +304,10 @@
 	}
 	.part-wrapper{
 		width: auto;
+	}
+	.part-wrapper .part-item img{
+		width: 100%;
+		max-width: none;
 	}
 	.part-wrapper .subtitle{
 		margin: 20px 0 10px;
@@ -370,16 +401,38 @@
 		line-height: 30px;
 		padding: 10px 0;
 	}
-	.information-list li p{
+	.information-list li a{
 		float: none;
 	}
-	.information-list li a span{
+	.information-list li span{
 		float: none;
+		margin-right: 0;
+		margin-left: 20px;
 	}
 	.information-list .more-btn{
 		width: 100px;
 		height: 20px;
 		-webkit-background-size: 9px;
 		background-size: 9px;
+	}
+	.policy-list .tabs-list ul{
+		text-align: center;
+	}
+	.policy-list .tabs-list li{
+		width: 90px;
+		height: 20px;
+		line-height: 20px;
+		font-size: 12px;
+		float: none;
+		display: inline-block;
+		margin: 0 5px 10px;
+		border-width: 1px;
+	}
+	.policy-list .tabs-container .more-btn{
+		margin-top: 25px;
+		width: 100px;
+		-webkit-background-size: 9px 9px;
+    	background-size: 9px 9px;
+    	height: 20px;
 	}
 }
