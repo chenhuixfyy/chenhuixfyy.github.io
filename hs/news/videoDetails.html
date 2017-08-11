@@ -167,49 +167,13 @@
 	<!-- content -->
 	<div class="content">
 		<div class="detail-item part-wrapper">
-			<h3 class="inside-h3">信息公开</h3>
-			<div class="indside-text information-list common-list">
-                <ul>
-                	<li class="odd clearfix">
-                		<a href="">
-                			<p class="ovdot">呼市住房保障房屋管理局2016年法治政府建设自查情况报告</p>
-                		</a>
-						<span class="">2017-07-19</span>
-                	</li>
-                	<li class="clearfix">
-                		<a href="">
-                			<p class="ovdot">呼市住房保障房屋管理局2016年法治政府建设自查情况报告</p>
-                		</a>
-						<span class="">2017-07-19</span>
-                	</li>
-                	<li class="odd clearfix">
-                		<a href="">
-                			<p class="ovdot">呼市住房保障房屋管理局2016年法治政府建设自查情况报告</p>
-                		</a>
-						<span class="">2017-07-19</span>
-                	</li>
-                	<li class="clearfix">
-                		<a href="">
-                			<p class="ovdot">呼市住房保障房屋管理局2016年法治政府建设自查情况报告</p>
-                		</a>
-						<span class="">2017-07-19</span>
-                	</li>
-                	<li class="odd clearfix">
-                		<a href="">
-                			<p class="ovdot">呼市住房保障房屋管理局2016年法治政府建设自查情况报告</p>
-                		</a>
-						<span class="">2017-07-19</span>
-                	</li>
-                	<li class="clearfix">
-                		<a href="">
-                			<p class="ovdot">呼市住房保障房屋管理局2016年法治政府建设自查情况报告</p>
-                		</a>
-						<span class="">2017-07-19</span>
-                	</li>
-                	
-                </ul>
-                <a href="" class="more-btn"></a>
-			</div>
+			<h3 class="inside-h3">九部委要求大中城市加快发展住房租赁市场：政策进一步细化 以增加租房供应</h3>
+			<!-- <div class="indside-text"> -->
+                
+				<div class="video" id="video">
+                </div>
+
+			<!-- </div> -->
 		</div>
 		
 
@@ -275,5 +239,49 @@
 	<script src="../js/jquery-1.10.2.min.js"></script>
 	<script src="../js/idangerous.swiper.min.js"></script>
 	<script src="../js/common.js"></script>
+	<script src="../js/jwplayer.js"></script>
+	<script>
+		$(function () {
+			var base_url="/hs/media/"
+
+		    function playvideo(w, h, vmp4, vflv, uid, pic){
+		        if(typeof jwplayer=="undefined") return false;
+		        jwplayer(uid).setup({
+		            skin: base_url+"glow.zip",
+		            stretching: "fill",
+		            flashplayer: base_url+"player.swf",
+		            image: pic,
+		            levels: [
+		                {file: vmp4},
+		                {file: vflv}
+		            ],
+		            control: false,
+		            width:w,
+		            height:h
+		        });
+		    }
+		    var mp4_url="http://www.hhhtfcj.gov.cn/uploadfile/2017/0721/20170721093354256.mp4";
+		    var flv_url="http://www.hhhtfcj.gov.cn/uploadfile/2017/0721/20170721093354256.mp4";
+		    var cover_pic="http://www.hhhtfcj.gov.cn/uploadfile/2017/0721/20170721093409984.jpg";
+
+		    
+		    var $width = $(window).width();
+		    if($width < 940){
+
+		    	playvideo("100%", $width*0.75, mp4_url,flv_url,"video",cover_pic);
+		    } else {
+		    	playvideo("600","450",mp4_url,flv_url,"video",cover_pic);
+		    }
+		    $(window).resize(function (event) {
+		    	var $newWidth = $(window).width();
+                if($newWidth < 940){
+			    	playvideo("100%", $newWidth*0.75, mp4_url,flv_url,"video",cover_pic);
+			    } 
+            });
+
+		})
+	    
+
+	</script>
 </body>
 </html>

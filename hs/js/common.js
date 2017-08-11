@@ -29,8 +29,8 @@ $(function () {
 	})
 
 
-	// pc导航
-	var $navLi = $('.pc-nav-wrap li');
+	// pc导航 pc-nav-wrap
+	var $navLi = $('.nav-wrap li');
 	$navLi.hover(function() {
 		$(this).find('.nav-item').show();
 	}, function() {
@@ -45,10 +45,10 @@ $(function () {
 
 	// 移动端导航展开
 	$('.navbtn').click(function(event) {
-		$('.m-nav-wrap').stop().slideToggle()
+		$('.nav-wrap').stop().slideToggle()
 	});
-	var $mNavLi = $('.m-nav-wrap li');
-	$mNavLi.click(function(event) {
+	// var $mNavLi = $('.nav-wrap li');
+	$navLi.click(function(event) {
 		$(this).siblings('li').find('.nav-item').stop().slideUp();
 		$(this).find('.nav-item').stop().slideToggle();
 	});

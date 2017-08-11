@@ -169,47 +169,6 @@ html,body{
 
 
 
-/*头部下拉*/
-.dropdown-wrap{
-	width: 1300px;
-	height: 95px;
-	background-color: #ecf3fc;
-	position: absolute;
-	left: 0;
-	top: 100px;
-	display: none;
-	z-index: 3;
-}
-.dropdown-wrap .search-item{
-	width: 718px;
-	height: 50px;
-	margin: 23px auto;
-	background: url(../images/search-bg.png) 0 0 no-repeat;
-	position: relative;
-}
-.dropdown-wrap .search-item input{
-	line-height: 20px;
-	width: 100%;
-	padding: 15px 140px 15px 20px;
-	background: none;
-	border: none;
-	position: relative;
-	z-index: 1;
-}
-.dropdown-wrap .search-item button{
-	position: absolute;
-	z-index: 2;
-	top: 0;
-	right: 0;
-	width: 133px;
-	height: 50px;
-	line-height: 50px;
-	border: none;
-	background: none;
-	color: #fff;
-	text-align: center;
-	cursor: pointer;
-}
 
 
 
