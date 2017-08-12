@@ -48,11 +48,20 @@
 	display: block;
 	width: 200px;
 	height: 28px;
+	line-height: 28px;
+	text-align: center;
 	background: #f60 url(../images/more-icon.png) center center no-repeat;
 	margin: 0 auto;
 	cursor: pointer;
+	color: #fff;
 }
-
+.more-btn:hover{
+	text-decoration: none;
+}
+/*tab切换*/
+.tabs-container .tabs-item{
+	display: none;
+}
 /*头部下拉*/
 .dropdown-wrap{
 	width: 1300px;
@@ -284,9 +293,205 @@
 	color: #333;
 }
 
+/*联系我们-百度地图*/
+.bd-map{
+	width: 758px;
+	margin: 0 auto;
+}
+#Bmap{
+	height: 378px;
+	border: 1px solid #cccccc;
+}
+.iw_poi_title {
+	color:#CC5522;
+	font-size:14px;
+	font-weight:bold;
+	overflow:hidden;
+	padding-right:13px;
+	white-space:nowrap
+}
+.iw_poi_content {
+	font:12px arial,sans-serif;
+	overflow:visible;
+	padding-top:4px;
+	white-space:-moz-pre-wrap;
+	word-wrap:break-word
+}
+.pop .center {
+	margin-left: 0px;
+}
+/*政务咨询*/
+.consult-title{
+	text-align: center;
 
+}
+.consult-title a{
+	display: inline-block;
+ 	width: 136px;
+ 	height: 34px;
+ 	line-height: 34px;
+ 	border: 2px solid #313131;
+ 	font-size: 16px;
+ 	color: #535353;
+ 	cursor: pointer;
+ 	margin: 0 3px;
+}
+.consult-title a:hover{
+	text-decoration: none;
+}
 
+.consult-title a:hover,.consult-title a.active {
+  border-color: #ff6600;
+  color: #ff6600;
+}
+.consult-main{
+	margin-top: 60px;
+}
+.consult-submit{
+	background: url(../images/services.jpg) right bottom no-repeat;
+}
+.consult-submit .input-wrap{
+	position: relative;
+	min-height: 38px;
+	margin-bottom: 10px;
+}
+.consult-submit .input-wrap span{
+	float: left;
+	text-align: right;
+	width: 180px;
+	padding-right: 10px;
+	line-height: 38px;
+}
+.consult-submit .input-wrap input.text-input{
+	width: 430px;
+	height: 18px;
+	line-height: 18px;
+	padding: 10px;
+	float: left;
+	background: #e8e8e8;
+	border: none;
+}
+.consult-submit .input-wrap input.sex-select{
+	width: auto;
+}
+.consult-submit .input-wrap label{
+	line-height: 38px;
+	padding: 0 35px 0 15px;
+	float: left;
+}
+.consult-submit .input-wrap textarea{
+	width: 430px;
+	height: 162px;
+	line-height: 18px;
+	padding: 10px;
+	float: left;
+	background: #e8e8e8;
+	border: none;
+	resize: none;
+	overflow: auto;
+}
+.reply-item{
+	width: 858px;
+	border: 1px solid #dadada;
+	margin: 0 auto 40px;
+}
+.reply-item .top{
+	padding: 4px 15px;
+	background-color: #f2f2f2;
+}
+.reply-item .mid{
+	padding: 20px 15px;
+}
+.reply-item .mid p{
+	padding: 40px 60px;
+}
+.reply-item .bottom{
+	background-color: #f2f2f2;
+	padding: 4px 75px;
+}
+.reply-item .bottom span{
+	color: #ff6600;
+}
 
+/*办事指南*/
+/*政策法规*/
+.guide-list .tabs-list li {
+ 	display: block;
+ 	width: 136px;
+ 	height: 34px;
+ 	line-height: 34px;
+ 	border: 2px solid #313131;
+ 	font-size: 16px;
+ 	color: #535353;
+ 	text-align: center;
+ 	float: left;
+ 	margin-left: 92px;
+ 	cursor: pointer;
+}
+.guide-list .tabs-list li:first-child{
+	margin-left: 0;
+}
+.guide-list .tabs-list li:hover{
+	text-decoration: none;
+}
+.guide-list .tabs-list li.active {
+  border-color: #ff6600;
+  color: #ff6600;
+}
+.guide-list .tabs-container {
+	margin-top: 27px;
+}
+
+.file-main{
+	text-align: center;
+}
+.file-main img{
+	display: block;
+	margin: 0 auto;
+}
+.file-main .file-title{
+	margin: 10px auto;
+}
+.more-btn.download-file{
+	background: #f60;
+}
+
+/*企业办事*/
+.enterprise-list .tabs-list ul{
+	text-align: center;
+
+}
+.enterprise-list .tabs-list li{
+	float: none;
+	display: inline-block;
+ 	margin: 0 3px;
+}
+.enterprise-list .tabs-item{
+	text-align: center;
+}
+.enterprise-list .tabs-item a{
+	display: inline-block;
+	width: 240px;
+}
+.enterprise-list .tabs-item a img{
+	display: block;
+	margin: 0 auto;
+}
+.enterprise-list .tabs-item a:hover{
+	text-decoration: none;
+}
+.query-list{
+	text-align: center;
+}
+.query-list .query-item{
+	width: 200px;
+	margin: 0 200px;
+	display: inline-block;
+}
+.query-list .query-item img{
+	display: block;
+	margin: 0 auto 20px;
+}
 /*pad-940宽度*/
 @media screen and (min-width: 940px) and (max-width: 1300px) {
 	.part-wrapper{
@@ -362,10 +567,32 @@
 	.video-list li a{
 		color: #333;
 	}
-	
-
-
-
+	.consult-main{
+		margin-top: 40px;
+		-webkit-background-size: 500px auto;
+		background-size: 500px auto;
+	}
+	.consult-submit .input-wrap span{
+		width: 120px;
+	}
+	.consult-submit .input-wrap input.text-input{
+		width: 330px;
+	}
+	.consult-submit .input-wrap textarea{
+		width: 330px;
+	}
+	.guide-list .tabs-list li{
+		margin-left: 27px;
+    	width: 130px;
+	}
+	.enterprise-list .tabs-item a{
+		width: 180px;
+		height: 180px;
+		vertical-align: middle;
+	}
+	.query-list .query-item{
+		margin: 0 120px;
+	}
 
 
 }
@@ -444,10 +671,10 @@
 		height: 200px;
 	}
 	.show-more{
-		width: 100px;
+		/*width: 100px;
 		height: 20px;
 		-webkit-background-size: 9px;
-		background-size: 9px;
+		background-size: 9px;*/
 	}
 	.indside-text{
 		/*font-size: 16px;
@@ -528,31 +755,31 @@
 		margin-right: 0;
 		margin-left: 20px;
 	}
-	.information-list .more-btn{
-		width: 100px;
+	.information-list .more-btn,.indside-text .more-btn{
+		/*width: 100px;
 		height: 20px;
 		-webkit-background-size: 9px;
-		background-size: 9px;
+		background-size: 9px;*/
 	}
 	.policy-list .tabs-list ul{
 		text-align: center;
 	}
 	.policy-list .tabs-list li{
-		width: 90px;
+		/*width: 90px;
 		height: 20px;
-		line-height: 20px;
+		line-height: 20px;*/
 		font-size: 12px;
 		float: none;
 		display: inline-block;
-		margin: 0 5px 10px;
+		margin: 0 5px 10px!important;
 		border-width: 1px;
 	}
 	.policy-list .tabs-container .more-btn{
 		margin-top: 25px;
-		width: 100px;
-		-webkit-background-size: 9px 9px;
-    	background-size: 9px 9px;
-    	height: 20px;
+		/*width: 100px;
+		height: 20px;
+		-webkit-background-size: 9px;
+		background-size: 9px;*/
 	}
 	.video-list li{
 		height: auto;
@@ -568,4 +795,106 @@
 	.video-list li a{
 		color: #333;
 	}
+	.bd-map{
+		width: 100%;
+		margin: 0 auto;
+		padding: 0;
+	}
+	#Bmap{
+		height: 300px;
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+	}
+	.consult-title a{
+		border-width: 1px;
+		font-size: 12px;
+	}
+	.consult-main{
+		margin-top: 20px;
+		background: none;
+	}
+	.consult-submit{
+		background: none;
+	}
+	.consult-submit .input-wrap span{
+		width: auto;
+		display: block;
+		float: none;
+		text-align: left;
+	}
+	.consult-submit .input-wrap input.text-input{
+		width: 100%;
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+		display: block;
+		float: none;
+		height: 38px;
+	}
+	.consult-submit .input-wrap label{
+		float: none;
+		padding-left: 0;
+		line-height: 38px;
+	}
+	.consult-submit .input-wrap textarea{
+		width: 100%;
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+		height: 182px;
+	}
+	.reply-item{
+		width: 100%;
+		margin: 0 auto 40px;
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+	}
+	.reply-item .top{
+		padding: 4px 15px;
+	}
+	.reply-item .mid{
+		padding: 20px 15px;
+	}
+	.reply-item .mid p{
+		padding: 20px 30px;
+	}
+	.reply-item .bottom{
+		padding: 4px 45px;
+	}
+	.guide-list .tabs-list ul{
+		text-align: center;
+	}
+	.guide-list .tabs-list li{
+		/*width: 90px;
+		height: 20px;
+		line-height: 20px;*/
+		font-size: 12px;
+		float: none;
+		display: inline-block;
+		margin: 0 5px 10px!important;
+		border-width: 1px;
+	}
+	.guide-list .tabs-container .more-btn{
+		margin-top: 25px;
+		/*width: 100px;
+		height: 20px;
+		-webkit-background-size: 9px;
+		background-size: 9px;*/
+	}
+	.enterprise-list .tabs-list li{
+		font-size: 12px;
+		margin: 0 5px 10px!important;
+		border-width: 1px;
+	}
+	.enterprise-list .tabs-item a{
+		margin-bottom: 20px;
+	}
+	.query-list .query-item{
+		margin: 0 auto;
+		display: block;
+		margin-bottom: 20px;
+	}
+
 }

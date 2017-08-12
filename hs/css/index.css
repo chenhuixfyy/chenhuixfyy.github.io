@@ -988,9 +988,9 @@ html,body{
 		text-align: center;
 	}
 	.part4 .tabs-list li{
-		width: 90px;
+		/*width: 90px;
 		height: 20px;
-		line-height: 20px;
+		line-height: 20px;*/
 		font-size: 12px;
 		float: none;
 		display: inline-block;
@@ -1044,13 +1044,13 @@ html,body{
 		padding: 0;
 	}
 	.part5 .tabs-list li{
-		font-size: 12px;
+		font-size: 14px;
 		float: none;
 		display: inline-block;
-		height: 20px;
-		line-height: 20px;
+		/*height: 20px;
+		line-height: 20px;*/
 		border-width: 1px;
-		margin: 0 5px 10px;
+		margin: 0 5px 10px!important;
 		width: 120px;
 	}
 	.part5 .tabs-item li{
