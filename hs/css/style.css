@@ -374,6 +374,18 @@
 .consult-submit .input-wrap input.sex-select{
 	width: auto;
 }
+.consult-submit .input-wrap input.submit-input{
+	margin-left: 190px;
+	background-color: #f60;
+	color: #fff;
+	height: 38px;
+	line-height: 38px;
+	border: none;
+	padding: 0;
+	text-align: center;
+	width: 120px;
+	cursor: pointer;
+}
 .consult-submit .input-wrap label{
 	line-height: 38px;
 	padding: 0 35px 0 15px;
@@ -577,6 +589,9 @@
 	}
 	.consult-submit .input-wrap input.text-input{
 		width: 330px;
+	}
+	.consult-submit .input-wrap input.submit-input{
+		margin-left: 130px;
 	}
 	.consult-submit .input-wrap textarea{
 		width: 330px;
@@ -831,6 +846,10 @@
 		display: block;
 		float: none;
 		height: 38px;
+	}
+
+	.consult-submit .input-wrap input.submit-input{
+		margin-left: 0;
 	}
 	.consult-submit .input-wrap label{
 		float: none;
