@@ -290,6 +290,7 @@ html,body{
 	margin-top: 10px;
 	margin-bottom: 40px;
 	font-size: 22px;
+	line-height: 30px;
 }
 .show-more{
 	margin-top: 10px;
@@ -344,6 +345,9 @@ html,body{
 	width: 820px;
 	float: left;
 	height: 50px;
+	overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .leader-list li .more-btn{
@@ -1033,6 +1037,7 @@ html,body{
 		margin-bottom: 20px;
 		font-size: 16px;
 		padding: 0 16px;
+		line-height: 20px;
 	}
 
 	.details-avatar img{
@@ -1074,6 +1079,48 @@ html,body{
 		height: auto;
 		margin-bottom: 5px;
 	}
+	.indside-text.common-list{
+		padding: 0;
+	}
+	.common-list li{
+		height: auto;
+		line-height: 20px;
+		font-size: 14px;
+		padding: 15px;
+	}
+	.common-list li .ovdot{
+		overflow: auto;
+	    text-overflow: ellipsis;
+	    white-space:inherit;
+
+	}
+	.leader-list li .name,.common-list li .job{
+		display: inline-block;
+		width: auto;
+		padding-left: 0;
+		float: none;
+	}
+	.common-list li .job{
+		margin-left: 15px;
+	}
+	.common-list li .intro{
+		float: none;
+		height: auto;
+		width: auto;
+		overflow: auto;
+	    text-overflow: ellipsis;
+	    white-space:inherit;
+	    margin-top: 10px;
+	}
+	.leader-list li .more-btn{
+		width: 60px;
+		height: 20px;
+		line-height: 20px;
+		-webkit-background-size: 12px;
+		background-size: 12px;
+	}
+
+
 	.honor-list li{
 		height: auto;
 	}
@@ -1085,16 +1132,18 @@ html,body{
 	}
 	.information-list li{
 		height: auto;
-		line-height: 30px;
+		font-size: 14px;
+		line-height: 20px;
 		padding: 10px 0;
 	}
 	.information-list li a{
 		float: none;
+		padding: 0 15px;
 	}
 	.information-list li span{
 		float: none;
-		margin-right: 0;
-		margin-left: 20px;
+		display: block;
+		margin: 10px 0 0 15px;
 	}
 	.information-list .more-btn,.indside-text .more-btn{
 		/*width: 100px;
