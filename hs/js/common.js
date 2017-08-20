@@ -1,3 +1,10 @@
+function getUrlParam(name) {
+    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); 
+    var url = decodeURI(window.location.search); 
+    var r = url.substr(1).match(reg);
+    if (r != null) return unescape(r[2]); 
+    return null;
+}
 $(function () {
 
 	// 首屏banner
@@ -65,7 +72,12 @@ $(function () {
 		});
 	});
 
-
+	// 默认进来显示那个tab
+	if(getUrlParam('current')&&getUrlParam('current').length > 0){
+		var index = Number(getUrlParam('current'));
+		$('.tabs-module').find('.tabs-list li').removeClass('active').eq(index).addClass('active');
+		$('.tabs-module').find('.tabs-container .tabs-item').hide().eq(index).show();
+	}
 
 
 

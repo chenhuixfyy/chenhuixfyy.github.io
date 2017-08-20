@@ -3,7 +3,18 @@
 html,body{
 	min-width: 1300px;
 }
-
+/*百度地图*/
+.BMap_bubble_title{
+	white-space: inherit!important;
+	font-size: 14px;
+}
+.BMap_bubble_content{
+	font-size: 14px;
+	line-height: 24px;
+}
+.BMap_bubble_content a{
+	color: #fe6d0b;
+}
 /*banner*/
 .banner{
 	width: 100%;
@@ -165,7 +176,74 @@ html,body{
 	font-weight: bold;
 }
 
+/*footer*/
+.footer{
+	width: 100%;
+	height: 170px;
 
+}
+.footer-top{
+	height: 130px;
+	background-color: #eee;
+}
+.top-con{
+	width: 1300px;
+	margin: 0 auto;
+	height: 130px;
+}
+.top-con .top-con-left .img-wrap{
+	margin-top: 10px;
+}
+.top-con-left .beian{
+	text-decoration:none;
+	color: #e44d00; 
+	margin-left: 10px;
+	display: block; 
+	font-size: 12px;
+}
+.top-con-left .beian img{
+	width:14px;
+	height:14px;
+	vertical-align: middle;
+	margin-top: -2px;
+	display: inline-block;
+}
+
+
+.top-con .top-con-left .qrcode{
+	margin: 25px 0 0 20px;
+}
+
+
+
+
+.top-con .top-con-right{
+	width: 800px;
+	margin-top: 10px;
+}
+.top-con .top-con-right ul{
+	margin-top: 28px;
+}
+.top-con .top-con-right li{
+	float: left;
+	width: 200px;
+	line-height: 30px;
+}
+.top-con .top-con-right a{
+	color: #e44d00;
+}
+
+.footer-bottom{
+	height: 40px;
+	line-height: 40px;
+	font-size: 12px;
+	background-color: #e44d00;
+	text-align: center;
+	color: #fff;
+}
+.footer-bottom p{
+	opacity: 0.5;
+}
 .show-m{
 	display: none;
 }
@@ -182,6 +260,7 @@ html,body{
 	text-align: center;
 	color: #535353;
 	font-size: 22px;
+	line-height: 24px;
 	margin: 40px 0 20px;
 }
 /*三块*/
@@ -355,7 +434,9 @@ html,body{
 	float: right;
 	margin-top: 11px;
 }
-
+.leader-list > .more-btn{
+	margin-top: 20px;
+}
 .details-avatar img{
 	margin-right: 20px;
 	float: left;
@@ -410,6 +491,9 @@ html,body{
 .honor-list li img{
 	height: 174px;
 }
+.honor-details img{
+	margin: 0 auto;
+}
 /*信息公开*/
 .information-list ul{
 	margin-bottom: 40px;
@@ -459,6 +543,11 @@ html,body{
 	border: 3px solid #bfbfbf;
 	width: 304px;
 	height: 201px;
+	overflow: hidden;
+}
+.video-list li .img-wrap img{
+	width: 100%;
+	height: 100%;
 }
 .video-list li a{
 	color: #333;
@@ -466,7 +555,7 @@ html,body{
 
 /*联系我们-百度地图*/
 .bd-map{
-	width: 758px;
+	width: 760px;
 	margin: 0 auto;
 }
 #Bmap{
@@ -675,6 +764,51 @@ html,body{
 	display: block;
 	margin: 0 auto 20px;
 }
+/*项目展示*/
+.project-map{
+	width: 940px;
+	margin: 0 auto;
+}
+.project-map #Bmap{
+	height: 666px;
+	border: 1px solid #cccccc;
+}
+.project-map .tabs-list {
+	margin-bottom: 16px;
+}
+.project-map .tabs-list ul{
+	text-align: center;
+}
+.project-map .tabs-list li {
+ 	display: inline-block;
+ 	width: 136px;
+ 	height: 34px;
+ 	line-height: 34px;
+ 	border: 2px solid #313131;
+ 	font-size: 16px;
+ 	color: #535353;
+ 	text-align: center;
+ 	margin: 0 33px;
+ 	cursor: pointer;
+}
+.project-map .tabs-list li a{
+	color: #535353;
+}
+.project-map .tabs-list li.active,
+.project-map .tabs-list li:hover,
+.project-map .tabs-list li.active a,
+.project-map .tabs-list li:hover a 
+{
+  border-color: #ff6600;
+  color: #ff6600;
+}
+.project-details img{
+	margin: 0 auto;
+}
+.project-details .intro{
+	color: #8a8a8a;
+	margin-bottom: 40px;
+}
 /*pad-940宽度*/
 @media screen and (min-width: 940px) and (max-width: 1300px) {
 	html, body{
@@ -790,6 +924,7 @@ html,body{
 		border: 1px solid #bfbfbf;
 		width: 100%;
 		height: auto;
+		overflow: auto;
 	}
 	.video-list li .img-wrap img{
 		margin-bottom: 0;
@@ -966,6 +1101,7 @@ html,body{
 	.part-wrapper .subtitle{
 		margin: 20px 0 10px;
 		font-size: 18px;
+		line-height: 20px;
 	}
 	.part-three .part-item{
 		width: 100%;
@@ -1008,9 +1144,24 @@ html,body{
 		background-color: #fc3f05;
 		color: #fff;
 	}
-
+	.top-con{
+		width: 940px;
+	}
+	.top-con .top-con-right{
+		width: 600px;
+	}
+	
+	.top-con .top-con-right ul{
+		margin-top: 12px;
+	}
 	.detail-item{
 		padding: 10px 0 20px;
+	}
+	.footer{
+		height: 40px;
+	}
+	.footer-top{
+		display: none;
 	}
 	.cut-div{
 		height: 200px;
@@ -1178,6 +1329,7 @@ html,body{
 		border: 1px solid #bfbfbf;
 		width: 100%;
 		height: auto;
+		overflow: auto;
 	}
 	.video-list li .img-wrap img{
 		margin-bottom: 0;
@@ -1195,6 +1347,14 @@ html,body{
 		-webkit-box-sizing: border-box;
 		-moz-box-sizing: border-box;
 		box-sizing: border-box;
+	}
+	.project-map{
+		width: 100%;
+		margin: 0 auto;
+		padding: 0;
+	}
+	.project-map #Bmap{
+		height: 400px;
 	}
 	.consult-title a{
 		border-width: 1px;
@@ -1288,6 +1448,14 @@ html,body{
 	.query-list .query-item{
 		margin: 0 auto;
 		display: block;
+		margin-bottom: 20px;
+	}
+	.project-map .tabs-list li {
+		font-size: 12px;
+		margin: 0 5px 10px!important;
+		border-width: 1px;
+	}
+	.project-details .intro{
 		margin-bottom: 20px;
 	}
 
