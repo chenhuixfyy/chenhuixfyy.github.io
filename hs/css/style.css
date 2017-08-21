@@ -29,6 +29,11 @@ html,body{
 }
 .banner-container .swiper-slide{
 	overflow: hidden;
+	position: relative;
+	z-index: 1;
+}
+.banner-container .swiper-slide.swiper-slide-visible.swiper-slide-active{
+	z-index: 2;
 }
 .banner-container img{
 	position: relative;
