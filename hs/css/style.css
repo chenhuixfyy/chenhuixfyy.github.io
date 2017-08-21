@@ -890,6 +890,16 @@ html,body{
 		margin-top: 11px;
 	}
 
+	.top-con{
+		width: 940px;
+	}
+	.top-con .top-con-right{
+		width: 600px;
+	}
+	
+	.top-con .top-con-right ul{
+		margin-top: 12px;
+	}
 	.dept-list li{
 		width: 220px;
 		font-size: 14px;
@@ -1143,16 +1153,6 @@ html,body{
 		width: 80px;
 		background-color: #fc3f05;
 		color: #fff;
-	}
-	.top-con{
-		width: 940px;
-	}
-	.top-con .top-con-right{
-		width: 600px;
-	}
-	
-	.top-con .top-con-right ul{
-		margin-top: 12px;
 	}
 	.detail-item{
 		padding: 10px 0 20px;
