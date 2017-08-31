@@ -282,12 +282,12 @@
 		        // 百度地图API功能
 		        map = new BMap.Map("Bmap");
 		        // map.centerAndZoom(new BMap.Point(116.417854,39.921988), 15);
-		        map.centerAndZoom(place, 12 );
+		        map.centerAndZoom('呼和浩特市' + place, 12 );
 		        //显示区域矢量边线
-		//        getBoundary(place);
+		        // getBoundary(place);
 		        function getBoundary(place){
 		            var bdary = new BMap.Boundary();
-		            bdary.get(place, function(rs){ //获取行政区域
+		            bdary.get('呼和浩特市' + place, function(rs){ //获取行政区域
 		                //map.clearOverlays(); //清除地图覆盖物
 		                var count = rs.boundaries.length; //行政区域的点有多少个
 		                for(var i = 0; i < count; i++){
