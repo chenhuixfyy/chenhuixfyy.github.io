@@ -4,7 +4,8 @@
 
 /*content*/
 .content{
-
+	position: relative;
+    z-index: 1;
 }
 /*part1*/
 .part1{
@@ -97,7 +98,7 @@
 .part2 .part-item a.add{
 	width: 20px;
 	height: 20px;
-	background: url(../images/add-red.png) center center no-repeat;
+	background: url(../images/more-icon.png) center center/20px auto no-repeat;
 	position: absolute;
 	top: 50%;
 	right: 20px;
@@ -567,8 +568,8 @@
 	.part1 .more-btn{
 		height: 20px;
 		width: 120px;
-		-webkit-background-size: 9px 9px;
-		background-size: 9px 9px;
+		-webkit-background-size: 12px 12px;
+		background-size: 12px 12px;
 	}
 
 	.part2{
@@ -606,8 +607,8 @@
 	.part2 .part-item a.add{
 		width: 10px;
 		height: 10px;
-		-webkit-background-size: 10px 10px;
-		background-size: 10px 10px;
+		-webkit-background-size: 12px 12px;
+		background-size: 12px 12px;
 		margin-top: -5px;
 	}
 
@@ -635,8 +636,8 @@
 	.part4 .tabs-container .more-btn{
 		margin-top: 25px;
 		width: 120px;
-		-webkit-background-size: 9px 9px;
-    	background-size: 9px 9px;
+		-webkit-background-size: 12px 12px;
+    	background-size: 12px 12px;
     	height: 20px;
 	}
 	
@@ -709,8 +710,8 @@
 
 	.part5 .more-btn{
 		width: 120px;
-		-webkit-background-size: 9px 9px;
-    	background-size: 9px 9px;
+		-webkit-background-size: 12px 12px;
+    	background-size: 12px 12px;
     	height: 20px;
 	}
 
@@ -753,8 +754,8 @@
 	.part7 .more-btn{
 		margin-top: 10px;
 		width: 120px;
-		-webkit-background-size: 9px 9px;
-    	background-size: 9px 9px;
+		-webkit-background-size: 12px 12px;
+    	background-size: 12px 12px;
     	height: 20px;
 	}
 	/*.part7 .part-item:nth-child(2n+1) .inner-item{
