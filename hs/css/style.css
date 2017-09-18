@@ -1064,6 +1064,7 @@ html,body{
 	.header-nav .logo{
 		width: 54px;
 		height: 50px;
+		position: relative;
 		z-index: 2;
 	}
 	.header-nav .logo img{
@@ -1076,6 +1077,7 @@ html,body{
 		position: absolute;
 		right: 0;
 		top: 0;
+		z-index: 1;
 	}
 	.navbtn{
 		margin: 5px 5px 0 0;
