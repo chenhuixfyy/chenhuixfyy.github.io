@@ -379,6 +379,11 @@ html,body{
 #video{
 	margin: 40px auto;
 }
+.video-wrapper{
+	width: 600px;
+	height: auto;
+	margin: 0 auto;
+}
 #video_jwplayer_logo{
 	display: none!important;
 }
@@ -997,7 +1002,6 @@ html,body{
 		font-size: 14px;
 	}
 
-
 }
 
 
@@ -1502,6 +1506,9 @@ html,body{
 	.administrative-list li a{
 		line-height: 30px;
 
+	}
+	.video-wrapper{
+		width: 100%;
 	}
 
 }

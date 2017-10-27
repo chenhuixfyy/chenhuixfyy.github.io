@@ -145,9 +145,11 @@
 		<div class="detail-item part-wrapper">
 			<h3 class="inside-h3">九部委要求大中城市加快发展住房租赁市场：政策进一步细化 以增加租房供应</h3>
 			<!-- <div class="indside-text"> -->
-                
-				<div class="video" id="video">
+                <div class="video-wrapper">
+                	<div class="video" id="video">
+	                </div>
                 </div>
+					
 
 			<!-- </div> -->
 		</div>
@@ -216,7 +218,8 @@
 	<script src="../js/jquery-1.10.2.min.js"></script>
 	<script src="../js/idangerous.swiper.min.js"></script>
 	<script src="../js/common.js"></script>
-	<script src="../js/jwplayer.js"></script>
+	<script src="../js/jwplayer2.js"></script>
+	<script src="../js/jwpsrv.js"></script>
 	<script>
 		$(function () {
 			var base_url="/hs/media/"
@@ -224,7 +227,7 @@
 		    function playvideo(w, h, vmp4, vflv, uid, pic){
 		        if(typeof jwplayer=="undefined") return false;
 		        jwplayer(uid).setup({
-		            skin: base_url+"glow.zip",
+		            // skin: base_url+"glow.zip",
 		            stretching: "fill",
 		            flashplayer: base_url+"player.swf",
 		            image: pic,
@@ -233,12 +236,13 @@
 		                {file: vflv}
 		            ],
 		            control: false,
-		            width:w,
-		            height:h
+		            width:"100%",
+		            height:"auto"
+		            // aspectratio: '16:9'
 		        });
 		    }
-		    var mp4_url="http://www.hhhtfcj.gov.cn/uploadfile/2017/0721/20170721093354256.mp4";
-		    var flv_url="http://www.hhhtfcj.gov.cn/uploadfile/2017/0721/20170721093354256.mp4";
+		    var mp4_url="http://fcj.huhhot.gov.cn/uploadfile/2017/1026/20171026105239906.mp4";
+		    var flv_url="http://fcj.huhhot.gov.cn/uploadfile/2017/1026/20171026105239906.mp4";
 		    var cover_pic="http://www.hhhtfcj.gov.cn/uploadfile/2017/0721/20170721093409984.jpg";
 
 		    
@@ -247,7 +251,7 @@
 
 		    	playvideo("100%", $width*0.75, mp4_url,flv_url,"video",cover_pic);
 		    } else {
-		    	playvideo("600","450",mp4_url,flv_url,"video",cover_pic);
+		    	playvideo("100%","600",mp4_url,flv_url,"video",cover_pic);
 		    }
 		    $(window).resize(function (event) {
 		    	var $newWidth = $(window).width();
