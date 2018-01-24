@@ -7,6 +7,50 @@
 	position: relative;
     z-index: 1;
 }
+/*headlines*/
+.headlines{
+	margin-top: 10px;
+	height: 100px;
+	background-color: #f6f6f6;
+	text-align: center;
+}
+.headlines a:hover{
+	text-decoration: none;
+}
+.headlines .headlines-img{
+	float: left;
+	height: 100px;
+}
+.headlines img{
+	height: 100%;
+}
+.headlines .text{
+	width: 1180px;
+	height: 100px;
+	float: right;
+	color: #ff6600;
+	font-size: 16px;
+	line-height: 16px;
+}
+.headlines .text h2{
+	font-size: 34px;
+	height: 34px;
+	line-height: 34px;
+	margin-top: 20px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	word-break: break-all;
+	white-space: nowrap;
+}
+.headlines .text p{
+	overflow: hidden;
+	text-overflow: ellipsis;
+	word-break: break-all;
+	white-space: nowrap;
+	height: 20px;
+	padding: 0 60px;
+	margin-top: 10px;
+}
 /*part1*/
 .part1{
 	margin-top: 10px;
@@ -453,7 +497,17 @@
 	
 
 
-
+	
+	.headlines .text{
+		width: 820px;
+	}
+	.headlines .text h2{
+		font-size: 30px;
+		padding: 0 50px;
+	}
+	.headlines .text p{
+		padding: 0 30px;
+	}
 
 
 	
@@ -541,7 +595,30 @@
 /*phone-640宽度*/
 @media screen and (max-width: 940px) {
 	
-	
+	.headlines{
+		height: 60px;
+		margin: 10px 7.5% 0;
+	}
+	.headlines .headlines-img{
+		height: 60px;
+	}
+	.headlines .text{
+		width: calc(100% - 70px);
+		height: 60px;
+		font-size: 12px;
+	}
+	.headlines .text h2{
+		font-size: 16px;
+		line-height: 20px;
+		height: 20px;
+		margin-top: 10px;
+		padding: 0 30px;
+	}
+	.headlines .text p{
+		padding: 0 20px;
+		margin-top: 5px;
+	}
+
 	.part1{
 		margin-top: 0;
 		padding: 0 7.5%;
