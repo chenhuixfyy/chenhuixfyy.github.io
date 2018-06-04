@@ -598,12 +598,24 @@
 	.headlines{
 		height: 60px;
 		margin: 10px 7.5% 0;
+		position: relative;
+	}
+	.headlines a{
+		position: relative;
+		z-index: 2;
 	}
 	.headlines .headlines-img{
 		height: 60px;
 	}
 	.headlines .text{
-		width: calc(100% - 70px);
+		-webkit-box-sizing: border-box;
+		box-sizing: border-box;
+		width: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: 1;
+		padding-left: 70px;
 		height: 60px;
 		font-size: 12px;
 	}
@@ -612,10 +624,10 @@
 		line-height: 20px;
 		height: 20px;
 		margin-top: 10px;
-		padding: 0 30px;
+		padding: 0 25px;
 	}
 	.headlines .text p{
-		padding: 0 20px;
+		padding: 0 15px;
 		margin-top: 5px;
 	}
 
